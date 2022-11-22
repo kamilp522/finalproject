@@ -1,8 +1,15 @@
 import React from "react";
-import { Home } from "./components/Home";
+import HeroSection from "./components/HeroSection/HeroSection.js";
+import Layout from "./components/Layout/Layout.js";
+import "reset-css";
+import "./css/app.css";
 
 const App = () => {
-  return <Home>hello webpack</Home>;
+  return (
+    <Layout>
+      <HeroSection />
+    </Layout>
+  );
 };
 
 export default App;

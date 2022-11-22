@@ -14,6 +14,7 @@ const config = {
     compress: true,
     port: 3000,
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -29,6 +30,14 @@ const config = {
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
     ],
   },
