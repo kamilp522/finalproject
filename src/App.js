@@ -1,7 +1,8 @@
-import React from "react"; // we need this now also in component files
+import React from "react";
+import { Home } from "./components/Home";
 
 const App = () => {
-  return <div>hello webpack</div>;
+  return <Home>hello webpack</Home>;
 };
 
 export default App;
