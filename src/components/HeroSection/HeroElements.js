@@ -34,8 +34,8 @@ export const Indicator = styled.li`
   border-radius: 50%;
   cursor: pointer;
 
-  &.active {
-    background-color: ${colors.clr_accent_800};
+  &:hover {
+    background-color: ${colors.clr_blue_800};
   }
 `;
 
@@ -62,7 +62,7 @@ export const CarouselItem = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: ${colors.clr_background_shade};
+    background-color: ${colors.clr_shade};
     z-index: 0;
   }
 `;
@@ -71,7 +71,7 @@ export const HeroText = styled.div`
   position: relative;
   z-index: 1;
   max-width: 15em;
-  background-color: ${colors.clr_primary_400};
+  background-color: ${colors.clr_very_dark_blue_500};
   border-radius: 1rem;
   padding: 1em 2em;
 `;
@@ -85,5 +85,5 @@ export const HeroH1 = styled.h1`
 
 export const HeroSpan = styled.span`
   font-size: ${font_sizes.fs_550};
-  color: ${colors.clr_font_800};
+  color: ${colors.clr_violet_800};
 `;

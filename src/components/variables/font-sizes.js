@@ -1,5 +1,6 @@
-export const fs_200 = "0.8rem";
-export const fs_300 = "0.9rem";
+export const fs_200 = "0.7rem";
+export const fs_300 = "0.8rem";
+export const fs_350 = "0.9rem";
 export const fs_400 = "1rem";
 export const fs_450 = "1.125rem";
 export const fs_500 = "1.25rem";

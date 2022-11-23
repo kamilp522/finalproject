@@ -13,7 +13,7 @@ export const AboutContainer = styled.div`
 `;
 
 export const AboutImageWrapper = styled.div`
-  border: 1px solid ${colors.clr_secondary_900};
+  border: 1px solid ${colors.clr_cream_900};
   padding: 0.75em;
   margin-bottom: 0.5em;
 `;
@@ -29,24 +29,28 @@ export const AboutContent = styled.div`
 `;
 
 export const AboutSmall = styled.small`
-  font-size: ${font_sizes.fs_400};
-  background-color: ${colors.clr_accent_800};
+  font-size: ${font_sizes.fs_350};
+  background-color: ${colors.clr_blue_800};
   color: white;
-  padding: 0.125em;
+  padding: 0.375em 0.125em;
   width: 50%;
   text-align: center;
-  margin-block: 0.25em;
+  margin-top: 0.5em;
 `;
 
 export const AboutH2 = styled.h2`
   font-size: ${font_sizes.fs_550};
   font-weight: 700;
   margin-block: 0.5em;
-  line-height: 1.5rem;
+  line-height: 1.75rem;
 `;
 
 export const AboutP = styled.p`
   font-size: ${font_sizes.fs_400};
   margin-block: 0.25em;
   line-height: 1.375rem;
+`;
+
+export const AboutButtonWrapper = styled.div`
+  margin-block: 0.5em;
 `;

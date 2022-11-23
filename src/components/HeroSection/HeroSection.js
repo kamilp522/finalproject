@@ -21,8 +21,6 @@ const HeroSection = () => {
     console.log(carousel_items);
   };
 
-  carouselSlideChanger();
-
   return (
     <HeroWrapper>
       <HeroCarousel>
@@ -40,7 +38,7 @@ const HeroSection = () => {
           >
             <HeroText>
               <HeroH1>
-                <HeroSpan>Learn</HeroSpan> How to <HeroSpan>Adapt</HeroSpan> to
+                <HeroSpan>Learn</HeroSpan> How To <HeroSpan>Adapt</HeroSpan> To
                 Ever-Changing Markets
               </HeroH1>
             </HeroText>
