@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
 
-export const HeroWrapper = styled.section`
+export const Hero = styled.section`
   display: flex;
   justify-content: center;
   min-height: calc(33vh - 0.1px);
@@ -26,15 +26,19 @@ export const CarouselIndicators = styled.ul`
   z-index: 1;
 `;
 
-export const Indicator = styled.li`
-  width: 1em;
-  height: 1em;
+export const IndicatorItem = styled.li`
   margin-block: 0.5em;
+`;
+
+export const Indicator = styled.button`
+  width: 1.125em;
+  height: 1.125em;
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
+  border: none;
 
-  &:hover {
+  &.active {
     background-color: ${colors.clr_blue_800};
   }
 `;
@@ -44,8 +48,8 @@ export const Carousel = styled.div`
   height: 100%;
 `;
 
-export const CarouselItem = styled.div`
-  display: ${(props) => (props.active ? "flex" : "none")};
+export const CarouselBackground = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
   background: url(${(props) => props.background});
@@ -64,6 +68,32 @@ export const CarouselItem = styled.div`
     left: 0;
     background-color: ${colors.clr_shade};
     z-index: 0;
+  }
+
+  &.animation-enter {
+    opacity: 1;
+  }
+
+  &.animation-enter-active {
+    opacity: 0.5;
+    transition: opacity 0.75s ease-in-out;
+  }
+
+  &.animation-enter-done {
+    opacity: 0.5;
+  }
+
+  &.animation-exit {
+    opacity: 0.5;
+  }
+
+  &.animation-exit-active {
+    opacity: 1;
+    transition: opacity 0.75s ease-in-out;
+  }
+
+  &.animation-exit-done {
+    opacity: 1;
   }
 `;
 

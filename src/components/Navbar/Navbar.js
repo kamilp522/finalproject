@@ -1,33 +1,30 @@
 import React from "react";
 import {
-  Nav,
+  NavWrapper,
   NavContainer,
   NavContent,
-  NavLogo,
-  LogoSpan,
   NavMenu,
   NavMenuIcon,
   NavList,
   NavListItem,
 } from "./NavbarElements";
+import { Logo, LogoSpan } from "../UI/Logo/Logo";
 import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  //   const [height, setHeight] = useState(2.75);
-
-  const [show, setShow] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
   return (
-    <Nav id="nav">
-      <AnimateHeight duration={400} height={show ? "auto" : "2.75rem"}>
+    <NavWrapper>
+      <AnimateHeight duration={400} height={showNav ? "auto" : 45}>
         <NavContainer>
           <NavContent>
-            <NavLogo href="#">
+            <Logo href="#">
               <LogoSpan>mid</LogoSpan>trader
-            </NavLogo>
-            <NavMenu onClick={() => setShow(!show)}>
+            </Logo>
+            <NavMenu onClick={() => setShowNav(!showNav)}>
               <NavMenuIcon icon={faBars} />
             </NavMenu>
           </NavContent>
@@ -40,7 +37,7 @@ const Navbar = () => {
           </NavList>
         </NavContainer>
       </AnimateHeight>
-    </Nav>
+    </NavWrapper>
   );
 };
 
