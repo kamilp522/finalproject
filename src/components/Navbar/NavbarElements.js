@@ -44,3 +44,8 @@ export const NavListItem = styled.li`
     text-decoration: underline;
   }
 `;
+
+export const NavButtonWrapper = styled.div`
+  display: flex;
+  align-self: center;
+`;

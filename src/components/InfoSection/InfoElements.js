@@ -2,55 +2,55 @@ import styled from "styled-components";
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
 
-export const AboutWrapper = styled.section`
+export const InfoWrapper = styled.section`
   padding: 1.5em;
 `;
 
-export const AboutContainer = styled.div`
+export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-export const AboutImageWrapper = styled.div`
+export const InfoImageWrapper = styled.div`
   border: 1px solid ${colors.clr_cream_900};
   padding: 0.75em;
   margin-bottom: 0.5em;
 `;
 
-export const AboutImage = styled.img`
+export const InfoImage = styled.img`
   width: 100%;
   vertical-align: middle;
 `;
 
-export const AboutContent = styled.div`
+export const InfoContent = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const AboutSmall = styled.small`
+export const InfoSmall = styled.small`
   font-size: ${font_sizes.fs_350};
   background-color: ${colors.clr_blue_800};
   color: white;
-  padding: 0.375em 0.125em;
-  width: 50%;
+  padding: 0.375em 0.75em;
+  width: fit-content;
   text-align: center;
   margin-top: 0.5em;
 `;
 
-export const AboutH2 = styled.h2`
+export const InfoH2 = styled.h2`
   font-size: ${font_sizes.fs_550};
   font-weight: 700;
   margin-block: 0.5em;
   line-height: 1.75rem;
 `;
 
-export const AboutP = styled.p`
+export const InfoP = styled.p`
   font-size: ${font_sizes.fs_400};
   margin-block: 0.25em;
   line-height: 1.375rem;
 `;
 
-export const AboutButtonWrapper = styled.div`
+export const InfoButtonWrapper = styled.div`
   margin-block: 0.5em;
 `;

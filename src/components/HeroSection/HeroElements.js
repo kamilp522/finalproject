@@ -2,22 +2,22 @@ import styled from "styled-components";
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
 
-export const Hero = styled.section`
+export const Hero = styled.header`
   display: flex;
   justify-content: center;
   min-height: calc(33vh - 0.1px);
   color: white;
 `;
 
-export const HeroCarousel = styled.div`
+export const HeroContainer = styled.div`
   width: 100%;
   position: relative;
   display: flex;
 `;
 
-export const CarouselIndicators = styled.ul`
+export const Indicators = styled.ul`
   position: absolute;
-  width: 3em;
+  width: 2em;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -31,8 +31,8 @@ export const IndicatorItem = styled.li`
 `;
 
 export const Indicator = styled.button`
-  width: 1.125em;
-  height: 1.125em;
+  width: 1em;
+  height: 1em;
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
@@ -43,12 +43,12 @@ export const Indicator = styled.button`
   }
 `;
 
-export const Carousel = styled.div`
+export const HeroContent = styled.div`
   width: 100%;
   height: 100%;
 `;
 
-export const CarouselBackground = styled.div`
+export const HeroContentBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

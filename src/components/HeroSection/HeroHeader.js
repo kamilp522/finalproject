@@ -6,39 +6,21 @@ import { useEffect, useState } from "react";
 import React from "react";
 import {
   Hero,
-  HeroCarousel,
-  CarouselIndicators,
+  HeroContainer,
+  Indicators,
   IndicatorItem,
   Indicator,
-  Carousel,
-  CarouselBackground,
+  HeroContent,
+  HeroContentBackground,
   HeroText,
   HeroH1,
   HeroSpan,
 } from "./HeroElements";
+import { hero_headings } from "../content";
 import { CSSTransition } from "react-transition-group";
 
-const HeroSection = () => {
-  const headings = [
-    {
-      head1: "Learn ",
-      middle: "How to ",
-      head2: "Adapt ",
-      end: "To Ever-Changing Market",
-    },
-    {
-      head1: "Thrive ",
-      middle: "During ",
-      head2: "Both ",
-      end: "Bull and Bear Market",
-    },
-    {
-      head1: "Make ",
-      middle: "real ",
-      head2: "Money ",
-      end: "using our strategies",
-    },
-  ];
+const HeroHeader = () => {
+  const headings = hero_headings;
 
   const [background, setBackground] = useState(hero_img_1);
   const [animation, setAnimation] = useState(false);
@@ -59,8 +41,8 @@ const HeroSection = () => {
   };
 
   const changeIndicator = (number) => {
-    const current = document.getElementById(`carousel-indicator-${number}`);
-    const indicators = [...document.querySelectorAll(".carousel-indicator")];
+    const current = document.getElementById(`indicator-${number}`);
+    const indicators = [...document.querySelectorAll(".indicator")];
 
     indicators.forEach((indicator) => {
       indicator === current
@@ -86,7 +68,7 @@ const HeroSection = () => {
       if (background === hero_img_3) {
         changeBackground(hero_img_1, 1, headings[0]);
       }
-    }, 7000);
+    }, 4000);
     return () => {
       clearInterval(interval);
     };
@@ -94,49 +76,47 @@ const HeroSection = () => {
 
   return (
     <Hero>
-      <HeroCarousel>
-        <CarouselIndicators>
+      <HeroContainer>
+        <Indicators>
           <IndicatorItem>
             <Indicator
-              className="carousel-indicator active"
-              id="carousel-indicator-1"
+              className="indicator active"
+              id="indicator-1"
               onClick={() => changeBackground(hero_img_1, 1, headings[0])}
             />
           </IndicatorItem>
           <IndicatorItem>
             <Indicator
-              className="carousel-indicator"
-              id="carousel-indicator-2"
+              className="indicator"
+              id="indicator-2"
               onClick={() => changeBackground(hero_img_2, 2, headings[1])}
             />
           </IndicatorItem>
           <IndicatorItem>
             <Indicator
-              className="carousel-indicator"
-              id="carousel-indicator-3"
+              className="indicator"
+              id="indicator-3"
               onClick={() => changeBackground(hero_img_3, 3, headings[2])}
             />
           </IndicatorItem>
-        </CarouselIndicators>
-        <Carousel>
+        </Indicators>
+        <HeroContent>
           <CSSTransition in={animation} timeout={1500} classNames="animation">
-            <CarouselBackground
-              id="carousel-background"
-              background={background}
-            >
+            <HeroContentBackground background={background}>
               <HeroText>
                 <HeroH1>
-                  <HeroSpan>{heading.head1}</HeroSpan> {heading.middle}
+                  <HeroSpan>{heading.head1}</HeroSpan>
+                  {heading.middle}
                   <HeroSpan>{heading.head2}</HeroSpan>
                   {heading.end}
                 </HeroH1>
               </HeroText>
-            </CarouselBackground>
+            </HeroContentBackground>
           </CSSTransition>
-        </Carousel>
-      </HeroCarousel>
+        </HeroContent>
+      </HeroContainer>
     </Hero>
   );
 };
 
-export default HeroSection;
+export default HeroHeader;

@@ -7,8 +7,10 @@ import {
   NavMenuIcon,
   NavList,
   NavListItem,
+  NavButtonWrapper,
 } from "./NavbarElements";
 import { Logo, LogoSpan } from "../UI/Logo/Logo";
+import { Button } from "../UI/Button/Button";
 import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -32,8 +34,11 @@ const Navbar = () => {
             <NavListItem>Home</NavListItem>
             <NavListItem>Indicators</NavListItem>
             <NavListItem>Latest</NavListItem>
-            <NavListItem>Quotes</NavListItem>
-            <NavListItem>Market Risk</NavListItem>
+            <NavListItem>
+              <Button>Log in</Button>
+            </NavListItem>
+            {/*  <NavListItem>Quotes</NavListItem>
+            <NavListItem>Market Risk</NavListItem> */}
           </NavList>
         </NavContainer>
       </AnimateHeight>

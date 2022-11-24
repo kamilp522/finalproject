@@ -3,7 +3,7 @@ import * as colors from "../../variables/colors";
 import * as font_sizes from "../../variables/font-sizes";
 
 export const Button = styled.button`
-  padding: 0.5em;
+  padding: 0.5em 1em;
   background-color: ${colors.clr_blue_800};
   color: white;
   font-size: ${font_sizes.fs_400};
