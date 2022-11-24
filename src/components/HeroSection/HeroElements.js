@@ -75,21 +75,21 @@ export const CarouselBackground = styled.div`
   }
 
   &.animation-enter-active {
-    opacity: 0.5;
-    transition: opacity 0.75s ease-in-out;
+    opacity: 0.25;
+    transition: opacity 0.6s ease-in-out;
   }
 
   &.animation-enter-done {
-    opacity: 0.5;
+    opacity: 0.75;
   }
 
   &.animation-exit {
-    opacity: 0.5;
+    opacity: 0.25;
   }
 
   &.animation-exit-active {
     opacity: 1;
-    transition: opacity 0.75s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
   }
 
   &.animation-exit-done {
