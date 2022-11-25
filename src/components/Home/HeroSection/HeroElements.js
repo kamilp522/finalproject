@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import * as colors from "../variables/colors";
-import * as font_sizes from "../variables/font-sizes";
+import * as colors from "../../variables/colors";
+import * as font_sizes from "../../variables/font-sizes";
 
 export const Hero = styled.header`
   display: flex;

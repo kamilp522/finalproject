@@ -9,8 +9,10 @@ import {
   InfoH2,
   InfoP,
   InfoButtonWrapper,
+  InfoLink,
 } from "./InfoElements";
-import { Button } from "../UI/Button/Button";
+import { Button } from "../../UI/Button/Button";
+import { scrollToTop } from "../../../helpers/scrollToTop";
 
 const InfoSection = (props) => {
   return (
@@ -24,7 +26,9 @@ const InfoSection = (props) => {
           <InfoH2>{props.content.heading}</InfoH2>
           <InfoP>{props.content.paragraph}</InfoP>
           <InfoButtonWrapper>
-            <Button>{props.content.button}</Button>
+            <InfoLink to={props.content.link} onClick={scrollToTop}>
+              <Button>{props.content.button}</Button>
+            </InfoLink>
           </InfoButtonWrapper>
         </InfoContent>
       </InfoContainer>

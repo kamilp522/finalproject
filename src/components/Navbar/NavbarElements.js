@@ -1,13 +1,15 @@
 import styled from "styled-components";
+
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
 import * as font_families from "../variables/font-families";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const NavWrapper = styled.nav`
   padding: 0.75em;
   background-color: ${colors.clr_black_full};
-  color: white;
 `;
 
 export const NavContainer = styled.nav`
@@ -22,7 +24,6 @@ export const NavContent = styled.div`
 `;
 
 export const NavMenu = styled.button`
-  color: white;
   background-color: ${colors.clr_black_full};
   border: none;
   cursor: pointer;
@@ -30,6 +31,7 @@ export const NavMenu = styled.button`
 
 export const NavMenuIcon = styled(FontAwesomeIcon)`
   font-size: ${font_sizes.fs_650};
+  color: white;
 `;
 
 export const NavList = styled.ul`
@@ -38,7 +40,12 @@ export const NavList = styled.ul`
 
 export const NavListItem = styled.li`
   padding: 0.75em 0.25em;
-  cursor: pointer;
+`;
+
+export const NavLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: ${font_sizes.fs_400};
 
   &:hover {
     text-decoration: underline;

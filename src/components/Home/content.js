@@ -1,5 +1,5 @@
-import about_image from "../images/about_img_1.jpg";
-import join_image from "../images/join_img_1.jpg";
+import about_image from "../../images/about_img_1.jpg";
+import join_image from "../../images/join_img_1.jpg";
 
 export const hero_headings = [
   {
@@ -30,6 +30,7 @@ export const home_page_content = {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa recusandae beatae molestiae est, in deserunt sint iusto ipsa sed, animi ipsum repudiandae officia voluptatem aperiam aliquid consectetur numquam similique ullam?",
     button: "See Indicators",
     image: about_image,
+    link: "/indicators",
   },
   join: {
     small: "WHY JOIN US",
@@ -38,5 +39,6 @@ export const home_page_content = {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa recusandae beatae molestiae est, in deserunt sint iusto ipsa sed, animi ipsum repudiandae officia voluptatem aperiam aliquid consectetur numquam similique ullam?",
     button: "Sign In",
     image: join_image,
+    link: "/signin",
   },
 };

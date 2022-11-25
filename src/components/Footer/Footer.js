@@ -13,13 +13,14 @@ import {
   WebsiteRights,
 } from "./FooterElements";
 import { Logo, LogoSpan } from "../UI/Logo/Logo";
+import { scrollToTop } from "../../helpers/scrollToTop";
 
 const Footer = () => {
   return (
     <FooterWrapper>
       <FooterContainer>
         <FooterContent>
-          <Logo href="#">
+          <Logo to="/" onClick={scrollToTop}>
             <LogoSpan>mid</LogoSpan>trader
           </Logo>
           <FooterLinks>

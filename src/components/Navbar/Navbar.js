@@ -1,4 +1,9 @@
 import React from "react";
+import { useState } from "react";
+
+import AnimateHeight from "react-animate-height";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+
 import {
   NavWrapper,
   NavContainer,
@@ -7,13 +12,11 @@ import {
   NavMenuIcon,
   NavList,
   NavListItem,
-  NavButtonWrapper,
+  NavLink,
 } from "./NavbarElements";
 import { Logo, LogoSpan } from "../UI/Logo/Logo";
 import { Button } from "../UI/Button/Button";
-import { useState } from "react";
-import AnimateHeight from "react-animate-height";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { scrollToTop } from "../../helpers/scrollToTop";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
@@ -23,22 +26,28 @@ const Navbar = () => {
       <AnimateHeight duration={400} height={showNav ? "auto" : 45}>
         <NavContainer>
           <NavContent>
-            <Logo href="#">
+            <Logo to="/" onClick={scrollToTop}>
               <LogoSpan>mid</LogoSpan>trader
             </Logo>
-            <NavMenu onClick={() => setShowNav(!showNav)}>
+            <NavMenu className="nav-menu" onClick={() => setShowNav(!showNav)}>
               <NavMenuIcon icon={faBars} />
             </NavMenu>
           </NavContent>
           <NavList>
-            <NavListItem>Home</NavListItem>
-            <NavListItem>Indicators</NavListItem>
-            <NavListItem>Latest</NavListItem>
             <NavListItem>
-              <Button>Log in</Button>
+              <NavLink to="/">Home</NavLink>
             </NavListItem>
-            {/*  <NavListItem>Quotes</NavListItem>
-            <NavListItem>Market Risk</NavListItem> */}
+            <NavListItem>
+              <NavLink to="/indicators">Indicators</NavLink>
+            </NavListItem>
+            <NavListItem>
+              <NavLink to="/latest">Latest</NavLink>
+            </NavListItem>
+            <NavListItem>
+              <NavLink to="/login">
+                <Button>Log in</Button>
+              </NavLink>
+            </NavListItem>
           </NavList>
         </NavContainer>
       </AnimateHeight>

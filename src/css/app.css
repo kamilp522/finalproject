@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
+
+/* html {
+  height: 100%;
+} */
+
 body {
+  /* height: 100%; */
   font-family: "Noto Sans", "arial", "helvetica";
+}
+
+#root {
+  height: calc(100vh - 0.01px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#root > main {
+  flex-grow: 1;
 }

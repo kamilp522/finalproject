@@ -3,7 +3,9 @@ import * as colors from "../../variables/colors";
 import * as font_sizes from "../../variables/font-sizes";
 import * as font_families from "../../variables/font-families";
 
-export const Logo = styled.a`
+import { Link } from "react-router-dom";
+
+export const Logo = styled(Link)`
   text-decoration: none;
   color: white;
   font-size: ${font_sizes.fs_650};

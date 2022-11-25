@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import * as colors from "../variables/colors";
-import * as font_sizes from "../variables/font-sizes";
+import * as colors from "../../variables/colors";
+import * as font_sizes from "../../variables/font-sizes";
+
+import { Link } from "react-router-dom";
 
 export const InfoWrapper = styled.section`
   padding: 1.5em;
@@ -52,5 +54,16 @@ export const InfoP = styled.p`
 `;
 
 export const InfoButtonWrapper = styled.div`
-  margin-block: 0.5em;
+  width: 100%;
+  height: 100%;
+`;
+
+export const InfoLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding-block: 0.5em;
+  width: 100%;
+  height: 100%;
+  font-size: ${font_sizes.fs_400};
 `;
