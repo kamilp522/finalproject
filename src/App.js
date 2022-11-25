@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 import HeroHeader from "./components/Home/HeroSection/HeroHeader.js";
 import InfoSection from "./components/Home/InfoSection/InfoSection.js";

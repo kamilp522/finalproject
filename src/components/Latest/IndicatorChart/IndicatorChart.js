@@ -7,10 +7,10 @@ import {
   Chart,
 } from "./IndicatorChartElements";
 
-const IndicatorChart = ({ options, data }) => {
+const IndicatorChart = ({ title, options, data }) => {
   return (
     <ChartContainer>
-      <ChartH3>Chart Title</ChartH3>
+      <ChartH3>{title}</ChartH3>
       <ChartDescription>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem cum
         natus blanditiis quia nobis aliquid excepturi nemo laudantium, officia
