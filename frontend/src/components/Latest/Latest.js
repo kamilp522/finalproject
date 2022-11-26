@@ -8,8 +8,8 @@ import {
   getDataManPMI,
   getDataNonManPMI,
   getDataMichiganSentiment,
-} from "../Latest/chart_data/chart_data";
-import { options } from "./chart_data/chart_settings";
+} from "../../services/chart_data/chart_data";
+import { options } from "../../services/chart_data/chart_options";
 import { latest_content } from "./content";
 
 const Latest = () => {

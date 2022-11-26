@@ -42,9 +42,9 @@ export const ChartData = styled.p`
   padding-block: 0.75em;
 `;
 
-export const ChartTrend = styled.p``;
+// export const ChartTrend = styled.p``;
 
-export const ChartInterpretation = styled.p``;
+// export const ChartInterpretation = styled.p``;
 
 export const Chart = styled(Bar)`
   min-width: 20em !important;

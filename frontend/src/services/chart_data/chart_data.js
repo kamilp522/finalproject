@@ -1,16 +1,16 @@
 import axios from "axios";
-import { options } from "./chart_settings";
+import { options } from "./chart_options";
 
 export const getDataManPMI = async () => {
   const response = await axios.get(
-    "http://localhost:3001/api/ism-manufacturing"
+    "http://localhost:3001/api/pmi-manufacturing"
   );
   return response.data.series.docs[0];
 };
 
 export const getDataNonManPMI = async () => {
   const response = await axios.get(
-    "http://localhost:3001/api/ism-non-manufacturing"
+    "http://localhost:3001/api/pmi-non-manufacturing"
   );
   return response.data.series.docs[0];
 };
