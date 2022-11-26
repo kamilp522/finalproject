@@ -9,20 +9,18 @@ import axios from "axios";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
-export const getDataMPMI = async () => {
+export const getDataManPMI = async () => {
   const response = await axios.get(
-    "https://api.db.nomics.world/v22/series/ISM/pmi/pm?observations=1"
+    "http://localhost:3001/api/ism-manufacturing"
   );
-  const data = response.data.series.docs[0];
-  return data;
+  return response.data.series.docs[0];
 };
 
-export const getDataSPMI = async () => {
+export const getDataNonManPMI = async () => {
   const response = await axios.get(
-    "https://api.db.nomics.world/v22/series?observations=1&series_ids=ISM%2Fnm-pmi%2Fpm"
+    "http://localhost:3001/api/ism-non-manufacturing"
   );
-  const data = response.data.series.docs[0];
-  return data;
+  return response.data.series.docs[0];
 };
 
 export const getChartParams = async (getDataFunction) => {

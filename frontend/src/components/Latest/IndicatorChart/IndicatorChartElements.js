@@ -18,7 +18,7 @@ export const ChartH3 = styled.h3`
   border-bottom: 1px solid ${colors.clr_cream_900};
 `;
 
-export const ChartDescription = styled.p`
+export const ChartTextContent = styled.p`
   font-size: ${font_sizes.fs_400};
   color: ${colors.clr_very_dark_blue_900};
   padding-block: 0.75em;
@@ -26,7 +26,7 @@ export const ChartDescription = styled.p`
 
 export const Chart = styled(Bar)`
   min-width: 20em !important;
-  height: 13em !important;
+  min-height: 13em !important;
   padding-bottom: 0.5em;
   border-bottom: 1px solid ${colors.clr_cream_900};
 `;

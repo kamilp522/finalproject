@@ -6,8 +6,8 @@ import IndicatorChart from "./IndicatorChart/IndicatorChart";
 import {
   options,
   getChartParams,
-  getDataMPMI,
-  getDataSPMI,
+  getDataManPMI,
+  getDataNonManPMI,
 } from "../Latest/chart_data/chart_data";
 
 const Latest = () => {
@@ -15,7 +15,7 @@ const Latest = () => {
   const [dataSPMI, setDataSPMI] = useState({ labels: null, datasets: null });
 
   useEffect(() => {
-    getChartParams(getDataMPMI).then((response) => {
+    getChartParams(getDataManPMI).then((response) => {
       setDataMPMI({
         labels: response.labels,
         datasets: [
@@ -26,7 +26,7 @@ const Latest = () => {
   }, []);
 
   useEffect(() => {
-    getChartParams(getDataSPMI).then((response) => {
+    getChartParams(getDataNonManPMI).then((response) => {
       setDataSPMI({
         labels: response.labels,
         datasets: [
