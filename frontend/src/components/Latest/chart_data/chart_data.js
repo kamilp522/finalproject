@@ -1,13 +1,5 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-} from "chart.js";
 import axios from "axios";
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
+import { options } from "./chart_settings";
 
 export const getDataManPMI = async () => {
   const response = await axios.get(
@@ -23,36 +15,19 @@ export const getDataNonManPMI = async () => {
   return response.data.series.docs[0];
 };
 
-export const getChartParams = async (getDataFunction) => {
-  const chart_data = await getDataFunction();
-  options.scales.y.min = Math.floor(Math.min(...chart_data.value) - 5);
-  return {
-    labels: chart_data.period,
-    values: chart_data.value,
-  };
+export const getDataMichiganSentiment = async () => {
+  const response = await axios.get(
+    "http://localhost:3001/api/michigan-sentiment"
+  );
+
+  return response.data.series.docs[0];
 };
 
-export const options = {
-  scales: {
-    x: {
-      ticks: {
-        autoSkip: true,
-        maxTicksLimit: 4,
-        maxRotation: 0,
-        minRotation: 0,
-      },
-      grid: {
-        display: false,
-      },
-    },
-    y: {
-      position: "right",
-    },
-  },
-  plugins: {
-    tooltip: {
-      enabled: true,
-      position: "nearest",
-    },
-  },
+export const getChartParams = async (getDataFunction) => {
+  const chart_data = await getDataFunction();
+  options.scales.y.min = Math.floor(Math.min(...chart_data.value) - 3);
+  return {
+    labels: chart_data.period.slice(-24),
+    values: chart_data.value.slice(-24),
+  };
 };

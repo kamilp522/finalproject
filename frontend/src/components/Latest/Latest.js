@@ -4,15 +4,21 @@ import { LatestContainer, LatestH2 } from "./LatestElements";
 import * as colors from "../variables/colors";
 import IndicatorChart from "./IndicatorChart/IndicatorChart";
 import {
-  options,
   getChartParams,
   getDataManPMI,
   getDataNonManPMI,
+  getDataMichiganSentiment,
 } from "../Latest/chart_data/chart_data";
+import { options } from "./chart_data/chart_settings";
+import { latest_content } from "./content";
 
 const Latest = () => {
   const [dataMPMI, setDataMPMI] = useState({ labels: null, datasets: null });
   const [dataSPMI, setDataSPMI] = useState({ labels: null, datasets: null });
+  const [dataMichigan, setDataMichigan] = useState({
+    labels: null,
+    datasets: null,
+  });
 
   useEffect(() => {
     getChartParams(getDataManPMI).then((response) => {
@@ -36,28 +42,52 @@ const Latest = () => {
     });
   }, []);
 
+  useEffect(() => {
+    getChartParams(getDataMichiganSentiment).then((response) => {
+      setDataMichigan({
+        labels: response.labels,
+        datasets: [
+          { data: response.values, backgroundColor: colors.clr_violet_800 },
+        ],
+      });
+    });
+  }, []);
+
   return (
     <LatestContainer>
       <LatestH2>Latest Economic Data</LatestH2>
 
       {dataMPMI.datasets ? (
         <IndicatorChart
-          title={"ISM Manufacturing PMI"}
+          title={latest_content.manufacturing_pmi.title}
+          interpretation={latest_content.manufacturing_pmi.interpretation}
           options={options}
           data={dataMPMI}
         />
       ) : (
-        <canvas></canvas>
+        <div></div>
       )}
 
       {dataSPMI.datasets ? (
         <IndicatorChart
-          title={"ISM Non-Manufacturing PMI"}
+          title={latest_content.non_manufacturing_pmi.title}
+          interpretation={latest_content.non_manufacturing_pmi.interpretation}
           options={options}
           data={dataSPMI}
         />
       ) : (
-        <canvas></canvas>
+        <div></div>
+      )}
+
+      {dataMichigan.datasets ? (
+        <IndicatorChart
+          title={latest_content.michigan_sentiment.title}
+          interpretation={latest_content.michigan_sentiment.interpretation}
+          options={options}
+          data={dataMichigan}
+        />
+      ) : (
+        <div></div>
       )}
     </LatestContainer>
   );

@@ -4,11 +4,6 @@ const cors = require("cors");
 const axios = require("axios");
 const app = express();
 
-const Fred = require("fred-api");
-apiKey = process.env.FRED_KEY;
-
-const fred = new Fred(apiKey);
-
 app.use(cors());
 
 app.get("/", (request, response) => {
@@ -29,8 +24,11 @@ app.get("/api/ism-non-manufacturing", async (request, response) => {
   response.json(ism_non_manufacturing.data);
 });
 
-fred.getSeries({ series_id: "GNPCA" }, function (error, result) {
-  console.log(result);
+app.get("/api/michigan-sentiment", async (request, response) => {
+  const michigan_sentiment = await axios.get(
+    "https://api.db.nomics.world/v22/series/SCSMICH/MICS/ICS?observations=1"
+  );
+  response.json(michigan_sentiment.data);
 });
 
 const PORT = process.env.PORT;
