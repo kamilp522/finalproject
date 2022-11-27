@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 import AnimateHeight from "react-animate-height";
@@ -35,16 +35,22 @@ const Navbar = () => {
           </NavContent>
           <NavList>
             <NavListItem>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" onClick={() => setShowNav(false)}>
+                Home
+              </NavLink>
             </NavListItem>
             <NavListItem>
-              <NavLink to="/indicators">Indicators</NavLink>
+              <NavLink to="/indicators" onClick={() => setShowNav(false)}>
+                Indicators
+              </NavLink>
             </NavListItem>
             <NavListItem>
-              <NavLink to="/latest">Latest</NavLink>
+              <NavLink to="/latest" onClick={() => setShowNav(false)}>
+                Latest
+              </NavLink>
             </NavListItem>
             <NavListItem>
-              <NavLink to="/login">
+              <NavLink to="/login" onClick={() => setShowNav(false)}>
                 <Button>Log in</Button>
               </NavLink>
             </NavListItem>

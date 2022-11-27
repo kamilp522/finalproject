@@ -1,29 +1,29 @@
 import axios from "axios";
 import { options } from "./chart_options";
 
-export const getDataManPMI = async () => {
+const getDataManPMI = async () => {
   const response = await axios.get(
-    "http://localhost:3001/api/pmi-manufacturing"
+    "http://localhost:3001/api/db-api/pmi-manufacturing"
   );
   return response.data.series.docs[0];
 };
 
-export const getDataNonManPMI = async () => {
+const getDataNonManPMI = async () => {
   const response = await axios.get(
-    "http://localhost:3001/api/pmi-non-manufacturing"
+    "http://localhost:3001/api/db-api/pmi-non-manufacturing"
   );
   return response.data.series.docs[0];
 };
 
-export const getDataMichiganSentiment = async () => {
+const getDataMichiganSentiment = async () => {
   const response = await axios.get(
-    "http://localhost:3001/api/michigan-sentiment"
+    "http://localhost:3001/api/db-api/michigan-sentiment"
   );
 
   return response.data.series.docs[0];
 };
 
-export const getChartParams = async (getDataFunction) => {
+const getChartParams = async (getDataFunction) => {
   const chart_data = await getDataFunction();
   options.scales.y.min = Math.floor(Math.min(...chart_data.value) - 3);
   return {
@@ -31,3 +31,12 @@ export const getChartParams = async (getDataFunction) => {
     values: chart_data.value.slice(-24),
   };
 };
+
+const exports = {
+  getDataManPMI,
+  getDataNonManPMI,
+  getDataMichiganSentiment,
+  getChartParams,
+};
+
+export default exports;

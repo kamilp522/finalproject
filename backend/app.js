@@ -1,33 +1,17 @@
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 const app = express();
+const config = require("./utils/config");
+
+const apisRouter = require("./controllers/db_apis");
+const usersRouter = require("./controllers/users");
+
+config.connect();
 
 app.use(cors());
+app.use(express.json());
 
-app.get("/", (request, response) => {
-  response.json("hi");
-});
-
-app.get("/api/pmi-manufacturing", async (request, response) => {
-  const ism_manufacturing = await axios.get(
-    "https://api.db.nomics.world/v22/series/ISM/pmi/pm?observations=1"
-  );
-  response.json(ism_manufacturing.data);
-});
-
-app.get("/api/pmi-non-manufacturing", async (request, response) => {
-  const ism_non_manufacturing = await axios.get(
-    "https://api.db.nomics.world/v22/series?observations=1&series_ids=ISM%2Fnm-pmi%2Fpm"
-  );
-  response.json(ism_non_manufacturing.data);
-});
-
-app.get("/api/michigan-sentiment", async (request, response) => {
-  const michigan_sentiment = await axios.get(
-    "https://api.db.nomics.world/v22/series/SCSMICH/MICS/ICS?observations=1"
-  );
-  response.json(michigan_sentiment.data);
-});
+app.use("/api/db-api", apisRouter);
+app.use("/api/users", usersRouter);
 
 module.exports = app;

@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { LatestContainer, LatestH2 } from "./LatestElements";
 
 import * as colors from "../variables/colors";
+
+import dbApis from "../../services/chart_data/chart_data";
+
 import IndicatorChart from "./IndicatorChart/IndicatorChart";
-import {
-  getChartParams,
-  getDataManPMI,
-  getDataNonManPMI,
-  getDataMichiganSentiment,
-} from "../../services/chart_data/chart_data";
 import { options } from "../../services/chart_data/chart_options";
 import { latest_content } from "./content";
 
@@ -21,7 +18,7 @@ const Latest = () => {
   });
 
   useEffect(() => {
-    getChartParams(getDataManPMI).then((response) => {
+    dbApis.getChartParams(dbApis.getDataManPMI).then((response) => {
       setDataMPMI({
         labels: response.labels,
         datasets: [
@@ -32,7 +29,7 @@ const Latest = () => {
   }, []);
 
   useEffect(() => {
-    getChartParams(getDataNonManPMI).then((response) => {
+    dbApis.getChartParams(dbApis.getDataNonManPMI).then((response) => {
       setDataSPMI({
         labels: response.labels,
         datasets: [
@@ -43,7 +40,7 @@ const Latest = () => {
   }, []);
 
   useEffect(() => {
-    getChartParams(getDataMichiganSentiment).then((response) => {
+    dbApis.getChartParams(dbApis.getDataMichiganSentiment).then((response) => {
       setDataMichigan({
         labels: response.labels,
         datasets: [
