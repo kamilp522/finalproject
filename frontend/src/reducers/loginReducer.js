@@ -7,14 +7,16 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     loginUser(state, action) {
-      console.log(action.payload);
-
       state.token = action.payload.token;
       state.username = action.payload.username;
+    },
+    logoutUser(state, action) {
+      state.token = null;
+      state.username = null;
     },
   },
 });
 
-export const { loginUser } = loginSlice.actions;
+export const { loginUser, logoutUser } = loginSlice.actions;
 
 export default loginSlice.reducer;

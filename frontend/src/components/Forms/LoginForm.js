@@ -29,7 +29,7 @@ const LoginForm = () => {
         password,
       });
 
-      window.localStorage.setItem("loggedBloglistUser", JSON.stringify(user));
+      window.localStorage.setItem("loggedMidtraderUser", JSON.stringify(user));
 
       dispatch(loginUser(user));
 

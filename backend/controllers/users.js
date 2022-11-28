@@ -8,10 +8,23 @@ usersRouter.get("/", async (request, response) => {
 });
 
 usersRouter.post("/", async (request, response) => {
-  const { username, password } = request.body;
-  if (!username || !password) {
+  const { username, password, repeatedPassword } = request.body;
+
+  if (!username) {
     return response.status(400).json({
-      error: "must provide username and password",
+      error: "must provide username",
+    });
+  }
+
+  if (!password) {
+    return response.status(400).json({
+      error: "must provide password",
+    });
+  }
+
+  if (password !== repeatedPassword) {
+    return response.status(400).json({
+      error: "passwords don't match",
     });
   }
 

@@ -12,7 +12,7 @@ export const NavWrapper = styled.nav`
   background-color: ${colors.clr_black_full};
 `;
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -56,4 +56,11 @@ export const NavLink = styled(Link)`
 export const NavButtonWrapper = styled.div`
   display: flex;
   align-self: center;
+`;
+
+export const NavLoggedIn = styled.small`
+  display: block;
+  padding-bottom: 0.5em;
+  color: ${colors.clr_cream_500};
+  font-size: ${font_sizes.fs_400};
 `;

@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
+
 import { Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "./reducers/loginReducer.js";
@@ -26,7 +28,7 @@ const App = () => {
   const join = home_page_content.join;
 
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedBloglistUser");
+    const loggedUserJSON = window.localStorage.getItem("loggedMidtraderUser");
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON);
 
@@ -50,12 +52,15 @@ const App = () => {
         <Route path="/indicators" element={<Indicators />} />
         <Route path="/latest" element={<Latest />} />
 
-        {logged.username === null && (
-          <Route path="/login" element={<Login />} />
-        )}
-        {logged.username === null && (
-          <Route path="/signin" element={<Signin />} />
-        )}
+        <Route
+          path="/login"
+          element={!logged.username ? <Login /> : <Navigate replace to="/" />}
+        />
+
+        <Route
+          path="/signin"
+          element={!logged.username ? <Signin /> : <Navigate replace to="/" />}
+        />
       </Routes>
     </Layout>
   );
