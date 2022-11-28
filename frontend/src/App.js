@@ -1,5 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "./reducers/loginReducer.js";
 
 import HeroSection from "./components/Home/HeroSection/HeroSection.js";
 import InfoSection from "./components/Home/InfoSection/InfoSection.js";
@@ -15,8 +19,20 @@ import "./css/app.css";
 import { home_page_content } from "./components/Home/content.js";
 
 const App = () => {
+  const logged = useSelector((store) => store.logged);
+  const dispatch = useDispatch();
+
   const about = home_page_content.about;
   const join = home_page_content.join;
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem("loggedBloglistUser");
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+
+      dispatch(loginUser(user));
+    }
+  }, [dispatch, logged]);
 
   return (
     <Layout>
@@ -33,8 +49,13 @@ const App = () => {
         />
         <Route path="/indicators" element={<Indicators />} />
         <Route path="/latest" element={<Latest />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<Signin />} />
+
+        {logged.username === null && (
+          <Route path="/login" element={<Login />} />
+        )}
+        {logged.username === null && (
+          <Route path="/signin" element={<Signin />} />
+        )}
       </Routes>
     </Layout>
   );

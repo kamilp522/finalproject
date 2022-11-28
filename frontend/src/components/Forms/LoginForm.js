@@ -33,8 +33,6 @@ const LoginForm = () => {
 
       dispatch(loginUser(user));
 
-      console.log(logged);
-
       clearInput();
     } catch (exception) {
       console.log(exception);

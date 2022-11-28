@@ -1,7 +1,6 @@
 import axios from "axios";
 import { options } from "./chart_options";
 
-// const baseUrl = "http://localhost:3001/api/db-api"
 const baseUrl = "/api/db-api";
 
 const getDataManPMI = async () => {

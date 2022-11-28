@@ -5,6 +5,7 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/build"),
+    publicPath: "/",
     filename: "main.js",
   },
   devServer: {
@@ -16,6 +17,7 @@ const config = {
     proxy: {
       "/api": "http://localhost:3001",
     },
+    historyApiFallback: true,
   },
   devtool: "source-map",
   module: {
