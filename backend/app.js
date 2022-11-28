@@ -16,4 +16,6 @@ app.use("/api/db-api", apisRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 
+app.use(express.static("build"));
+
 module.exports = app;

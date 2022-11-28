@@ -1,24 +1,21 @@
 import axios from "axios";
 import { options } from "./chart_options";
 
+// const baseUrl = "http://localhost:3001/api/db-api"
+const baseUrl = "/api/db-api";
+
 const getDataManPMI = async () => {
-  const response = await axios.get(
-    "http://localhost:3001/api/db-api/pmi-manufacturing"
-  );
+  const response = await axios.get(`${baseUrl}/pmi-manufacturing`);
   return response.data.series.docs[0];
 };
 
 const getDataNonManPMI = async () => {
-  const response = await axios.get(
-    "http://localhost:3001/api/db-api/pmi-non-manufacturing"
-  );
+  const response = await axios.get(`${baseUrl}/pmi-non-manufacturing`);
   return response.data.series.docs[0];
 };
 
 const getDataMichiganSentiment = async () => {
-  const response = await axios.get(
-    "http://localhost:3001/api/db-api/michigan-sentiment"
-  );
+  const response = await axios.get(`${baseUrl}/michigan-sentiment`);
 
   return response.data.series.docs[0];
 };

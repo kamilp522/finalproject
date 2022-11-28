@@ -19,7 +19,7 @@ import {
 import { hero_headings } from "../content";
 import { CSSTransition } from "react-transition-group";
 
-const HeroHeader = () => {
+const HeroSection = () => {
   const headings = hero_headings;
 
   const [background, setBackground] = useState(hero_img_1);
@@ -119,4 +119,4 @@ const HeroHeader = () => {
   );
 };
 
-export default HeroHeader;
+export default HeroSection;

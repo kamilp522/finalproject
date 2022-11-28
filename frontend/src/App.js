@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
 
-import HeroHeader from "./components/Home/HeroSection/HeroHeader.js";
+import HeroSection from "./components/Home/HeroSection/HeroSection.js";
 import InfoSection from "./components/Home/InfoSection/InfoSection.js";
 import Layout from "./components/Layout/Layout.js";
 import Indicators from "./components/Indicators/Indicators.js";
@@ -23,17 +22,17 @@ const App = () => {
     <Layout>
       <Routes>
         <Route
-          path="/latest"
+          path="/"
           element={
             <>
-              <HeroHeader />
+              <HeroSection />
               <InfoSection content={about} />
               <InfoSection content={join} />
             </>
           }
         />
         <Route path="/indicators" element={<Indicators />} />
-        <Route path="/" element={<Latest />} />
+        <Route path="/latest" element={<Latest />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
