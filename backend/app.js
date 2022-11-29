@@ -6,6 +6,7 @@ const config = require("./utils/config");
 const indicatorsRouter = require("./controllers/indicators");
 const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
+const quotesRouter = require("./controllers/quote");
 
 config.connect();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/indicators", indicatorsRouter);
+app.use("/api/quote", quotesRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 

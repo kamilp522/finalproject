@@ -41,7 +41,7 @@ const App = () => {
     <Layout>
       <Routes>
         <Route
-          path="/"
+          path="/quote"
           element={
             <>
               <HeroSection />
@@ -53,7 +53,7 @@ const App = () => {
         <Route path="/indicators" element={<Indicators />} />
         <Route path="/latest" element={<Latest />} />
         <Route
-          path="/quote"
+          path="/"
           element={logged.username ? <Quote /> : <Navigate replace to="/" />}
         />
         <Route

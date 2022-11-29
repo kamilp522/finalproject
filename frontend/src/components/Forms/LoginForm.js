@@ -55,7 +55,7 @@ const LoginForm = () => {
         onChange={({ target }) => setPassword(target.value)}
       />
       <FormButtonWrapper>
-        <Button style={{ marginTop: "0.5rem" }}>Log in</Button>
+        <Button>Log in</Button>
       </FormButtonWrapper>
     </Form>
   );

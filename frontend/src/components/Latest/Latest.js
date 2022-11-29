@@ -4,10 +4,10 @@ import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 import * as colors from "../variables/colors";
 
-import dbApis from "../../services/chart_data/chart_data";
+import indicatorService from "../../services/indicators";
 
 import IndicatorChart from "./IndicatorChart/IndicatorChart";
-import { options } from "../../services/chart_data/chart_options";
+import { options } from "../../Charts/bar_chart_options";
 import { latest_content } from "./content";
 
 const Latest = () => {
@@ -19,36 +19,42 @@ const Latest = () => {
   });
 
   useEffect(() => {
-    dbApis.getChartParams(dbApis.getDataManPMI).then((response) => {
-      setDataMPMI({
-        labels: response.labels,
-        datasets: [
-          { data: response.values, backgroundColor: colors.clr_violet_800 },
-        ],
+    indicatorService
+      .getIndicatorChartParams(indicatorService.getDataManPMI)
+      .then((response) => {
+        setDataMPMI({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
       });
-    });
   }, []);
 
   useEffect(() => {
-    dbApis.getChartParams(dbApis.getDataNonManPMI).then((response) => {
-      setDataSPMI({
-        labels: response.labels,
-        datasets: [
-          { data: response.values, backgroundColor: colors.clr_violet_800 },
-        ],
+    indicatorService
+      .getIndicatorChartParams(indicatorService.getDataNonManPMI)
+      .then((response) => {
+        setDataSPMI({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
       });
-    });
   }, []);
 
   useEffect(() => {
-    dbApis.getChartParams(dbApis.getDataMichiganSentiment).then((response) => {
-      setDataMichigan({
-        labels: response.labels,
-        datasets: [
-          { data: response.values, backgroundColor: colors.clr_violet_800 },
-        ],
+    indicatorService
+      .getIndicatorChartParams(indicatorService.getDataMichiganSentiment)
+      .then((response) => {
+        setDataMichigan({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
       });
-    });
   }, []);
 
   return (

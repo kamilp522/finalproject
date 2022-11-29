@@ -1,5 +1,5 @@
 import axios from "axios";
-import { options } from "./chart_options";
+import { options } from "../Charts/bar_chart_options";
 
 const baseUrl = "/api/indicators";
 
@@ -19,7 +19,7 @@ const getDataMichiganSentiment = async () => {
   return response.data.series.docs[0];
 };
 
-const getChartParams = async (getDataFunction) => {
+const getIndicatorChartParams = async (getDataFunction) => {
   const chart_data = await getDataFunction();
   options.scales.y.min = Math.floor(Math.min(...chart_data.value) - 3);
   return {
@@ -32,7 +32,7 @@ const exports = {
   getDataManPMI,
   getDataNonManPMI,
   getDataMichiganSentiment,
-  getChartParams,
+  getIndicatorChartParams,
 };
 
 export default exports;

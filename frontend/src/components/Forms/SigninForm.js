@@ -70,7 +70,7 @@ const LoginForm = () => {
         onChange={({ target }) => setRepeatedPassword(target.value)}
       />
       <FormButtonWrapper>
-        <Button style={{ marginTop: "0.5rem" }}>Sign in</Button>
+        <Button>Sign in</Button>
       </FormButtonWrapper>
     </Form>
   );

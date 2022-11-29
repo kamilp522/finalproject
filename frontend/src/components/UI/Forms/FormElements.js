@@ -19,5 +19,6 @@ export const Input = styled.input`
 `;
 
 export const FormButtonWrapper = styled.div`
-  max-width: 25%;
+  margin-top: 0.5em;
+  width: fit-content;
 `;

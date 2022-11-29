@@ -5,9 +5,15 @@ import * as font_sizes from "../../variables/font-sizes";
 import * as font_families from "../../variables/font-families";
 
 export const Table = styled.table`
-  /* border-collapse: collapse; */
   text-align: center;
+  border-collapse: separate;
+  margin-block: 1em;
   width: 100%;
+
+  & * {
+    border: 1px solid black;
+    padding: 0.33em;
+  }
 `;
 
 export const TableHead = styled.thead``;
