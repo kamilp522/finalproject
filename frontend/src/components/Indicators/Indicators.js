@@ -1,17 +1,17 @@
 import React from "react";
 
 import {
-  IndicatorsContainer,
   IndicatorsText,
   IndicatorsH2,
   IndicatorsDescription,
   Indicator,
   IndicatorsH3,
 } from "./IndicatorsElements";
+import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 const Indicators = () => {
   return (
-    <IndicatorsContainer>
+    <Wrapper>
       <IndicatorsText>
         <IndicatorsH2>Economic Indicators</IndicatorsH2>
         <IndicatorsDescription>
@@ -76,7 +76,7 @@ const Indicators = () => {
           </IndicatorsDescription>
         </Indicator>
       </IndicatorsText>
-    </IndicatorsContainer>
+    </Wrapper>
   );
 };
 

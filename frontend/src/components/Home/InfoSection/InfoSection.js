@@ -1,6 +1,8 @@
 import React from "react";
+
+import { useSelector } from "react-redux";
+
 import {
-  InfoWrapper,
   InfoContainer,
   InfoImageWrapper,
   InfoImage,
@@ -11,12 +13,16 @@ import {
   InfoButtonWrapper,
   InfoLink,
 } from "./InfoElements";
+
+import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { Button } from "../../UI/Button/Button";
 import { scrollToTop } from "../../../helpers/scrollToTop";
 
 const InfoSection = (props) => {
+  const logged = useSelector((store) => store.logged);
+
   return (
-    <InfoWrapper>
+    <Wrapper>
       <InfoContainer>
         <InfoImageWrapper>
           <InfoImage src={props.content.image} />
@@ -26,13 +32,16 @@ const InfoSection = (props) => {
           <InfoH2>{props.content.heading}</InfoH2>
           <InfoP>{props.content.paragraph}</InfoP>
           <InfoButtonWrapper>
-            <InfoLink to={props.content.link} onClick={scrollToTop}>
+            <InfoLink
+              to={logged.username ? "/" : props.content.link}
+              onClick={scrollToTop}
+            >
               <Button>{props.content.button}</Button>
             </InfoLink>
           </InfoButtonWrapper>
         </InfoContent>
       </InfoContainer>
-    </InfoWrapper>
+    </Wrapper>
   );
 };
 

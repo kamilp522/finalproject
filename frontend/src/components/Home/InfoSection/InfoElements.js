@@ -4,10 +4,6 @@ import * as font_sizes from "../../variables/font-sizes";
 
 import { Link } from "react-router-dom";
 
-export const InfoWrapper = styled.section`
-  padding: 1.5em;
-`;
-
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;

@@ -4,10 +4,6 @@ import * as font_sizes from "../variables/font-sizes";
 
 import { Link } from "react-router-dom";
 
-export const LoginWrapper = styled.div`
-  padding: 1.5em;
-`;
-
 export const LoginSmallWrapper = styled.div`
   display: flex;
   flex-direction: column;

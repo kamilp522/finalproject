@@ -1,7 +1,7 @@
 import axios from "axios";
 import { options } from "./chart_options";
 
-const baseUrl = "/api/db-api";
+const baseUrl = "/api/indicators";
 
 const getDataManPMI = async () => {
   const response = await axios.get(`${baseUrl}/pmi-manufacturing`);

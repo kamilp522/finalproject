@@ -14,6 +14,7 @@ import Indicators from "./components/Indicators/Indicators.js";
 import Latest from "./components/Latest/Latest.js";
 import Login from "./components/Login/Login.js";
 import Signin from "./components/Signin/Signin.js";
+import Quote from "./components/Quote/Quote.js";
 
 import "reset-css";
 import "./css/app.css";
@@ -51,12 +52,14 @@ const App = () => {
         />
         <Route path="/indicators" element={<Indicators />} />
         <Route path="/latest" element={<Latest />} />
-
+        <Route
+          path="/quote"
+          element={logged.username ? <Quote /> : <Navigate replace to="/" />}
+        />
         <Route
           path="/login"
           element={!logged.username ? <Login /> : <Navigate replace to="/" />}
         />
-
         <Route
           path="/signin"
           element={!logged.username ? <Signin /> : <Navigate replace to="/" />}

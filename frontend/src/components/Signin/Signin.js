@@ -1,12 +1,12 @@
 import React from "react";
 import SigninForm from "../Forms/SigninForm";
-import { SigninWrapper } from "./SigninElements";
+import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 const Signin = () => {
   return (
-    <SigninWrapper>
+    <Wrapper>
       <SigninForm />
-    </SigninWrapper>
+    </Wrapper>
   );
 };
 

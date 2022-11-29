@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { LatestContainer, LatestH2 } from "./LatestElements";
+import { LatestH2 } from "./LatestElements";
+import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 import * as colors from "../variables/colors";
 
@@ -51,7 +52,7 @@ const Latest = () => {
   }, []);
 
   return (
-    <LatestContainer>
+    <Wrapper>
       <LatestH2>Latest Economic Data</LatestH2>
 
       {dataMPMI.datasets ? (
@@ -86,7 +87,7 @@ const Latest = () => {
       ) : (
         <div></div>
       )}
-    </LatestContainer>
+    </Wrapper>
   );
 };
 

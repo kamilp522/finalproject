@@ -88,6 +88,13 @@ const Navbar = () => {
                 Latest
               </NavLink>
             </NavListItem>
+            {logged.username && (
+              <NavListItem>
+                <NavLink to="/quote" onClick={() => setShowNav(false)}>
+                  Quotes
+                </NavLink>
+              </NavListItem>
+            )}
             {!logged.username ? (
               <NavListItem>
                 <NavLink to="/login">

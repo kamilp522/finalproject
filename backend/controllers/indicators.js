@@ -23,4 +23,27 @@ apisRouter.get("/michigan-sentiment", async (request, response) => {
   response.json(michigan_sentiment.data);
 });
 
+apisRouter.get("/quote", async (request, response) => {
+  const body = request.body;
+
+  const options = {
+    method: "GET",
+    url: `https://api.twelvedata.com/time_series`,
+    params: {
+      country: "USA",
+      type: "stock",
+      interval: "1h",
+      symbol: "AAPL",
+    },
+    headers: {
+      "Accept-Encoding": "json",
+      Authorization: `apikey ${process.env.TWELVE_KEY}`,
+    },
+  };
+
+  const stock = await axios.request(options);
+
+  response.json(stock.data);
+});
+
 module.exports = apisRouter;

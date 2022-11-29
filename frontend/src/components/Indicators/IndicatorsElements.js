@@ -3,7 +3,7 @@ import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
 
 export const IndicatorsContainer = styled.section`
-  padding: 1.5em 1em 1em;
+  padding: 1.5em;
   /* height: 1000px; */
 `;
 

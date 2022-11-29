@@ -1,24 +1,20 @@
 import React from "react";
 import LoginForm from "../Forms/LoginForm";
-import {
-  LoginWrapper,
-  LoginSmall,
-  LoginSmallWrapper,
-  SignInLink,
-} from "./LoginElements";
+import { LoginSmall, LoginSmallWrapper, SignInLink } from "./LoginElements";
+import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 const Login = () => {
   return (
-    <LoginWrapper>
+    <Wrapper>
       <LoginForm />
       <LoginSmallWrapper>
         <LoginSmall>
           Don't have an account?
-          <SignInLink to="/signin"> Sign in </SignInLink>
+          <SignInLink to="/signin"> Sign up </SignInLink>
           right now!
         </LoginSmall>
       </LoginSmallWrapper>
-    </LoginWrapper>
+    </Wrapper>
   );
 };
 
