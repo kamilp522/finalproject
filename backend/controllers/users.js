@@ -28,6 +28,21 @@ usersRouter.post("/", async (request, response) => {
     });
   }
 
+  if (username.length < 3) {
+    return response.status(400).json({
+      error: "username has to contain at least 3 characters",
+    });
+  }
+
+  // regex thanks to Wiktor Stribiżew: https://stackoverflow.com/a/21456918/17842451
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gi;
+  if (!passwordRegex.test(password)) {
+    return response.status(400).json({
+      error:
+        "Password has to contain at least 8 characters, minimum 1 letter and 1 number",
+    });
+  }
+
   const existingUser = await User.findOne({ username });
   if (existingUser) {
     return response.status(400).json({
