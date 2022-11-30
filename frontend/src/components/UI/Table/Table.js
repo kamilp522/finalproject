@@ -28,4 +28,6 @@ export const TableBody = styled.tbody`
 
 export const Row = styled.tr``;
 
-export const Data = styled.td``;
+export const Data = styled.td`
+  min-height: 2em;
+`;

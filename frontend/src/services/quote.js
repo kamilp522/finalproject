@@ -4,12 +4,7 @@ import { options } from "../Charts/bar_chart_options";
 const baseUrl = "/api/quote";
 
 const getQuoteData = async (symbol) => {
-  console.log(symbol);
-
-  const response = await axios.get(baseUrl, symbol);
-
-  console.log(response);
-
+  const response = await axios.post(baseUrl, symbol);
   return response.data;
 };
 

@@ -2,10 +2,8 @@ const quoteRouter = require("express").Router();
 
 const axios = require("axios");
 
-quoteRouter.get("/", async (request, response) => {
-  const symbol = request.body;
-
-  console.log(symbol);
+quoteRouter.post("/", async (request, response) => {
+  const { symbol } = request.body;
 
   const options = {
     method: "GET",
@@ -15,7 +13,6 @@ quoteRouter.get("/", async (request, response) => {
       type: "stock",
       interval: "1h",
       symbol: `${symbol}`,
-      // symbol: `${{ ...symbol }}`,
     },
     headers: {
       "Accept-Encoding": "json",

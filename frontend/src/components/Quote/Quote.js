@@ -15,30 +15,32 @@ import {
 import QuoteForm from "../Forms/QuoteForm";
 
 const Quote = () => {
-  const [quote, setQuote] = useState("");
+  const [symbol, setSymbol] = useState("");
   const [price, setPrice] = useState(null);
+  const [symbolField, setSymbolField] = useState("");
 
   return (
     <Wrapper>
-      <QuoteForm setQuote={setQuote} setPrice={setPrice} />
-      {/* {quote && ( */}
+      <QuoteForm
+        symbol={symbol}
+        setSymbol={setSymbol}
+        setPrice={setPrice}
+        setSymbolField={setSymbolField}
+      />
       <Table>
         <TableHead>
           <Row>
             <Head>Symbol</Head>
             <Head>Last Price</Head>
-            <Head>Time</Head>
           </Row>
         </TableHead>
         <TableBody>
           <Row>
-            <Data>{quote}</Data>
-            <Data></Data>
-            <Data>Data2</Data>
+            <Data>{symbolField.toLocaleUpperCase()}</Data>
+            <Data>{price}</Data>
           </Row>
         </TableBody>
       </Table>
-      {/* )} */}
     </Wrapper>
   );
 };

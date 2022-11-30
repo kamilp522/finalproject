@@ -2,30 +2,39 @@ import React from "react";
 
 import quoteService from "../../services/quote";
 
+import { convertToUSD } from "../../helpers/convertToUSD";
+
 import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
-const QuoteForm = ({ setQuote, setPrice }) => {
+const QuoteForm = ({ symbol, setSymbol, setPrice, setSymbolField }) => {
   const getQuote = async (event) => {
     event.preventDefault();
 
-    const quote = document.getElementById("quote");
-    setQuote(quote.value);
+    const typed_symbol = document.getElementById("symbol-field").value;
+    setSymbol(typed_symbol);
+    setSymbolField(typed_symbol);
 
     try {
-      const price = await quoteService.getQuoteData(quote.value);
+      const quote = await quoteService.getQuoteData({ symbol });
+      const price = Math.round(quote.values[0].open);
 
-      console.log(price);
-
-      setPrice(price);
+      setPrice(convertToUSD(price));
     } catch (exception) {
+      setPrice("stock not found");
       console.log(exception);
     }
   };
 
   return (
     <Form onSubmit={getQuote}>
-      <Input id="quote" type="text" placeholder="type symbol" />
+      <Input
+        id="symbol-field"
+        type="text"
+        value={symbol.toLocaleUpperCase()}
+        onChange={({ target }) => setSymbol(target.value)}
+        placeholder="type symbol"
+      />
       <FormButtonWrapper>
         <Button>Look up stock</Button>
       </FormButtonWrapper>
