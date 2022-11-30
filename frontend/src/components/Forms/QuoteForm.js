@@ -1,11 +1,12 @@
 import React from "react";
 
 import quoteService from "../../services/quote";
+import timeseriesService from "../../services/timeseries";
 
 import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
-const QuoteForm = ({ symbol, setSymbol, setQuote }) => {
+const QuoteForm = ({ symbol, setSymbol, setQuote, setChartData }) => {
   const getQuote = async (event) => {
     event.preventDefault();
 
@@ -15,6 +16,14 @@ const QuoteForm = ({ symbol, setSymbol, setQuote }) => {
     try {
       const quote = await quoteService.getQuoteData({ symbol });
       setQuote(quote);
+
+      const timeseries = await timeseriesService.getTimeseriesData({ symbol });
+
+      const timeseries_chart_data =
+        timeseriesService.getTimeseriesChartParams(timeseries);
+
+      setChartData(timeseries_chart_data);
+
       setSymbol("");
     } catch (exception) {
       setSymbol("");

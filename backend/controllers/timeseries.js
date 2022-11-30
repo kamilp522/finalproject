@@ -1,13 +1,13 @@
-const quoteRouter = require("express").Router();
+const timeseriesRouter = require("express").Router();
 
 const axios = require("axios");
 
-quoteRouter.post("/", async (request, response) => {
+timeseriesRouter.post("/", async (request, response) => {
   const { symbol } = request.body;
 
   const options = {
     method: "GET",
-    url: `https://api.twelvedata.com/quote`,
+    url: `https://api.twelvedata.com/time_series`,
     params: {
       country: "USA",
       type: "stock",
@@ -20,9 +20,9 @@ quoteRouter.post("/", async (request, response) => {
     },
   };
 
-  const quote = await axios.request(options);
+  const timeseries = await axios.request(options);
 
-  response.json(quote.data);
+  response.json(timeseries.data);
 });
 
-module.exports = quoteRouter;
+module.exports = timeseriesRouter;
