@@ -1,2 +1,5 @@
-export const convertToUSD = (number) =>
-  number.toLocaleString("en-US", { style: "currency", currency: "USD" });
+export const convertToUSD = (price) =>
+  Number(price).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });

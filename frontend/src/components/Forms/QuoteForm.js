@@ -2,26 +2,22 @@ import React from "react";
 
 import quoteService from "../../services/quote";
 
-import { convertToUSD } from "../../helpers/convertToUSD";
-
 import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
-const QuoteForm = ({ symbol, setSymbol, setPrice, setSymbolField }) => {
+const QuoteForm = ({ symbol, setSymbol, setQuote }) => {
   const getQuote = async (event) => {
     event.preventDefault();
 
     const typed_symbol = document.getElementById("symbol-field").value;
     setSymbol(typed_symbol);
-    setSymbolField(typed_symbol);
 
     try {
       const quote = await quoteService.getQuoteData({ symbol });
-      const price = Math.round(quote.values[0].open);
-
-      setPrice(convertToUSD(price));
+      setQuote(quote);
+      setSymbol("");
     } catch (exception) {
-      setPrice("stock not found");
+      setSymbol("");
       console.log(exception);
     }
   };

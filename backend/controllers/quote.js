@@ -7,11 +7,11 @@ quoteRouter.post("/", async (request, response) => {
 
   const options = {
     method: "GET",
-    url: `https://api.twelvedata.com/time_series`,
+    url: `https://api.twelvedata.com/quote`,
     params: {
       country: "USA",
       type: "stock",
-      interval: "1h",
+      interval: "1min",
       symbol: `${symbol}`,
     },
     headers: {
