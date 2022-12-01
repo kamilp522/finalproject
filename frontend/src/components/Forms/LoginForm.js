@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../reducers/loginReducer";
+import { setNotification } from "../../reducers/notificationReducer";
 
 import loginService from "../../services/login";
 
@@ -20,6 +21,10 @@ const LoginForm = () => {
     setPassword("");
   };
 
+  const setMessageAndError = (message, error) => {
+    dispatch(setNotification({ message, error }));
+  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -32,10 +37,12 @@ const LoginForm = () => {
       window.localStorage.setItem("loggedMidtraderUser", JSON.stringify(user));
 
       dispatch(loginUser(user));
+      setMessageAndError(`user ${username} logged in`);
 
       clearInput();
     } catch (exception) {
-      console.log(exception);
+      const errorMessage = exception.response.data.error;
+      setMessageAndError(`${errorMessage}`, true);
       clearInput();
     }
   };

@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../reducers/loginReducer";
+import { setNotification } from "../../reducers/notificationReducer";
 
 import userService from "../../services/users";
 import loginService from "../../services/login";
@@ -21,6 +22,10 @@ const LoginForm = () => {
     setUsername("");
     setPassword("");
     setRepeatedPassword("");
+  };
+
+  const setMessageAndError = (message, error) => {
+    dispatch(setNotification({ message, error }));
   };
 
   const handleSignin = async (event) => {
@@ -42,9 +47,12 @@ const LoginForm = () => {
 
       dispatch(loginUser(user));
 
+      setMessageAndError(`user ${username} signed up`);
+
       clearInput();
     } catch (exception) {
-      console.log(exception);
+      const errorMessage = exception.response.data.error;
+      setMessageAndError(`${errorMessage}`, true);
       clearInput();
     }
   };

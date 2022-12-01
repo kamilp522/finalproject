@@ -44,6 +44,7 @@ const App = () => {
           element={
             <>
               <HeroSection />
+
               <InfoSection content={about} />
               <InfoSection content={join} />
             </>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { options } from "../Charts/bar_chart_options";
+import { options } from "../components/Chart/chart_options";
 
 const baseUrl = "/api/indicators";
 

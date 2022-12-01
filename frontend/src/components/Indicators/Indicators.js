@@ -6,7 +6,7 @@ import * as colors from "../variables/colors";
 import indicatorService from "../../services/indicators";
 
 import Chart from "../Chart/Chart";
-import { options } from "../../Charts/bar_chart_options";
+import { options } from "../Chart/chart_options";
 import { latest_content } from "./content";
 
 import {

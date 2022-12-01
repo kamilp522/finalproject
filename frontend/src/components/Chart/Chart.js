@@ -87,15 +87,20 @@ const Chart = ({
           <Select
             name="interval"
             id="quote-chart-interval"
-            defaultValue="15min"
+            defaultValue="1h"
             onChange={({ target }) => {
               setChartInterval(target.value);
             }}
           >
-            <option value="5min">5min</option>
-            <option value="15min">15min</option>
-            <option value="30min">30min</option>
-            <option value="1h">1h</option>
+            <option value="5min">5 min</option>
+            <option value="15min">15 min</option>
+            <option value="30min">30 min</option>
+            <option value="1h">1 h</option>
+            <option value="2h">2 h</option>
+            <option value="4h">4 h</option>
+            <option value="1day">1 day</option>
+            <option value="1week">1 week</option>
+            <option value="1month">1 month</option>
           </Select>
         )}
       </ChartButtonsWrapper>

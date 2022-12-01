@@ -4,7 +4,7 @@ import { useState } from "react";
 import { convertToUSD } from "../../helpers/convertToUSD";
 
 import Chart from "../Chart/Chart";
-import { options } from "../../Charts/bar_chart_options";
+import { options } from "../Chart/chart_options";
 
 import { QuoteContainer } from "./QuoteElements";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
@@ -23,7 +23,7 @@ const Quote = () => {
   const [typedSymbol, setTypedSymbol] = useState("");
   const [currentSymbol, setCurrentSymbol] = useState("");
   const [quote, setQuote] = useState(null);
-  const [chartInterval, setChartInterval] = useState("15min");
+  const [chartInterval, setChartInterval] = useState("1h");
 
   return (
     <Wrapper>
