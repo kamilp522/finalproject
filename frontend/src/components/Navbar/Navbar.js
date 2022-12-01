@@ -60,7 +60,13 @@ const Navbar = () => {
       >
         <NavContainer id="nav-container">
           <NavContent>
-            <Logo to="/" onClick={scrollToTop}>
+            <Logo
+              to="/"
+              onClick={() => {
+                scrollToTop();
+                setShowNav(false);
+              }}
+            >
               <LogoSpan>mid</LogoSpan>trader
             </Logo>
             <NavMenu className="nav-menu" onClick={() => setShowNav(!showNav)}>

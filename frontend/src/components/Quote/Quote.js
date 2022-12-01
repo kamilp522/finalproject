@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { convertToUSD } from "../../helpers/convertToUSD";
 
-import IndicatorChart from "../Latest/IndicatorChart/IndicatorChart";
+import Chart from "../Chart/Chart";
 import { options } from "../../Charts/bar_chart_options";
 
 import { QuoteContainer } from "./QuoteElements";
@@ -19,17 +19,23 @@ import {
 import QuoteForm from "../Forms/QuoteForm";
 
 const Quote = () => {
-  const [chartData, setChartData] = useState({ labels: [], datasets: [] });
-  const [symbol, setSymbol] = useState("");
+  const [chartData, setChartData] = useState({ labels: null, datasets: null });
+  const [typedSymbol, setTypedSymbol] = useState("");
+  const [currentSymbol, setCurrentSymbol] = useState("");
   const [quote, setQuote] = useState(null);
+  const [chartInterval, setChartInterval] = useState("15min");
 
   return (
     <Wrapper>
       <QuoteForm
-        symbol={symbol}
-        setSymbol={setSymbol}
+        typedSymbol={typedSymbol}
+        setTypedSymbol={setTypedSymbol}
         setQuote={setQuote}
         setChartData={setChartData}
+        chartData={chartData}
+        chartInterval={chartInterval}
+        setChartInterval={setChartInterval}
+        setCurrentSymbol={setCurrentSymbol}
       />
       <QuoteContainer>
         {quote && (
@@ -52,12 +58,18 @@ const Quote = () => {
                 </Row>
               </TableBody>
             </Table>
-            <IndicatorChart
-              title="dsfsd"
-              interpretation="dfsfdssdf"
-              options={options}
-              data={chartData}
-            />
+            {chartData.datasets && (
+              <Chart
+                title={quote.symbol}
+                interpretation={quote.name}
+                options={options}
+                data={chartData}
+                type="line"
+                chartInterval={chartInterval}
+                setChartInterval={setChartInterval}
+                currentSymbol={currentSymbol}
+              />
+            )}
           </>
         )}
       </QuoteContainer>

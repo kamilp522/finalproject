@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import * as colors from "../../variables/colors";
-import * as font_sizes from "../../variables/font-sizes";
+import * as colors from "../variables/colors";
+import * as font_sizes from "../variables/font-sizes";
 
-import { Bar } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 export const ChartContainer = styled.div`
   display: flex;
@@ -16,11 +16,6 @@ export const ChartH3 = styled.h3`
   font-size: ${font_sizes.fs_550};
   padding-bottom: 0.5em;
   border-bottom: 1px solid ${colors.clr_cream_900};
-`;
-
-export const ChartButtonsWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
 `;
 
 export const ChartTimeButton = styled.button`
@@ -42,13 +37,29 @@ export const ChartData = styled.p`
   padding-block: 0.75em;
 `;
 
-// export const ChartTrend = styled.p``;
-
-// export const ChartInterpretation = styled.p``;
-
-export const Chart = styled(Bar)`
+export const BarChart = styled(Bar)`
   min-width: 20em !important;
   min-height: 13em !important;
   padding-bottom: 0.5em;
   border-bottom: 1px solid ${colors.clr_cream_900};
+`;
+
+export const LineChart = styled(Line)`
+  min-width: 20em !important;
+  min-height: 13em !important;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid ${colors.clr_cream_900};
+`;
+
+export const ChartButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const Select = styled.select`
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  cursor: pointer;
+  border-radius: 0.25em;
 `;

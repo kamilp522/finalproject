@@ -4,9 +4,18 @@ import {
   LinearScale,
   BarElement,
   Tooltip,
+  LineElement,
+  PointElement,
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  LineElement,
+  PointElement
+);
 
 export const options = {
   scales: {

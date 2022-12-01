@@ -32,10 +32,7 @@ const InfoSection = (props) => {
           <InfoH2>{props.content.heading}</InfoH2>
           <InfoP>{props.content.paragraph}</InfoP>
           <InfoButtonWrapper>
-            <InfoLink
-              to={logged.username ? "/" : props.content.link}
-              onClick={scrollToTop}
-            >
+            <InfoLink to={props.content.link} onClick={scrollToTop}>
               <Button>{props.content.button}</Button>
             </InfoLink>
           </InfoButtonWrapper>

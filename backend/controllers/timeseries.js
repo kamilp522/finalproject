@@ -3,7 +3,7 @@ const timeseriesRouter = require("express").Router();
 const axios = require("axios");
 
 timeseriesRouter.post("/", async (request, response) => {
-  const { symbol } = request.body;
+  const { symbol, chartInterval } = request.body;
 
   const options = {
     method: "GET",
@@ -11,7 +11,7 @@ timeseriesRouter.post("/", async (request, response) => {
     params: {
       country: "USA",
       type: "stock",
-      interval: "1min",
+      interval: `${chartInterval}`,
       symbol: `${symbol}`,
     },
     headers: {
@@ -21,7 +21,6 @@ timeseriesRouter.post("/", async (request, response) => {
   };
 
   const timeseries = await axios.request(options);
-
   response.json(timeseries.data);
 });
 

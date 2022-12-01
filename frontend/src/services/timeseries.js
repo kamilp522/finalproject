@@ -1,19 +1,28 @@
 import axios from "axios";
 
+import { options } from "../Charts/bar_chart_options";
+
 const baseUrl = "/api/timeseries";
 
-const getTimeseriesData = async (symbol) => {
-  const response = await axios.post(baseUrl, symbol);
+const getTimeseriesData = async (symbolAndInterval) => {
+  const response = await axios.post(baseUrl, symbolAndInterval);
   return response.data;
 };
 
 const getTimeseriesChartParams = (chart_data) => {
-  const labels = chart_data.values.map((value) => value.datetime);
-  const opens = chart_data.values.map((value) => value.open);
+  const labels = chart_data.values.map((value) =>
+    value.datetime.substring(11, 16)
+  );
+  const closes = chart_data.values.map((value) =>
+    parseFloat(Number(value.close).toFixed(2))
+  );
+
+  options.scales.x.ticks.maxTicksLimit = 5;
+  options.scales.y.min = Math.floor(Math.min(...closes));
 
   return {
-    labels: labels,
-    values: opens,
+    labels: labels.reverse(),
+    values: closes.reverse(),
   };
 };
 

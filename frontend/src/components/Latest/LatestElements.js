@@ -2,10 +2,6 @@ import styled from "styled-components";
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
 
-export const LatestContainer = styled.section`
-  padding: 1.5em;
-`;
-
 export const LatestH2 = styled.h2`
   font-size: ${font_sizes.fs_600};
   font-weight: 700;

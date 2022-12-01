@@ -21,10 +21,17 @@ const getDataMichiganSentiment = async () => {
 
 const getIndicatorChartParams = async (getDataFunction) => {
   const chart_data = await getDataFunction();
-  options.scales.y.min = Math.floor(Math.min(...chart_data.value) - 3);
+
+  const labels_last_24_months = chart_data.period.slice(-24);
+  const values_last_24_months = chart_data.value.slice(-24);
+
+  options.scales.y.min = Math.floor(
+    Math.min(...values_last_24_months) -
+      Math.min(...values_last_24_months) * 0.05
+  );
   return {
-    labels: chart_data.period.slice(-24),
-    values: chart_data.value.slice(-24),
+    labels: labels_last_24_months,
+    values: values_last_24_months,
   };
 };
 

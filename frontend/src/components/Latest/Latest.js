@@ -6,7 +6,7 @@ import * as colors from "../variables/colors";
 
 import indicatorService from "../../services/indicators";
 
-import IndicatorChart from "./IndicatorChart/IndicatorChart";
+import Chart from "../Chart/Chart";
 import { options } from "../../Charts/bar_chart_options";
 import { latest_content } from "./content";
 
@@ -62,33 +62,36 @@ const Latest = () => {
       <LatestH2>Latest Economic Data</LatestH2>
 
       {dataMPMI.datasets ? (
-        <IndicatorChart
+        <Chart
           title={latest_content.manufacturing_pmi.title}
           interpretation={latest_content.manufacturing_pmi.interpretation}
           options={options}
           data={dataMPMI}
+          type="bar"
         />
       ) : (
         <div></div>
       )}
 
       {dataSPMI.datasets ? (
-        <IndicatorChart
+        <Chart
           title={latest_content.non_manufacturing_pmi.title}
           interpretation={latest_content.non_manufacturing_pmi.interpretation}
           options={options}
           data={dataSPMI}
+          type="bar"
         />
       ) : (
         <div></div>
       )}
 
       {dataMichigan.datasets ? (
-        <IndicatorChart
+        <Chart
           title={latest_content.michigan_sentiment.title}
           interpretation={latest_content.michigan_sentiment.interpretation}
           options={options}
           data={dataMichigan}
+          type="bar"
         />
       ) : (
         <div></div>
