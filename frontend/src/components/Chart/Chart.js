@@ -41,6 +41,8 @@ const Chart = ({
 
   useEffect(() => {
     const changeInterval = async () => {
+      if (!currentSymbol) return;
+
       const timeseries = await timeseriesService.getTimeseriesData({
         symbol: currentSymbol,
         chartInterval,

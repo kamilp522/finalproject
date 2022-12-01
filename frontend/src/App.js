@@ -11,7 +11,6 @@ import HeroSection from "./components/Home/HeroSection/HeroSection.js";
 import InfoSection from "./components/Home/InfoSection/InfoSection.js";
 import Layout from "./components/Layout/Layout.js";
 import Indicators from "./components/Indicators/Indicators.js";
-import Latest from "./components/Latest/Latest.js";
 import Login from "./components/Login/Login.js";
 import Signin from "./components/Signin/Signin.js";
 import Quote from "./components/Quote/Quote.js";
@@ -41,7 +40,7 @@ const App = () => {
     <Layout>
       <Routes>
         <Route
-          path="/quote"
+          path="/"
           element={
             <>
               <HeroSection />
@@ -51,9 +50,8 @@ const App = () => {
           }
         />
         <Route path="/indicators" element={<Indicators />} />
-        <Route path="/latest" element={<Latest />} />
         <Route
-          path="/"
+          path="/quote"
           element={logged.username ? <Quote /> : <Navigate replace to="/" />}
         />
         <Route

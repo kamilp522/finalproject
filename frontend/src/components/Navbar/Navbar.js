@@ -89,11 +89,6 @@ const Navbar = () => {
                 Indicators
               </NavLink>
             </NavListItem>
-            <NavListItem>
-              <NavLink to="/latest" onClick={() => setShowNav(false)}>
-                Latest
-              </NavLink>
-            </NavListItem>
             {logged.username && (
               <NavListItem>
                 <NavLink to="/quote" onClick={() => setShowNav(false)}>

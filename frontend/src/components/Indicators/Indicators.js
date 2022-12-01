@@ -1,81 +1,122 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
+import * as colors from "../variables/colors";
+
+import indicatorService from "../../services/indicators";
+
+import Chart from "../Chart/Chart";
+import { options } from "../../Charts/bar_chart_options";
+import { latest_content } from "./content";
 
 import {
-  IndicatorsText,
+  IndicatorsContainer,
   IndicatorsH2,
-  IndicatorsDescription,
   Indicator,
-  IndicatorsH3,
+  IndicatorsDescription,
 } from "./IndicatorsElements";
+
 import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 const Indicators = () => {
+  const [dataMPMI, setDataMPMI] = useState({ labels: null, datasets: null });
+  const [dataSPMI, setDataSPMI] = useState({ labels: null, datasets: null });
+  const [dataMichigan, setDataMichigan] = useState({
+    labels: null,
+    datasets: null,
+  });
+
+  useEffect(() => {
+    indicatorService
+      .getIndicatorChartParams(indicatorService.getDataManPMI)
+      .then((response) => {
+        setDataMPMI({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
+      });
+  }, []);
+
+  useEffect(() => {
+    indicatorService
+      .getIndicatorChartParams(indicatorService.getDataNonManPMI)
+      .then((response) => {
+        setDataSPMI({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
+      });
+  }, []);
+
+  useEffect(() => {
+    indicatorService
+      .getIndicatorChartParams(indicatorService.getDataMichiganSentiment)
+      .then((response) => {
+        setDataMichigan({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
+      });
+  }, []);
+
   return (
     <Wrapper>
-      <IndicatorsText>
-        <IndicatorsH2>Economic Indicators</IndicatorsH2>
-        <IndicatorsDescription>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          adipisci rerum facilis nobis natus doloribus tempore omnis repellat!
-          Labore odio quas tempore.
-        </IndicatorsDescription>
-      </IndicatorsText>
-      <IndicatorsText>
+      <IndicatorsContainer>
         <IndicatorsH2>Leading Indicators</IndicatorsH2>
         <IndicatorsDescription>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          adipisci rerum facilis nobis natus doloribus tempore omnis repellat!
-          Labore odio quas tempore.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Exercitationem, alias? Voluptatibus atque ipsam quos nam pariatur
+          nulla provident laboriosam porro minus placeat beatae dolores debitis
+          eligendi, dolorem, ut nobis tempore?
         </IndicatorsDescription>
         <Indicator>
-          <IndicatorsH3>ISM Manufacturing</IndicatorsH3>
-          <IndicatorsDescription>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            doloribus rem deserunt, voluptatibus vero magnam mollitia dolor eum
-            aspernatur, eius mole
-          </IndicatorsDescription>
+          {dataMPMI.datasets ? (
+            <Chart
+              title={latest_content.manufacturing_pmi.title}
+              interpretation={latest_content.manufacturing_pmi.interpretation}
+              options={options}
+              data={dataMPMI}
+              type="bar"
+            />
+          ) : (
+            <div></div>
+          )}
         </Indicator>
         <Indicator>
-          <IndicatorsH3>ISM Manufacturing</IndicatorsH3>
-          <IndicatorsDescription>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            doloribus rem deserunt, voluptatibus vero magnam mollitia dolor eum
-            aspernatur, eius mole
-          </IndicatorsDescription>
+          {dataSPMI.datasets ? (
+            <Chart
+              title={latest_content.non_manufacturing_pmi.title}
+              interpretation={
+                latest_content.non_manufacturing_pmi.interpretation
+              }
+              options={options}
+              data={dataSPMI}
+              type="bar"
+            />
+          ) : (
+            <div></div>
+          )}
         </Indicator>
         <Indicator>
-          <IndicatorsH3>ISM Manufacturing</IndicatorsH3>
-          <IndicatorsDescription>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            doloribus rem deserunt, voluptatibus vero magnam mollitia dolor eum
-            aspernatur, eius mole
-          </IndicatorsDescription>
+          {dataMichigan.datasets ? (
+            <Chart
+              title={latest_content.michigan_sentiment.title}
+              interpretation={latest_content.michigan_sentiment.interpretation}
+              options={options}
+              data={dataMichigan}
+              type="bar"
+            />
+          ) : (
+            <div></div>
+          )}
         </Indicator>
-      </IndicatorsText>
-      <IndicatorsText>
-        <IndicatorsH2>Confirming Indicators</IndicatorsH2>
-        <IndicatorsDescription>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          adipisci rerum facilis nobis natus doloribus tempore omnis repellat!
-          Labore odio quas tempore.
-        </IndicatorsDescription>
-        <Indicator>
-          <IndicatorsH3>ISM Manufacturing</IndicatorsH3>
-          <IndicatorsDescription>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            doloribus rem deserunt, voluptatibus vero magnam mollitia dolor eum
-            aspernatur, eius mole
-          </IndicatorsDescription>
-        </Indicator>
-        <Indicator>
-          <IndicatorsH3>ISM Manufacturing</IndicatorsH3>
-          <IndicatorsDescription>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-            doloribus rem deserunt, voluptatibus vero magnam mollitia dolor eum
-            aspernatur, eius mole
-          </IndicatorsDescription>
-        </Indicator>
-      </IndicatorsText>
+      </IndicatorsContainer>
     </Wrapper>
   );
 };

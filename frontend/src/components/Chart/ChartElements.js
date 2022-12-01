@@ -54,6 +54,8 @@ export const LineChart = styled(Line)`
 export const ChartButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 `;
 
 export const Select = styled.select`
