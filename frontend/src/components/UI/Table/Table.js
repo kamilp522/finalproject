@@ -42,7 +42,7 @@ export const TableBody = styled.tbody`
   }
 
   & tr:last-of-type {
-    border-bottom: 3px solid ${colors.clr_cream_900};
+    border-bottom: 2px solid ${colors.clr_cream_900};
   }
 `;
 

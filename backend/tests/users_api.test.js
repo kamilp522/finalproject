@@ -20,7 +20,7 @@ describe("\nCreation of users in database:\n", () => {
   beforeEach(async () => {
     await User.deleteMany({});
 
-    const passwordHash = await bcrypt.hash("123", 10);
+    const passwordHash = await bcrypt.hash("1234Qwertdd", 10);
     const user = new User({
       username: "John",
       passwordHash,
@@ -34,7 +34,8 @@ describe("\nCreation of users in database:\n", () => {
 
     const newUser = {
       username: "Mike",
-      password: "456",
+      password: "5678asdf",
+      repeatedPassword: "5678asdf",
     };
 
     await api

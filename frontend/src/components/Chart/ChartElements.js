@@ -15,7 +15,7 @@ export const ChartContainer = styled.div`
 export const ChartH3 = styled.h3`
   font-size: ${font_sizes.fs_550};
   padding-bottom: 0.5em;
-  border-bottom: 1px solid ${colors.clr_cream_900};
+  border-bottom: 1px solid ${colors.clr_blue_400};
 `;
 
 export const ChartTimeButton = styled.button`
@@ -41,14 +41,14 @@ export const BarChart = styled(Bar)`
   min-width: 20em !important;
   min-height: 13em !important;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid ${colors.clr_cream_900};
+  /* border-bottom: 1px solid ${colors.clr_blue_400}; */
 `;
 
 export const LineChart = styled(Line)`
   min-width: 20em !important;
   min-height: 13em !important;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid ${colors.clr_cream_900};
+  /* border-bottom: 1px solid ${colors.clr_blue_400}; */
 `;
 
 export const ChartButtonsWrapper = styled.div`

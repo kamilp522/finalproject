@@ -10,8 +10,6 @@ quoteRouter.post("/", async (request, response) => {
     url: `https://api.twelvedata.com/quote`,
     params: {
       country: "USA",
-      type: "stock",
-      interval: "1min",
       symbol: `${symbol}`,
     },
     headers: {
@@ -21,6 +19,24 @@ quoteRouter.post("/", async (request, response) => {
   };
 
   const quote = await axios.request(options);
+
+  if (quote.data.code === 400) {
+    return response.status(400).json({
+      error: "asset with that symbol wasn't found",
+    });
+  }
+
+  if (quote.data.code === 401) {
+    return response.status(401).json({
+      error: "unauthorized request, check validity of an api key",
+    });
+  }
+
+  if (quote.data.code === 429) {
+    return response.status(429).json({
+      error: "too many requests, reached api limit (5/minute 800/day)",
+    });
+  }
 
   response.json(quote.data);
 });
