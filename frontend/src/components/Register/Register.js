@@ -1,13 +1,13 @@
 import React from "react";
-import SigninForm from "../Forms/SigninForm";
+import RegisterForm from "../Forms/RegisterForm";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
 
-const Signin = () => {
+const Register = () => {
   return (
     <Wrapper>
-      <SigninForm />
+      <RegisterForm />
     </Wrapper>
   );
 };
 
-export default Signin;
+export default Register;

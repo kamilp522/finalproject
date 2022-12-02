@@ -9,7 +9,7 @@ import { setNotification } from "../../reducers/notificationReducer";
 import {
   ChartContainer,
   ChartH3,
-  ChartData,
+  ChartText,
   BarChart,
   LineChart,
   ChartButtonsWrapper,
@@ -85,8 +85,8 @@ const Chart = ({
 
   return (
     <ChartContainer>
-      <ChartH3>{title}</ChartH3>
-      <ChartData>{interpretation}</ChartData>
+      {type === "bar" && <ChartH3>{title}</ChartH3>}
+      <ChartText>{interpretation}</ChartText>
       <ChartButtonsWrapper>
         {type === "bar" && (
           <>
@@ -105,7 +105,7 @@ const Chart = ({
           <Select
             name="interval"
             id="quote-chart-interval"
-            defaultValue="1h"
+            defaultValue="4h"
             onChange={({ target }) => {
               setChartInterval(target.value);
             }}

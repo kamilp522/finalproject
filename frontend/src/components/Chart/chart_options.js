@@ -32,6 +32,9 @@ export const options = {
     },
     y: {
       position: "right",
+      ticks: {
+        autoSkip: true,
+      },
     },
   },
   plugins: {

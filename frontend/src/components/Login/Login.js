@@ -10,7 +10,7 @@ const Login = () => {
       <LoginSmallWrapper>
         <LoginSmall>
           Don't have an account?
-          <SignInLink to="/signin"> Sign up </SignInLink>
+          <SignInLink to="/register"> Sign up </SignInLink>
           right now!
         </LoginSmall>
       </LoginSmallWrapper>

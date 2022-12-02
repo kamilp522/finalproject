@@ -19,6 +19,7 @@ export const LoginSmall = styled.small`
 
 export const SignInLink = styled(Link)`
   color: ${colors.clr_black_full};
+  font-size: ${font_sizes.fs_450};
   cursor: pointer;
   text-decoration: none;
   text-align: center;

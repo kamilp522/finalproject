@@ -28,11 +28,11 @@ const LoginForm = () => {
     dispatch(setNotification({ message, error }));
   };
 
-  const handleSignin = async (event) => {
+  const handleRegister = async (event) => {
     event.preventDefault();
 
     try {
-      await userService.signin({
+      await userService.register({
         username,
         password,
         repeatedPassword,
@@ -58,7 +58,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSignin}>
+    <Form onSubmit={handleRegister}>
       <Input
         type="text"
         value={username}
@@ -78,7 +78,7 @@ const LoginForm = () => {
         onChange={({ target }) => setRepeatedPassword(target.value)}
       />
       <FormButtonWrapper>
-        <Button>Sign in</Button>
+        <Button>Sign up</Button>
       </FormButtonWrapper>
     </Form>
   );

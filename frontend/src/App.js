@@ -12,7 +12,7 @@ import InfoSection from "./components/Home/InfoSection/InfoSection.js";
 import Layout from "./components/Layout/Layout.js";
 import Indicators from "./components/Indicators/Indicators.js";
 import Login from "./components/Login/Login.js";
-import Signin from "./components/Signin/Signin.js";
+import Register from "./components/Register/Register.js";
 import Quote from "./components/Quote/Quote.js";
 
 import "reset-css";
@@ -60,8 +60,10 @@ const App = () => {
           element={!logged.username ? <Login /> : <Navigate replace to="/" />}
         />
         <Route
-          path="/signin"
-          element={!logged.username ? <Signin /> : <Navigate replace to="/" />}
+          path="/register"
+          element={
+            !logged.username ? <Register /> : <Navigate replace to="/" />
+          }
         />
       </Routes>
     </Layout>

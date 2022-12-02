@@ -37,8 +37,8 @@ export const home_page_content = {
     heading: "Monitor current economic conditions with great ease",
     paragraph:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa recusandae beatae molestiae est, in deserunt sint iusto ipsa sed, animi ipsum repudiandae officia voluptatem aperiam aliquid consectetur numquam similique ullam?",
-    button: "Sign In",
+    button: "Sign Up",
     image: join_image,
-    link: "/signin",
+    link: "/register",
   },
 };

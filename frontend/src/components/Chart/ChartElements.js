@@ -31,24 +31,18 @@ export const ChartTimeButton = styled.button`
   }
 `;
 
-export const ChartData = styled.p`
-  font-size: ${font_sizes.fs_400};
+export const ChartText = styled.p`
+  font-size: ${font_sizes.fs_450};
   color: ${colors.clr_very_dark_blue_900};
   padding-block: 0.75em;
 `;
 
 export const BarChart = styled(Bar)`
-  min-width: 20em !important;
-  min-height: 13em !important;
   padding-bottom: 0.5em;
-  /* border-bottom: 1px solid ${colors.clr_blue_400}; */
 `;
 
 export const LineChart = styled(Line)`
-  min-width: 20em !important;
-  min-height: 13em !important;
   padding-bottom: 0.5em;
-  /* border-bottom: 1px solid ${colors.clr_blue_400}; */
 `;
 
 export const ChartButtonsWrapper = styled.div`
@@ -59,6 +53,7 @@ export const ChartButtonsWrapper = styled.div`
 `;
 
 export const Select = styled.select`
+  margin-right: auto;
   padding: 0.5em 1em;
   margin-top: 0.5em;
   margin-bottom: 1em;

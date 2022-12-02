@@ -23,7 +23,7 @@ const Quote = () => {
   const [typedSymbol, setTypedSymbol] = useState("");
   const [currentSymbol, setCurrentSymbol] = useState("");
   const [quote, setQuote] = useState(null);
-  const [chartInterval, setChartInterval] = useState("1h");
+  const [chartInterval, setChartInterval] = useState("4h");
 
   return (
     <Wrapper>
