@@ -2,11 +2,14 @@ import React from "react";
 
 import * as colors from "../../components/variables/colors";
 
+import { setNotification } from "../../reducers/notificationReducer";
+
 import quoteService from "../../services/quote";
 import timeseriesService from "../../services/timeseries";
 
 import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
+import { useDispatch } from "react-redux";
 
 const QuoteForm = ({
   typedSymbol,
@@ -16,6 +19,12 @@ const QuoteForm = ({
   chartInterval,
   setCurrentSymbol,
 }) => {
+  const dispatch = useDispatch();
+
+  const setMessageAndError = (message, error) => {
+    dispatch(setNotification({ message, error }));
+  };
+
   const getQuote = async (event) => {
     event.preventDefault();
 
@@ -52,8 +61,9 @@ const QuoteForm = ({
 
       setTypedSymbol("");
     } catch (exception) {
+      const errorMessage = exception.response.data.error;
+      setMessageAndError(`${errorMessage}`, true);
       setTypedSymbol("");
-      console.log(exception);
     }
   };
 

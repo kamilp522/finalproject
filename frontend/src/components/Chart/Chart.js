@@ -92,6 +92,7 @@ const Chart = ({
               setChartInterval(target.value);
             }}
           >
+            <option value="1min">1 min</option>
             <option value="5min">5 min</option>
             <option value="15min">15 min</option>
             <option value="30min">30 min</option>
