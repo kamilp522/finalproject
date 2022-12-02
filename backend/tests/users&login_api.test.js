@@ -1,11 +1,10 @@
 const supertest = require("supertest");
 const app = require("../app");
 
-const helper = require("./test_helper.js");
+const helper = require("./helpers/user_api_helper.js");
 const api = supertest(app);
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
-const jwt = require("jsonwebtoken");
 
 const { dropDb, dropCollections } = require("./database/local_database");
 
@@ -18,7 +17,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     await dropCollections();
   });
 
-  test("can't create an user without a username", async () => {
+  test("can't create a user without a username", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -37,7 +36,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     expect(usersAtEnd.length).toBe(usersAtStart.length);
   });
 
-  test("can't create an user without a password", async () => {
+  test("can't create a user without a password", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -56,7 +55,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     expect(usersAtEnd.length).toBe(usersAtStart.length);
   });
 
-  test("can't create an user when a repeated password isn't correct", async () => {
+  test("can't create a user when a repeated password isn't correct", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -75,7 +74,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     expect(usersAtEnd.length).toBe(usersAtStart.length);
   });
 
-  test("can't create an user when a password is too short (min 8 characters)", async () => {
+  test("can't create a user when a password is too short (min 8 characters)", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -94,7 +93,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     expect(usersAtEnd.length).toBe(usersAtStart.length);
   });
 
-  test("can't create an user when a password doesn't contain at least 1 letter", async () => {
+  test("can't create a user when a password doesn't contain at least 1 letter", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -113,7 +112,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     expect(usersAtEnd.length).toBe(usersAtStart.length);
   });
 
-  test("can't create an user when a password doesn't contain at least 1 number", async () => {
+  test("can't create a user when a password doesn't contain at least 1 number", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -132,7 +131,7 @@ describe("\nCreation of users in an empty database:\n", () => {
     expect(usersAtEnd.length).toBe(usersAtStart.length);
   });
 
-  test("user with correct credentials can be created", async () => {
+  test("user with correct username and password can be created", async () => {
     const usersAtStart = User.find({});
 
     const newUser = {
@@ -149,6 +148,30 @@ describe("\nCreation of users in an empty database:\n", () => {
 
     const usersAtEnd = User.find({});
     expect(usersAtEnd.length).toBe(usersAtStart.length);
+  });
+
+  test("successful user registration returns correct username and id", async () => {
+    const usersAtStart = User.find({});
+
+    const newUser = {
+      username: "Johnny",
+      password: "asdfqwe1",
+      repeatedPassword: "asdfqwe1",
+    };
+
+    const response = await api
+      .post("/api/users")
+      .send(newUser)
+      .expect(201)
+      .expect("Content-Type", /application\/json/);
+
+    const usersAtEnd = User.find({});
+    expect(usersAtEnd.length).toBe(usersAtStart.length);
+
+    const body = response.body;
+
+    expect(body.username).toBe("Johnny");
+    expect(body.id.toString()).toHaveLength(24);
   });
 });
 
@@ -214,6 +237,7 @@ describe("\nWith one user already in database:\n", () => {
 
       await api.post("/api/login").send(credentials).expect(401);
     });
+
     test("can't log in without a correct password", async () => {
       const credentials = {
         username: "John",
@@ -222,6 +246,7 @@ describe("\nWith one user already in database:\n", () => {
 
       await api.post("/api/login").send(credentials).expect(401);
     });
+
     test("user can log in with correct credentials", async () => {
       const credentials = {
         username: "John",
@@ -229,6 +254,23 @@ describe("\nWith one user already in database:\n", () => {
       };
 
       await api.post("/api/login").send(credentials).expect(200);
+    });
+
+    test("successful login request returns correct token and username", async () => {
+      const credentials = {
+        username: "John",
+        password: "1234Qwertdd",
+      };
+
+      const response = await api
+        .post("/api/login")
+        .send(credentials)
+        .expect(200);
+
+      const body = response.body;
+
+      expect(body.token).toHaveLength(172);
+      expect(body.username).toBe("John");
     });
   });
 });

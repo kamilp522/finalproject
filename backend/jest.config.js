@@ -1,7 +1,7 @@
 const config = {
   testEnvironment: "node",
   verbose: true,
-  forceExit: true,
+  setupFiles: ["<rootDir>/tests/set_env_vars.js"],
 };
 
 module.exports = config;
