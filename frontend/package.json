@@ -26,6 +26,7 @@
     "react-router-dom": "^6.4.3",
     "react-transition-group": "^4.4.5",
     "redux": "^4.2.0",
+    "redux-thunk": "^2.4.2",
     "reset-css": "^5.0.1",
     "styled-components": "^5.3.6"
   },
@@ -36,6 +37,7 @@
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.2",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
