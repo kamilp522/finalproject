@@ -4,6 +4,8 @@ import * as colors from "../variables/colors";
 
 import timeseriesService from "../../services/timeseries";
 
+import { setNotification } from "../../reducers/notificationReducer";
+
 import {
   ChartContainer,
   ChartH3,
@@ -14,6 +16,7 @@ import {
   ChartTimeButton,
   Select,
 } from "./ChartElements";
+import { useDispatch } from "react-redux";
 
 const Chart = ({
   title,
@@ -26,6 +29,12 @@ const Chart = ({
   currentSymbol,
 }) => {
   const [currentData, setCurrentData] = useState(data);
+
+  const dispatch = useDispatch();
+
+  const setMessageAndError = (message, error) => {
+    dispatch(setNotification({ message, error }));
+  };
 
   const getLastXMonths = (x) => {
     const copy = structuredClone(data);
@@ -43,10 +52,19 @@ const Chart = ({
     const changeInterval = async () => {
       if (!currentSymbol) return;
 
-      const timeseries = await timeseriesService.getTimeseriesData({
-        symbol: currentSymbol,
-        chartInterval,
-      });
+      let timeseries;
+
+      try {
+        timeseries = await timeseriesService.getTimeseriesData({
+          symbol: currentSymbol,
+          chartInterval,
+        });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(`${errorMessage}`, true);
+        setTypedSymbol("");
+        return;
+      }
 
       const timeseries_chart_data =
         timeseriesService.getTimeseriesChartParams(timeseries);

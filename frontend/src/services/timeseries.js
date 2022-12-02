@@ -11,8 +11,8 @@ const getTimeseriesData = async (symbolAndInterval) => {
 
 const getTimeseriesChartParams = (chart_data) => {
   const interval = chart_data.meta.interval;
-  let labels;
 
+  let labels;
   if (interval === "1day" || interval === "1week" || interval === "1month") {
     labels = chart_data.values.map((value) => value.datetime.substring(5, 10));
   } else {
@@ -22,8 +22,6 @@ const getTimeseriesChartParams = (chart_data) => {
   const closes = chart_data.values.map((value) =>
     parseFloat(Number(value.close).toFixed(2))
   );
-
-  options.scales.x.ticks.maxTicksLimit = 5;
 
   return {
     labels: labels.reverse(),
