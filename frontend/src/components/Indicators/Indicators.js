@@ -65,13 +65,13 @@ const Indicators = () => {
       });
   }, []);
 
-  const changeMinYAxis = (options) => {
+  const changeMinYAxis = (object) => {
     const min = {
-      ...options,
+      ...object,
       scales: {
-        ...options.scales,
+        ...object.scales,
         y: {
-          ...options.scales.y,
+          ...object.scales.y,
           min: Math.min(...dataMPMI.datasets[0].data),
         },
       },
