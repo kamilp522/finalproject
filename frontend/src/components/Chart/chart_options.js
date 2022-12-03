@@ -31,8 +31,8 @@ export const options = {
       },
     },
     y: {
-      min: 0,
       position: "right",
+
       ticks: {
         autoSkip: true,
       },

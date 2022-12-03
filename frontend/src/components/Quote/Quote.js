@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 import { convertToUSD } from "../../helpers/convertToUSD";
+import { optionsAdjustMinValue } from "../../helpers/optionsAdjustMinValue";
 
 import Chart from "../Chart/Chart";
 import { options } from "../Chart/chart_options";
@@ -62,7 +63,7 @@ const Quote = () => {
               <Chart
                 title={quote.symbol}
                 interpretation={quote.name}
-                options={options}
+                options={optionsAdjustMinValue(options, chartData)}
                 data={chartData}
                 type="line"
                 chartInterval={chartInterval}

@@ -40,7 +40,7 @@ const App = () => {
     <Layout>
       <Routes>
         <Route
-          path="/sdfad"
+          path="/"
           element={
             <>
               <HeroSection />
@@ -51,7 +51,7 @@ const App = () => {
         />
         <Route path="/indicators" element={<Indicators />} />
         <Route
-          path="/"
+          path="/quote"
           element={logged.username ? <Quote /> : <Navigate replace to="/" />}
         />
         <Route

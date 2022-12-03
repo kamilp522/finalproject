@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+
 import * as colors from "../variables/colors";
+import { optionsAdjustMinValue } from "../../helpers/optionsAdjustMinValue";
 
 import timeseriesService from "../../services/timeseries";
 
@@ -123,8 +125,18 @@ const Chart = ({
           </Select>
         )}
       </ChartButtonsWrapper>
-      {type === "bar" && <BarChart options={options} data={currentData} />}
-      {type === "line" && <LineChart options={options} data={currentData} />}
+      {type === "bar" && (
+        <BarChart
+          options={optionsAdjustMinValue(options, currentData)}
+          data={currentData}
+        />
+      )}
+      {type === "line" && (
+        <LineChart
+          options={optionsAdjustMinValue(options, currentData)}
+          data={currentData}
+        />
+      )}
     </ChartContainer>
   );
 };

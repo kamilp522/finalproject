@@ -49,9 +49,9 @@ const config = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: "./public/index.html",
+    // }),
   ],
 };
 
