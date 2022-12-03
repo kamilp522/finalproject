@@ -65,6 +65,20 @@ const Indicators = () => {
       });
   }, []);
 
+  const changeMinYAxis = (options) => {
+    const min = {
+      ...options,
+      scales: {
+        ...options.scales,
+        y: {
+          ...options.scales.y,
+          min: Math.min(...dataMPMI.datasets[0].data),
+        },
+      },
+    };
+    return min;
+  };
+
   return (
     <Wrapper>
       <IndicatorsContainer>
