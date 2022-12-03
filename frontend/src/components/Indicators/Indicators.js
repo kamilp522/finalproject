@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import * as colors from "../variables/colors";
+import { optionsAdjustMinValue } from "../../helpers/optionsAdjustMinValue";
 
 import indicatorService from "../../services/indicators";
 
@@ -80,7 +81,7 @@ const Indicators = () => {
             <Chart
               title={latest_content.manufacturing_pmi.title}
               interpretation={latest_content.manufacturing_pmi.interpretation}
-              options={options}
+              options={optionsAdjustMinValue(options, dataMPMI)}
               data={dataMPMI}
               type="bar"
             />
@@ -95,7 +96,7 @@ const Indicators = () => {
               interpretation={
                 latest_content.non_manufacturing_pmi.interpretation
               }
-              options={options}
+              options={optionsAdjustMinValue(options, dataSPMI)}
               data={dataSPMI}
               type="bar"
             />
@@ -108,7 +109,7 @@ const Indicators = () => {
             <Chart
               title={latest_content.michigan_sentiment.title}
               interpretation={latest_content.michigan_sentiment.interpretation}
-              options={options}
+              options={optionsAdjustMinValue(options, dataMichigan)}
               data={dataMichigan}
               type="bar"
             />
