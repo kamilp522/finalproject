@@ -36,8 +36,8 @@ const QuoteForm = ({
     setTypedSymbol(symbol_input_value);
 
     try {
-      // const quote = await quoteService.getQuoteData({ symbol: typedSymbol });
-      const quote = {};
+      const quote = await quoteService.getQuoteData({ symbol: typedSymbol });
+      // const quote = {};
       setQuote(quote);
 
       const timeseries = await timeseriesService.getTimeseriesData({

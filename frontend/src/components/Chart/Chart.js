@@ -107,7 +107,7 @@ const Chart = ({
           <Select
             name="interval"
             id="quote-chart-interval"
-            defaultValue="4h"
+            defaultValue={chartInterval}
             onChange={({ target }) => {
               setChartInterval(target.value);
             }}
