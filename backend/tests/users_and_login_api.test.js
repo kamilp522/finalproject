@@ -12,7 +12,7 @@ afterAll(async () => {
   await dropDb();
 });
 
-describe("\nCreation of users in an empty database:\n", () => {
+describe("\nCreation of users in an empty database:", () => {
   afterEach(async () => {
     await dropCollections();
   });
@@ -175,7 +175,7 @@ describe("\nCreation of users in an empty database:\n", () => {
   });
 });
 
-describe("\nWith one user already in database:\n", () => {
+describe("\nWith one user already in database:", () => {
   beforeEach(async () => {
     await User.deleteMany({});
 
@@ -228,7 +228,7 @@ describe("\nWith one user already in database:\n", () => {
     expect(usersAtEnd).toHaveLength(usersAtStart.length);
   });
 
-  describe("\nLoging in:\n", () => {
+  describe("\nLoging in:", () => {
     test("can't log in without a correct username", async () => {
       const credentials = {
         username: "",

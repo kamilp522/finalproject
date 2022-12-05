@@ -37,7 +37,7 @@ export const options = {
       position: "right",
       ticks: {
         // remove first tick on y label
-        callback: (value, index, values) => (index == 0 ? undefined : value),
+        callback: (value, index) => (index == 0 ? undefined : value),
         autoSkip: true,
         font: {
           size: 16,
