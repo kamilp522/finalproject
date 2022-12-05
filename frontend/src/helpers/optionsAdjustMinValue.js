@@ -1,23 +1,19 @@
 export const optionsAdjustMinValue = (options, data) => {
-  const copy_options = structuredClone(options);
-  const copy_data = structuredClone(data);
-
-  const min = Math.min(...copy_data.datasets[0].data);
-  const max = Math.max(...copy_data.datasets[0].data);
-
-  let yAxisMin;
-
-  if (max - min > min * 0.2) {
-    yAxisMin = Math.floor(Math.min(...copy_data.datasets[0].data) * 0.96);
-  }
+  const min = Math.min(...data.datasets[0].data);
+  const max = Math.max(...data.datasets[0].data);
 
   return {
-    ...copy_options,
+    ...options,
     scales: {
-      ...copy_options.scales,
+      ...options.scales,
       y: {
-        ...copy_options.scales.y,
-        min: yAxisMin,
+        ...options.scales.y,
+
+        // min value on y axis is the difference
+        // beetween min value and 5% of (min, max) range
+        // thanks to that min value is always adjusted
+        // to current range of the chart
+        min: min - (max - min) * 0.05,
       },
     },
   };

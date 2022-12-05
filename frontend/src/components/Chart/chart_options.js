@@ -25,6 +25,9 @@ export const options = {
         maxTicksLimit: 4,
         maxRotation: 0,
         minRotation: 0,
+        font: {
+          size: 14,
+        },
       },
       grid: {
         display: false,
@@ -32,9 +35,13 @@ export const options = {
     },
     y: {
       position: "right",
-
       ticks: {
+        // remove first tick on y label
+        callback: (value, index, values) => (index == 0 ? undefined : value),
         autoSkip: true,
+        font: {
+          size: 16,
+        },
       },
     },
   },
