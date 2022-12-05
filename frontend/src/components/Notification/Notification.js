@@ -7,7 +7,7 @@ import {
 
 const Notification = (props) => {
   return (
-    <NotificationWrapper error={props.error}>
+    <NotificationWrapper id="notification-wrapper" error={props.error}>
       <NotificationContent>{props.children}</NotificationContent>
     </NotificationWrapper>
   );

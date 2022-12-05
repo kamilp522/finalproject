@@ -10,10 +10,10 @@ export const optionsAdjustMinValue = (options, data) => {
         ...options.scales.y,
 
         // min value on y axis is the difference
-        // beetween min value and 5% of (min, max) range
+        // beetween min value and 10% of (min, max) range
         // thanks to that min value is always adjusted
-        // to current range of the chart
-        min: min - (max - min) * 0.05,
+        // to the current range of the chart
+        min: min - (max - min) * 0.1,
       },
     },
   };

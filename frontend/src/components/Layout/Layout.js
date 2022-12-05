@@ -1,5 +1,4 @@
 import React from "react";
-import { Main } from "./LayoutElements";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
@@ -17,7 +16,7 @@ const Layout = (props) => {
           {notification.message}
         </Notification>
       )}
-      <Main>{props.children}</Main>
+      <main>{props.children}</main>
       <Footer />
     </>
   );

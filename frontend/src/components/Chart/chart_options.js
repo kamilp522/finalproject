@@ -37,7 +37,14 @@ export const options = {
       position: "right",
       ticks: {
         // remove first tick on y label
-        callback: (value, index) => (index == 0 ? undefined : value),
+        // and when value has decimal points
+        // set max number of decimal points to 2
+        callback: (value, index) =>
+          index == 0
+            ? undefined
+            : value.toString().includes(".")
+            ? value.toFixed(2)
+            : value,
         autoSkip: true,
         font: {
           size: 16,
