@@ -24,7 +24,6 @@ import {
 } from "./NavbarElements";
 import { Logo, LogoSpan } from "../UI/Logo/Logo";
 import { Button } from "../UI/Button/Button";
-import { scrollToTop } from "../../helpers/scrollToTop";
 
 const Navbar = () => {
 	const logged = useSelector((store) => store.logged);
@@ -64,7 +63,6 @@ const Navbar = () => {
 						<Logo
 							to="/"
 							onClick={() => {
-								scrollToTop();
 								setShowNav(false);
 							}}
 						>
@@ -81,41 +79,55 @@ const Navbar = () => {
 							</NavListItem>
 						)}
 						<NavListItem>
-							<NavLink to="/" onClick={() => setShowNav(false)}>
+							<NavLink
+								aria-label="home"
+								to="/"
+								onClick={() => setShowNav(false)}
+							>
 								Home
 							</NavLink>
 						</NavListItem>
 						<NavListItem>
-							<NavLink to="/indicators" onClick={() => setShowNav(false)}>
+							<NavLink
+								aria-label="indicators"
+								to="/indicators"
+								onClick={() => setShowNav(false)}
+							>
 								Indicators
 							</NavLink>
 						</NavListItem>
 						{logged.username && (
 							<NavListItem>
-								<NavLink to="/quote" onClick={() => setShowNav(false)}>
-									Quotes
+								<NavLink
+									aria-label="quote"
+									to="/quote"
+									onClick={() => setShowNav(false)}
+								>
+									Quote
 								</NavLink>
 							</NavListItem>
 						)}
 						{!logged.username ? (
 							<NavListItem>
-								<NavLink to="/login">
+								<NavLink aria-label="login" to="/login">
 									<Button onClick={() => setShowNav(false)}>Log in</Button>
 								</NavLink>
 							</NavListItem>
 						) : (
 							<NavListItem>
-								<Button
-									onClick={() => {
-										setShowNav(false);
-										handleLogout();
-									}}
-									style={{
-										backgroundColor: colors.clr_red_800,
-									}}
-								>
-									Log out
-								</Button>
+								<NavLink aria-label="logout" to="/">
+									<Button
+										onClick={() => {
+											setShowNav(false);
+											handleLogout();
+										}}
+										style={{
+											backgroundColor: colors.clr_red_800,
+										}}
+									>
+										Log out
+									</Button>
+								</NavLink>
 							</NavListItem>
 						)}
 					</NavList>

@@ -31,6 +31,7 @@ export const home_page_content = {
 		button: "See Indicators",
 		image: about_image,
 		link: "/indicators",
+		class: "info-section-button-1",
 	},
 	join: {
 		small: "WHY JOIN US",
@@ -40,5 +41,6 @@ export const home_page_content = {
 		button: "Sign Up",
 		image: join_image,
 		link: "/register",
+		class: "info-section-button-2",
 	},
 };

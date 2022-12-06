@@ -1,16 +1,18 @@
 import React from "react";
 
 import {
-  NotificationWrapper,
-  NotificationContent,
+	NotificationWrapper,
+	NotificationContent,
 } from "./NotificationElements";
 
 const Notification = (props) => {
-  return (
-    <NotificationWrapper id="notification-wrapper" error={props.error}>
-      <NotificationContent>{props.children}</NotificationContent>
-    </NotificationWrapper>
-  );
+	return (
+		<NotificationWrapper id="notification-wrapper" error={props.error}>
+			<NotificationContent id="notification">
+				{props.children}
+			</NotificationContent>
+		</NotificationWrapper>
+	);
 };
 
 export default Notification;

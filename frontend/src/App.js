@@ -21,52 +21,52 @@ import "./css/app.css";
 import { home_page_content } from "./components/Home/content.js";
 
 const App = () => {
-  const logged = useSelector((store) => store.logged);
-  const dispatch = useDispatch();
+	const logged = useSelector((store) => store.logged);
+	const dispatch = useDispatch();
 
-  const about = home_page_content.about;
-  const join = home_page_content.join;
+	const about = home_page_content.about;
+	const join = home_page_content.join;
 
-  useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedMidtraderUser");
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON);
+	useEffect(() => {
+		const loggedUserJSON = window.localStorage.getItem("loggedMidtraderUser");
+		if (loggedUserJSON) {
+			const user = JSON.parse(loggedUserJSON);
 
-      dispatch(loginUser(user));
-    }
-  }, [dispatch, logged]);
+			dispatch(loginUser(user));
+		}
+	}, [dispatch, logged]);
 
-  return (
-    <Layout>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HeroSection />
-              <InfoSection content={about} />
-              <InfoSection content={join} />
-            </>
-          }
-        />
-        <Route path="/indicators" element={<Indicators />} />
-        <Route
-          path="/quote"
-          element={logged.username ? <Quote /> : <Navigate replace to="/" />}
-        />
-        <Route
-          path="/login"
-          element={!logged.username ? <Login /> : <Navigate replace to="/" />}
-        />
-        <Route
-          path="/register"
-          element={
-            !logged.username ? <Register /> : <Navigate replace to="/" />
-          }
-        />
-      </Routes>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<HeroSection />
+							<InfoSection content={about} />
+							<InfoSection content={join} />
+						</>
+					}
+				/>
+				<Route path="/indicators" element={<Indicators />} />
+				<Route
+					path="/quote"
+					element={logged.username ? <Quote /> : <Navigate replace to="/" />}
+				/>
+				<Route
+					path="/login"
+					element={!logged.username ? <Login /> : <Navigate replace to="/" />}
+				/>
+				<Route
+					path="/register"
+					element={
+						!logged.username ? <Register /> : <Navigate replace to="/" />
+					}
+				/>
+			</Routes>
+		</Layout>
+	);
 };
 
 export default App;

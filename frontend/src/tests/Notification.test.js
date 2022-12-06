@@ -1,60 +1,78 @@
 import React from "react";
 
 import "@testing-library/jest-dom";
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Provider } from "react-redux";
-import store from "../store";
+import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
 
-import Navbar from "../components/Navbar/Navbar";
-import HeroSection from "../components/Home/HeroSection/HeroSection";
+import * as colors from "../components/variables/colors";
 
-test("can open the nav menu", async () => {
-	const { container } = render(
-		<Router>
-			<Provider store={store}>
-				<Navbar />
-			</Provider>
-		</Router>
-	);
+import Notification from "../components/Notification/Notification";
 
-	const menu_icon = screen.getByLabelText("menu");
-	const nav_menu = container.querySelector("#nav-container");
+const mockStore = configureStore([thunk]);
 
-	expect(nav_menu).toHaveStyle("height: 45px");
+describe("\nNotification", () => {
+	test("\nnotification renders correctly when message is provided", () => {
+		const store = mockStore({
+			logged: { token: null, username: null },
+			notification: { message: "this is message", error: true },
+		});
 
-	const user = userEvent.setup();
-	await user.click(menu_icon);
+		const notification_state = store.getState().notification;
 
-	expect(nav_menu).toHaveStyle("height: 0px");
-});
+		const { container } = render(
+			<Router>
+				<Provider store={store}>
+					<Notification error={notification_state.error}>
+						{notification_state.message}
+					</Notification>
+				</Provider>
+			</Router>
+		);
 
-test("hero content changes when indicator is clicked", async () => {
-	const { container } = render(
-		<Router>
-			<Provider store={store}>
-				<HeroSection />
-			</Provider>
-		</Router>
-	);
+		const notification_element =
+			container.querySelector("#notification").textContent;
+		expect(notification_element).toBe("this is message");
 
-	const head1 = screen.getByText("Learn");
-	expect(head1).toBeDefined();
+		const notification_wrapper = container.querySelector(
+			"#notification-wrapper"
+		);
+		expect(notification_wrapper).toHaveStyle(
+			`backgroundColor: ${colors.clr_red_800}`
+		);
+	});
 
-	const user = userEvent.setup();
-	const indicator_2 = container.querySelector("#indicator-2");
-	const indicator_3 = container.querySelector("#indicator-3");
+	test("\nnotification renders in green color when message is provided and error is false", () => {
+		const store = mockStore({
+			logged: { token: null, username: null },
+			notification: { message: "this is message", error: false },
+		});
 
-	await user.click(indicator_2);
+		const notification_state = store.getState().notification;
 
-	const head2 = screen.getByText("Thrive");
-	expect(head2).toBeDefined();
+		const { container } = render(
+			<Router>
+				<Provider store={store}>
+					<Notification error={notification_state.error}>
+						{notification_state.message}
+					</Notification>
+				</Provider>
+			</Router>
+		);
 
-	await user.click(indicator_3);
+		const notification_element =
+			container.querySelector("#notification").textContent;
+		expect(notification_element).toBe("this is message");
 
-	const head3 = screen.getByText("Make");
-	expect(head3).toBeDefined();
+		const notification_wrapper = container.querySelector(
+			"#notification-wrapper"
+		);
+		expect(notification_wrapper).toHaveStyle(
+			`backgroundColor: ${colors.clr_green_800}`
+		);
+	});
 });
