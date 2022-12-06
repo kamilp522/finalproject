@@ -61,6 +61,7 @@ const Navbar = () => {
 				<NavContainer>
 					<NavContent>
 						<Logo
+							className="logo"
 							to="/"
 							onClick={() => {
 								setShowNav(false);

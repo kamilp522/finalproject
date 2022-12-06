@@ -1,9 +1,9 @@
 import React from "react";
 
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
@@ -16,7 +16,7 @@ import Notification from "../components/Notification/Notification";
 const mockStore = configureStore([thunk]);
 
 describe("\nNotification", () => {
-	test("\nnotification renders correctly when message is provided", () => {
+	test("notification renders in red color when message is provided and error is true", () => {
 		const store = mockStore({
 			logged: { token: null, username: null },
 			notification: { message: "this is message", error: true },
@@ -46,7 +46,7 @@ describe("\nNotification", () => {
 		);
 	});
 
-	test("\nnotification renders in green color when message is provided and error is false", () => {
+	test("notification renders in green color when message is provided and error is false", () => {
 		const store = mockStore({
 			logged: { token: null, username: null },
 			notification: { message: "this is message", error: false },
