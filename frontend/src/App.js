@@ -14,8 +14,9 @@ import Indicators from "./components/Indicators/Indicators.js";
 import Login from "./components/Login/Login.js";
 import Register from "./components/Register/Register.js";
 import Quote from "./components/Quote/Quote.js";
-
-import AboutPairTrades from "./components/PairTrades/AboutPairTrades/AboutPairTrades.js";
+import AboutPairsTrades from "./components/PairTrades/AboutPairsTrades/AboutPairsTrades";
+import RatioChart from "./components/PairTrades/RatioChart/RatioChart";
+import Calculator from "./components/PairTrades/Calculator/Calculator";
 
 import "reset-css";
 import "./css/app.css";
@@ -45,7 +46,8 @@ const App = () => {
 					path="/"
 					element={
 						<>
-							<AboutPairTrades />
+							{/* <AboutPairsTrades /> */}
+							<RatioChart />
 
 							{/* <HeroSection />
 							<InfoSection content={about} />

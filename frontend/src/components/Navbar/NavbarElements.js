@@ -41,7 +41,7 @@ export const NavList = styled.ul`
 export const NavListItem = styled.li`
 	padding: 0.75em 0.25em;
 
-	&.nav-pair-trades-list-item {
+	&.nav-pairs-trades-list-item {
 		color: white;
 		position: relative;
 		/* display: flex; */
@@ -71,7 +71,7 @@ export const NavLoggedIn = styled.small`
 	font-size: ${font_sizes.fs_400};
 `;
 
-export const NavPairTradesLink = styled.a`
+export const NavPairsTradesLink = styled.a`
 	color: white;
 	text-decoration: none;
 	font-size: ${font_sizes.fs_400};
@@ -83,10 +83,10 @@ export const NavPairTradesLink = styled.a`
 	}
 `;
 
-export const NavPairTradesMenu = styled.ul`
+export const NavPairsTradesMenu = styled.ul`
 	/* display: none; */
-	display: ${({ showPairTradesNav }) =>
-		showPairTradesNav ? "inline-flex" : "none"};
+	display: ${({ showPairsTradesNav }) =>
+		showPairsTradesNav ? "inline-flex" : "none"};
 	position: absolute;
 	transform: translateY(-50%);
 	flex-direction: column;
@@ -95,6 +95,6 @@ export const NavPairTradesMenu = styled.ul`
 	border-radius: 0.5rem;
 `;
 
-export const NavPairTradesItem = styled.li`
+export const NavPairsTradesItem = styled.li`
 	padding-block: 0.5em;
 `;

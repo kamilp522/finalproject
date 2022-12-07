@@ -15,3 +15,11 @@ export const H2 = styled.h2`
 	margin-bottom: 0.5em;
 	font-weight: 700;
 `;
+
+export const H3 = styled.h3`
+	font-size: ${font_sizes.fs_550};
+	border-bottom: 1px solid ${colors.clr_violet_400};
+	padding-bottom: 0.25em;
+	margin-bottom: 0.5em;
+	font-weight: 700;
+`;

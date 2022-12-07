@@ -22,9 +22,9 @@ import {
 	NavListItem,
 	NavLink,
 	NavLoggedIn,
-	NavPairTradesLink,
-	NavPairTradesMenu,
-	NavPairTradesItem,
+	NavPairsTradesLink,
+	NavPairsTradesMenu,
+	NavPairsTradesItem,
 } from "./NavbarElements";
 import { Logo, LogoSpan } from "../UI/Logo/Logo";
 import { Button } from "../UI/Button/Button";
@@ -35,10 +35,10 @@ const Navbar = () => {
 
 	const navigate = useNavigate();
 
-	const [showNav, setShowNav] = useState(true);
+	const [showNav, setShowNav] = useState(false);
 	const [delay, setDelay] = useState(0);
 	const [timeoutId, setTimeoutId] = useState(null);
-	const [showPairTradesNav, setShowPairTradesNav] = useState(false);
+	const [showPairsTradesNav, setShowPairsTradesNav] = useState(false);
 
 	const setMessageAndError = (message, error) => {
 		dispatch(setNotification({ message, error }));
@@ -75,7 +75,7 @@ const Navbar = () => {
 							to="/"
 							onClick={() => {
 								setShowNav(false);
-								setShowPairTradesNav(false);
+								setShowPairsTradesNav(false);
 							}}
 						>
 							<LogoSpan>mid</LogoSpan>trader
@@ -84,7 +84,7 @@ const Navbar = () => {
 							aria-label="menu"
 							onClick={() => {
 								setShowNav(!showNav);
-								setShowPairTradesNav(false);
+								setShowPairsTradesNav(false);
 							}}
 						>
 							<NavMenuIcon icon={faBars} />
@@ -102,7 +102,7 @@ const Navbar = () => {
 								to="/"
 								onClick={() => {
 									setShowNav(false);
-									setShowPairTradesNav(false);
+									setShowPairsTradesNav(false);
 								}}
 							>
 								Home
@@ -114,7 +114,7 @@ const Navbar = () => {
 								to="/indicators"
 								onClick={() => {
 									setShowNav(false);
-									setShowPairTradesNav(false);
+									setShowPairsTradesNav(false);
 								}}
 							>
 								Indicators
@@ -128,29 +128,34 @@ const Navbar = () => {
 										to="/quote"
 										onClick={() => {
 											setShowNav(false);
-											setShowPairTradesNav(false);
+											setShowPairsTradesNav(false);
 										}}
 									>
 										Quotes
 									</NavLink>
 								</NavListItem>
-								<NavListItem className="nav-pair-trades-list-item">
-									<NavPairTradesLink
-										onClick={() => setShowPairTradesNav(!showPairTradesNav)}
+								<NavListItem className="nav-pairs-trades-list-item">
+									<NavPairsTradesLink
+										onClick={() => setShowPairsTradesNav(!showPairsTradesNav)}
 									>
-										Pair Trades
-									</NavPairTradesLink>
-									<NavPairTradesMenu showPairTradesNav={showPairTradesNav}>
-										<NavPairTradesItem>
-											<NavLink>About Pair Trades</NavLink>
-										</NavPairTradesItem>
-										<NavPairTradesItem>
+										Pairs Trades
+									</NavPairsTradesLink>
+									<NavPairsTradesMenu showPairsTradesNav={showPairsTradesNav}>
+										<NavPairsTradesItem>
+											<NavLink
+												aria-label="about-pairs-trades"
+												to="/about-pairs-trades"
+											>
+												About Pairs Trades
+											</NavLink>
+										</NavPairsTradesItem>
+										<NavPairsTradesItem>
 											<NavLink>Ratio Chart</NavLink>
-										</NavPairTradesItem>
-										<NavPairTradesItem>
-											<NavLink>Pair Trade Calculator</NavLink>
-										</NavPairTradesItem>
-									</NavPairTradesMenu>
+										</NavPairsTradesItem>
+										<NavPairsTradesItem>
+											<NavLink>Pairs Trade Calculator</NavLink>
+										</NavPairsTradesItem>
+									</NavPairsTradesMenu>
 								</NavListItem>
 							</>
 						)}
@@ -166,7 +171,7 @@ const Navbar = () => {
 									<Button
 										onClick={() => {
 											setShowNav(false);
-											setShowPairTradesNav(false);
+											setShowPairsTradesNav(false);
 											handleLogout();
 										}}
 										style={{
