@@ -10,13 +10,10 @@ import Chart from "../Chart/Chart";
 import { options } from "../Chart/chart_options";
 import { latest_content } from "./content";
 
-import {
-	IndicatorsContainer,
-	IndicatorsH2,
-	Indicator,
-	IndicatorsDescription,
-} from "./IndicatorsElements";
+import { Indicator } from "./IndicatorsElements";
 
+import { Container } from "../UI/Container/Container";
+import { Description, H2 } from "../UI/Text/Text";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
 
 const Indicators = () => {
@@ -68,14 +65,14 @@ const Indicators = () => {
 
 	return (
 		<Wrapper>
-			<IndicatorsContainer>
-				<IndicatorsH2>Leading Indicators</IndicatorsH2>
-				<IndicatorsDescription>
+			<Container>
+				<H2>Leading Indicators</H2>
+				<Description>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Exercitationem, alias? Voluptatibus atque ipsam quos nam pariatur
 					nulla provident laboriosam porro minus placeat beatae dolores debitis
 					eligendi, dolorem, ut nobis tempore?
-				</IndicatorsDescription>
+				</Description>
 				<Indicator>
 					{dataMPMI.datasets ? (
 						<Chart
@@ -117,7 +114,7 @@ const Indicators = () => {
 						<div></div>
 					)}
 				</Indicator>
-			</IndicatorsContainer>
+			</Container>
 		</Wrapper>
 	);
 };

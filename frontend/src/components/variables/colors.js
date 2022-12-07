@@ -28,6 +28,15 @@ export const clr_green_700 = "rgba(0, 188, 0, 0.7)";
 export const clr_green_800 = "rgba(0, 188, 0, 0.8)";
 export const clr_green_900 = "rgba(0, 188, 0, 0.9)";
 
+export const clr_light_black_200 = "rgba(27, 27, 27, 0.2)";
+export const clr_light_black_300 = "rgba(27, 27, 27, 0.3)";
+export const clr_light_black_400 = "rgba(27, 27, 27, 0.4)";
+export const clr_light_black_500 = "rgba(27, 27, 27, 0.5)";
+export const clr_light_black_600 = "rgba(27, 27, 27, 0.6)";
+export const clr_light_black_700 = "rgba(27, 27, 27, 0.7)";
+export const clr_light_black_800 = "rgba(27, 27, 27, 0.8)";
+export const clr_light_black_900 = "rgba(27, 27, 27, 0.9)";
+
 export const clr_black_full = "rgb(13, 13, 13)";
 
 export const clr_violet_200 = "rgba(111, 55, 211, 0.2)";

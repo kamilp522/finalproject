@@ -22,6 +22,9 @@ import {
 	NavListItem,
 	NavLink,
 	NavLoggedIn,
+	NavPairTradesLink,
+	NavPairTradesMenu,
+	NavPairTradesItem,
 } from "./NavbarElements";
 import { Logo, LogoSpan } from "../UI/Logo/Logo";
 import { Button } from "../UI/Button/Button";
@@ -32,9 +35,10 @@ const Navbar = () => {
 
 	const navigate = useNavigate();
 
-	const [showNav, setShowNav] = useState(false);
+	const [showNav, setShowNav] = useState(true);
 	const [delay, setDelay] = useState(0);
 	const [timeoutId, setTimeoutId] = useState(null);
+	const [showPairTradesNav, setShowPairTradesNav] = useState(false);
 
 	const setMessageAndError = (message, error) => {
 		dispatch(setNotification({ message, error }));
@@ -71,11 +75,18 @@ const Navbar = () => {
 							to="/"
 							onClick={() => {
 								setShowNav(false);
+								setShowPairTradesNav(false);
 							}}
 						>
 							<LogoSpan>mid</LogoSpan>trader
 						</Logo>
-						<NavMenu aria-label="menu" onClick={() => setShowNav(!showNav)}>
+						<NavMenu
+							aria-label="menu"
+							onClick={() => {
+								setShowNav(!showNav);
+								setShowPairTradesNav(false);
+							}}
+						>
 							<NavMenuIcon icon={faBars} />
 						</NavMenu>
 					</NavContent>
@@ -89,7 +100,10 @@ const Navbar = () => {
 							<NavLink
 								aria-label="home"
 								to="/"
-								onClick={() => setShowNav(false)}
+								onClick={() => {
+									setShowNav(false);
+									setShowPairTradesNav(false);
+								}}
 							>
 								Home
 							</NavLink>
@@ -98,21 +112,47 @@ const Navbar = () => {
 							<NavLink
 								aria-label="indicators"
 								to="/indicators"
-								onClick={() => setShowNav(false)}
+								onClick={() => {
+									setShowNav(false);
+									setShowPairTradesNav(false);
+								}}
 							>
 								Indicators
 							</NavLink>
 						</NavListItem>
 						{logged.username && (
-							<NavListItem>
-								<NavLink
-									aria-label="quote"
-									to="/quote"
-									onClick={() => setShowNav(false)}
-								>
-									Quote
-								</NavLink>
-							</NavListItem>
+							<>
+								<NavListItem>
+									<NavLink
+										aria-label="quote"
+										to="/quote"
+										onClick={() => {
+											setShowNav(false);
+											setShowPairTradesNav(false);
+										}}
+									>
+										Quotes
+									</NavLink>
+								</NavListItem>
+								<NavListItem className="nav-pair-trades-list-item">
+									<NavPairTradesLink
+										onClick={() => setShowPairTradesNav(!showPairTradesNav)}
+									>
+										Pair Trades
+									</NavPairTradesLink>
+									<NavPairTradesMenu showPairTradesNav={showPairTradesNav}>
+										<NavPairTradesItem>
+											<NavLink>About Pair Trades</NavLink>
+										</NavPairTradesItem>
+										<NavPairTradesItem>
+											<NavLink>Ratio Chart</NavLink>
+										</NavPairTradesItem>
+										<NavPairTradesItem>
+											<NavLink>Pair Trade Calculator</NavLink>
+										</NavPairTradesItem>
+									</NavPairTradesMenu>
+								</NavListItem>
+							</>
 						)}
 						{!logged.username ? (
 							<NavListItem>
@@ -126,6 +166,7 @@ const Navbar = () => {
 									<Button
 										onClick={() => {
 											setShowNav(false);
+											setShowPairTradesNav(false);
 											handleLogout();
 										}}
 										style={{

@@ -15,6 +15,8 @@ import Login from "./components/Login/Login.js";
 import Register from "./components/Register/Register.js";
 import Quote from "./components/Quote/Quote.js";
 
+import AboutPairTrades from "./components/PairTrades/AboutPairTrades/AboutPairTrades.js";
+
 import "reset-css";
 import "./css/app.css";
 
@@ -43,9 +45,11 @@ const App = () => {
 					path="/"
 					element={
 						<>
-							<HeroSection />
+							<AboutPairTrades />
+
+							{/* <HeroSection />
 							<InfoSection content={about} />
-							<InfoSection content={join} />
+							<InfoSection content={join} /> */}
 						</>
 					}
 				/>
