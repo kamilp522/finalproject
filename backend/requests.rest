@@ -3,6 +3,10 @@ GET http://localhost:3001/api/users HTTP/1.1
 Content-Type: application/json
 
 ###
+DELETE http://localhost:3001/api/users/6390369d82e3a7c3a4cf9751 HTTP/1.1
+Content-Type: application/json
+
+###
 POST http://localhost:3001/api/users HTTP/1.1
 Content-Type: application/json
 
@@ -11,6 +15,7 @@ Content-Type: application/json
   "password": "1234567a",
   "repeatedPassword": "1234567a"
 }
+
 
 ###
 POST http://localhost:3001/api/login HTTP/1.1

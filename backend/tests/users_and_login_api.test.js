@@ -228,6 +228,19 @@ describe("\nWith one user already in database:", () => {
 		expect(usersAtEnd).toHaveLength(usersAtStart.length);
 	});
 
+	describe("Modificating users database", () => {
+		test("User can be deleted", async () => {
+			const usersAtStart = await helper.usersInDb();
+			const id = usersAtStart[0].id;
+
+			await api.delete(`/api/users/${id}`).expect(204);
+
+			const usersAtEnd = await helper.usersInDb();
+
+			expect(usersAtEnd.length).toBe(usersAtStart.length - 1);
+		});
+	});
+
 	describe("\nLoging in:", () => {
 		test("can't log in without a correct username", async () => {
 			const credentials = {
