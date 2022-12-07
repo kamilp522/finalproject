@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../reducers/loginReducer";
+import { setNotification } from "../../reducers/notificationReducer";
 
 import AnimateHeight from "react-animate-height";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -35,6 +36,10 @@ const Navbar = () => {
 	const [delay, setDelay] = useState(0);
 	const [timeoutId, setTimeoutId] = useState(null);
 
+	const setMessageAndError = (message, error) => {
+		dispatch(setNotification({ message, error }));
+	};
+
 	const handleLogout = () => {
 		dispatch(logoutUser());
 
@@ -47,6 +52,7 @@ const Navbar = () => {
 		if (timeoutId) clearTimeout(timeoutId);
 		setTimeoutId(setTimeout(() => setDelay(0), 500));
 
+		setMessageAndError(`user ${logged.username} logged out`);
 		navigate("/");
 	};
 

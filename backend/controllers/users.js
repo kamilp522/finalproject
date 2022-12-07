@@ -7,6 +7,11 @@ usersRouter.get("/", async (request, response) => {
 	response.json(users);
 });
 
+usersRouter.delete("/all", async (request, response) => {
+	await User.deleteMany({});
+	response.status(204).end();
+});
+
 usersRouter.delete("/:id", async (request, response) => {
 	await User.findByIdAndRemove(request.params.id);
 	response.status(204).end();

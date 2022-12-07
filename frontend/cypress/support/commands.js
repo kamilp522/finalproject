@@ -1,13 +1,47 @@
-Cypress.Commands.add("checkIfNavLinksAreNotVisible", () => {
+Cypress.Commands.add("checkIfNotLoggedNavLinksAreNotVisible", () => {
 	cy.get("a[aria-label='home']").should("not.be.visible");
 	cy.get("a[aria-label='indicators']").should("not.be.visible");
 	cy.get("a[aria-label='login']").should("not.be.visible");
 });
 
-Cypress.Commands.add("checkIfNavLinksAreVisible", () => {
+Cypress.Commands.add("checkIfNotLoggedNavLinksAreVisible", () => {
 	cy.get("a[aria-label='home']").should("be.visible");
 	cy.get("a[aria-label='indicators']").should("be.visible");
 	cy.get("a[aria-label='login']").should("be.visible");
+});
+
+Cypress.Commands.add("checkIfLoggedNavLinksAreNotVisible", () => {
+	cy.get("a[aria-label='home']").should("not.be.visible");
+	cy.get("a[aria-label='indicators']").should("not.be.visible");
+	cy.get("a[aria-label='quote']").should("not.be.visible");
+	cy.get("a[aria-label='logout']").should("not.be.visible");
+});
+
+Cypress.Commands.add("checkIfLoggedNavLinksAreVisible", () => {
+	cy.get("a[aria-label='home']").should("be.visible");
+	cy.get("a[aria-label='indicators']").should("be.visible");
+	cy.get("a[aria-label='quote']").should("be.visible");
+	cy.get("a[aria-label='logout']").should("be.visible");
+});
+
+Cypress.Commands.add("createUser", (username, password) => {
+	return cy
+		.request("POST", "http://localhost:3001/api/users", {
+			username: username,
+			password: password,
+			repeatedPassword: password,
+		})
+		.then((response) => response.body.id);
+});
+
+Cypress.Commands.add("login", ({ username, password }) => {
+	cy.request("POST", "http://localhost:3001/api/login", {
+		username,
+		password,
+	}).then(({ body }) => {
+		localStorage.setItem("loggedMidtraderUser", JSON.stringify(body));
+	});
+	cy.visit("http://localhost:3000");
 });
 
 // ***********************************************

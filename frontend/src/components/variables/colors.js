@@ -20,13 +20,13 @@ export const clr_red_700 = "rgba(222, 0, 0, 0.7)";
 export const clr_red_800 = "rgba(222, 0, 0, 0.8)";
 export const clr_red_900 = "rgba(222, 0, 0, 0.9)";
 
-export const clr_green_200 = "rgba(0, 222, 0, 0.2)";
-export const clr_green_300 = "rgba(0, 222, 0, 0.3)";
-export const clr_green_400 = "rgba(0, 222, 0, 0.4)";
-export const clr_green_500 = "rgba(0, 222, 0, 0.5)";
-export const clr_green_700 = "rgba(0, 222, 0, 0.7)";
-export const clr_green_800 = "rgba(0, 222, 0, 0.8)";
-export const clr_green_900 = "rgba(0, 222, 0, 0.9)";
+export const clr_green_200 = "rgba(0, 188, 0, 0.2)";
+export const clr_green_300 = "rgba(0, 188, 0, 0.3)";
+export const clr_green_400 = "rgba(0, 188, 0, 0.4)";
+export const clr_green_500 = "rgba(0, 188, 0, 0.5)";
+export const clr_green_700 = "rgba(0, 188, 0, 0.7)";
+export const clr_green_800 = "rgba(0, 188, 0, 0.8)";
+export const clr_green_900 = "rgba(0, 188, 0, 0.9)";
 
 export const clr_black_full = "rgb(13, 13, 13)";
 
