@@ -32,12 +32,11 @@ const QuoteForm = ({
 		setChartData({ labels: null, datasets: null });
 		setQuote(null);
 
-		const symbol_input_value = document.getElementById("quote-symbol").value;
-		setTypedSymbol(symbol_input_value);
+		const symbolInputValue = document.getElementById("quote-symbol").value;
+		setTypedSymbol(symbolInputValue);
 
 		try {
 			const quote = await quoteService.getQuoteData({ symbol: typedSymbol });
-			// const quote = {};
 			setQuote(quote);
 
 			const timeseries = await timeseriesService.getTimeseriesData({
@@ -53,7 +52,7 @@ const QuoteForm = ({
 				datasets: [
 					{
 						data: timeseries_chart_data.values,
-						backgroundColor: colors.clr_very_dark_blue_500,
+						backgroundColor: colors.clr_violet_400,
 						borderColor: colors.clr_violet_400,
 					},
 				],

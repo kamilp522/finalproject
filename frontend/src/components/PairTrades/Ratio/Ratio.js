@@ -5,11 +5,18 @@ import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { Container } from "../../UI/Container/Container";
 import { H2, H3, Description } from "../../UI/Text/Text";
 
+import Chart from "../../Chart/Chart";
+import { options } from "../../Chart/chart_options";
+
+import { optionsAdjustMinValue } from "../../../helpers/optionsAdjustMinValue";
+
 import RatioForm from "../../Forms/RatioForm";
 
 const Ratio = () => {
-	const [ratioLongSymbol, setRatioLongSymbol] = useState("");
-	const [ratioShortSymbol, setRatioShortSymbol] = useState("");
+	const [typedRatioLongSymbol, setTypedRatioLongSymbol] = useState("");
+	const [typedRatioShortSymbol, setTypedRatioShortSymbol] = useState("");
+	const [currentRatioLongSymbol, setCurrentRatioLongSymbol] = useState("");
+	const [currentRatioShortSymbol, setCurrentRatioShortSymbol] = useState("");
 	const [chartData, setChartData] = useState({ labels: null, datasets: null });
 
 	return (
@@ -21,13 +28,25 @@ const Ratio = () => {
 				commodi ipsam, autem atque optio laboriosam rem dolore! A, tenetur!
 			</Description>
 			<RatioForm
-				ratioLongSymbol={ratioLongSymbol}
-				setRatioLongSymbol={setRatioLongSymbol}
-				ratioShortSymbol={ratioShortSymbol}
-				setRatioShortSymbol={setRatioShortSymbol}
+				typedRatioLongSymbol={typedRatioLongSymbol}
+				setTypedRatioLongSymbol={setTypedRatioLongSymbol}
+				typedRatioShortSymbol={typedRatioShortSymbol}
+				setTypedRatioShortSymbol={setTypedRatioShortSymbol}
+				setCurrentRatioLongSymbol={setCurrentRatioLongSymbol}
+				setCurrentRatioShortSymbol={setCurrentRatioShortSymbol}
 				setChartData={setChartData}
 			/>
-			<Container></Container>
+			<Container>
+				{chartData.datasets && (
+					<Chart
+						title={`${currentRatioLongSymbol.toLocaleUpperCase()} / ${currentRatioShortSymbol.toLocaleUpperCase()}`}
+						options={optionsAdjustMinValue(options, chartData)}
+						data={chartData}
+						type="bar"
+						isRatio={true}
+					/>
+				)}
+			</Container>
 		</Wrapper>
 	);
 };

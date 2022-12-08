@@ -5,12 +5,12 @@ export const getLastXTradingDays = async (days) => {
 	const lastXTradingDays = [];
 
 	for (let i = 0; lastXTradingDays.length < days; i++) {
-		getTradingDay(i, lastXTradingDays, holidays);
+		getXthTradingDay(i, lastXTradingDays, holidays);
 	}
 	return lastXTradingDays;
 };
 
-const getTradingDay = (iterator, array, holidays) => {
+const getXthTradingDay = (iterator, array, holidays) => {
 	const today = new Date();
 	const current = new Date(today.getTime());
 	const day = new Date(
@@ -19,8 +19,9 @@ const getTradingDay = (iterator, array, holidays) => {
 
 	// push if day isn't a holiday, saturday or sunday
 	if (
-		!(current.getDay() === 0 || current.getDay() === 6) &&
-		!holidays.includes(day)
+		!holidays.includes(day) &&
+		current.getDay() !== 6 &&
+		current.getDay() !== 0
 	) {
 		array.push(day);
 	}

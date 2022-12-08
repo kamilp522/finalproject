@@ -39,6 +39,8 @@ export const clr_light_black_900 = "rgba(27, 27, 27, 0.9)";
 
 export const clr_black_full = "rgb(13, 13, 13)";
 
+export const clr_violet_050 = "rgba(111, 55, 211, 0.05)";
+export const clr_violet_100 = "rgba(111, 55, 211, 0.1)";
 export const clr_violet_200 = "rgba(111, 55, 211, 0.2)";
 export const clr_violet_300 = "rgba(111, 55, 211, 0.3)";
 export const clr_violet_400 = "rgba(111, 55, 211, 0.4)";

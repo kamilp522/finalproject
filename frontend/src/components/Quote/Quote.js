@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-import { convertToUSD } from "../../helpers/convertToUSD";
-import { optionsAdjustMinValue } from "../../helpers/optionsAdjustMinValue";
-
 import Chart from "../Chart/Chart";
 import { options } from "../Chart/chart_options";
+
+import { optionsAdjustMinValue } from "../../helpers/optionsAdjustMinValue";
+import { convertToUSD } from "../../helpers/convertToUSD";
 
 import { QuoteContainer } from "./QuoteElements";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
@@ -61,7 +61,6 @@ const Quote = () => {
 						</Table>
 						{chartData.datasets && (
 							<Chart
-								title={quote.symbol}
 								interpretation={quote.name}
 								options={optionsAdjustMinValue(options, chartData)}
 								data={chartData}

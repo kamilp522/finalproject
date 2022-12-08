@@ -29,6 +29,7 @@ const Chart = ({
 	chartInterval,
 	setChartInterval,
 	currentSymbol,
+	isRatio,
 }) => {
 	const [currentData, setCurrentData] = useState(data);
 
@@ -87,10 +88,10 @@ const Chart = ({
 
 	return (
 		<ChartContainer>
-			{type === "bar" && <ChartH3>{title}</ChartH3>}
-			<ChartText>{interpretation}</ChartText>
+			{title && <ChartH3>{title}</ChartH3>}
+			{interpretation && <ChartText>{interpretation}</ChartText>}
 			<ChartButtonsWrapper>
-				{type === "bar" && (
+				{type === "bar" && !isRatio && (
 					<>
 						<ChartTimeButton onClick={() => setCurrentData(data)}>
 							24 months
@@ -103,7 +104,7 @@ const Chart = ({
 						</ChartTimeButton>
 					</>
 				)}
-				{type === "line" && (
+				{chartInterval && (
 					<Select
 						name="interval"
 						id="quote-chart-interval"

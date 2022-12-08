@@ -3,10 +3,10 @@ const ratioRouter = require("express").Router();
 const axios = require("axios");
 
 ratioRouter.post("/", async (request, response) => {
-	const { ratioLongSymbol, ratioShortSymbol, days } = request.body;
+	const { typedRatioLongSymbol, typedRatioShortSymbol, days } = request.body;
 
 	const long = await axios.get(
-		`https://api.newtonanalytics.com/price/?ticker=${ratioLongSymbol}&interval=1d&dataType=6&observations=${days}`
+		`https://api.newtonanalytics.com/price/?ticker=${typedRatioLongSymbol}&interval=1d&dataType=6&observations=${days}`
 	);
 
 	if (long.data.code === 400) {
@@ -16,7 +16,7 @@ ratioRouter.post("/", async (request, response) => {
 	}
 
 	const short = await axios.get(
-		`https://api.newtonanalytics.com/price/?ticker=${ratioShortSymbol}&interval=1d&dataType=6&observations=${days}`
+		`https://api.newtonanalytics.com/price/?ticker=${typedRatioShortSymbol}&interval=1d&dataType=6&observations=${days}`
 	);
 
 	if (short.data.code === 400) {

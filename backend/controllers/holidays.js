@@ -5,7 +5,7 @@ holidaysRouter.get("/", async (request, response) => {
 	const getHolidays = async () => {
 		const currentYear = new Date().getFullYear();
 		const holidays = [];
-		const yearsOfHolidays = 3;
+		const yearsOfHolidays = 5;
 
 		for (let i = 0; i < yearsOfHolidays; i++) {
 			const holidaysResponse = await axios.request(
