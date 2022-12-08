@@ -15,7 +15,7 @@ import Login from "./components/Login/Login.js";
 import Register from "./components/Register/Register.js";
 import Quote from "./components/Quote/Quote.js";
 import AboutPairsTrades from "./components/PairTrades/AboutPairsTrades/AboutPairsTrades";
-import RatioChart from "./components/PairTrades/RatioChart/RatioChart";
+import Ratio from "./components/PairTrades/Ratio/Ratio";
 import Calculator from "./components/PairTrades/Calculator/Calculator";
 
 import "reset-css";
@@ -47,7 +47,8 @@ const App = () => {
 					element={
 						<>
 							{/* <AboutPairsTrades /> */}
-							<RatioChart />
+							<Ratio />
+							{/* <Calculator /> */}
 
 							{/* <HeroSection />
 							<InfoSection content={about} />
@@ -60,6 +61,9 @@ const App = () => {
 					path="/quote"
 					element={logged.username ? <Quote /> : <Navigate replace to="/" />}
 				/>
+				<Route path="about-pairs-trades" element={<AboutPairsTrades />} />
+				<Route path="ratio-chart" element={<Ratio />} />
+				<Route path="calculator" element={<Calculator />} />
 				<Route
 					path="/login"
 					element={!logged.username ? <Login /> : <Navigate replace to="/" />}

@@ -8,6 +8,8 @@ const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const quotesRouter = require("./controllers/quote");
 const timeseriesRouter = require("./controllers/timeseries");
+const ratioRouter = require("./controllers/ratio");
+const holidaysRouter = require("./controllers/holidays");
 
 config.connect();
 
@@ -19,6 +21,8 @@ app.use("/api/quote", quotesRouter);
 app.use("/api/timeseries", timeseriesRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
+app.use("/api/ratio", ratioRouter);
+app.use("/api/holidays", holidaysRouter);
 
 app.use(express.static("build"));
 

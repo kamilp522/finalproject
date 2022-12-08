@@ -60,6 +60,11 @@ const Navbar = () => {
 		navigate("/");
 	};
 
+	const hideNavs = () => {
+		setShowNav(false);
+		setShowPairsTradesNav(false);
+	};
+
 	return (
 		<NavWrapper>
 			<AnimateHeight
@@ -74,8 +79,7 @@ const Navbar = () => {
 							className="logo"
 							to="/"
 							onClick={() => {
-								setShowNav(false);
-								setShowPairsTradesNav(false);
+								hideNavs();
 							}}
 						>
 							<LogoSpan>mid</LogoSpan>trader
@@ -101,8 +105,7 @@ const Navbar = () => {
 								aria-label="home"
 								to="/"
 								onClick={() => {
-									setShowNav(false);
-									setShowPairsTradesNav(false);
+									hideNavs();
 								}}
 							>
 								Home
@@ -113,8 +116,7 @@ const Navbar = () => {
 								aria-label="indicators"
 								to="/indicators"
 								onClick={() => {
-									setShowNav(false);
-									setShowPairsTradesNav(false);
+									hideNavs();
 								}}
 							>
 								Indicators
@@ -127,8 +129,7 @@ const Navbar = () => {
 										aria-label="quote"
 										to="/quote"
 										onClick={() => {
-											setShowNav(false);
-											setShowPairsTradesNav(false);
+											hideNavs();
 										}}
 									>
 										Quotes
@@ -145,15 +146,34 @@ const Navbar = () => {
 											<NavLink
 												aria-label="about-pairs-trades"
 												to="/about-pairs-trades"
+												onClick={() => {
+													hideNavs();
+												}}
 											>
 												About Pairs Trades
 											</NavLink>
 										</NavPairsTradesItem>
 										<NavPairsTradesItem>
-											<NavLink>Ratio Chart</NavLink>
+											<NavLink
+												aria-label="ratio-chart"
+												to="/ratio-chart"
+												onClick={() => {
+													hideNavs();
+												}}
+											>
+												Ratio Chart
+											</NavLink>
 										</NavPairsTradesItem>
 										<NavPairsTradesItem>
-											<NavLink>Pairs Trade Calculator</NavLink>
+											<NavLink
+												aria-label="calculator"
+												to="/calculator"
+												onClick={() => {
+													hideNavs();
+												}}
+											>
+												Pairs Trade Calculator
+											</NavLink>
 										</NavPairsTradesItem>
 									</NavPairsTradesMenu>
 								</NavListItem>
@@ -170,8 +190,7 @@ const Navbar = () => {
 								<NavLink aria-label="logout" to="/">
 									<Button
 										onClick={() => {
-											setShowNav(false);
-											setShowPairsTradesNav(false);
+											hideNavs();
 											handleLogout();
 										}}
 										style={{
