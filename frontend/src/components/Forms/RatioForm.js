@@ -5,6 +5,8 @@ import * as colors from "../variables/colors";
 import ratioService from "../../services/ratio";
 import holidaysService from "../../services/holidays";
 
+import { getLastXTradingDays } from "../../helpers/getLastXTradingDays";
+
 import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
@@ -18,20 +20,19 @@ const RatioForm = ({
 	const getRatio = async (event) => {
 		event.preventDefault();
 
-		const ratio = await ratioService.getRatioData({
-			ratioLongSymbol,
-			ratioShortSymbol,
-		});
+		const days = 200;
 
-		console.log(ratio);
+		// const ratio = await ratioService.getRatioData({
+		// 	ratioLongSymbol,
+		// 	ratioShortSymbol,
+		// 	days,
+		// });
+		// // console.log(ratio);
+		// const ratio_chart_data = ratioService.getRatioChartParams(ratio);
+		// console.log(ratio_chart_data);
 
-		const ratio_chart_data = ratioService.getRatioChartParams(ratio);
-
-		console.log(ratio_chart_data);
-
-		const holidays = await holidaysService.getHolidaysData();
-
-		console.log(holidays);
+		const lastXTradingDays = await getLastXTradingDays(days);
+		console.log(lastXTradingDays);
 	};
 
 	return (

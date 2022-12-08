@@ -3,8 +3,7 @@ const ratioRouter = require("express").Router();
 const axios = require("axios");
 
 ratioRouter.post("/", async (request, response) => {
-	const { ratioLongSymbol, ratioShortSymbol } = request.body;
-	const days = "200";
+	const { ratioLongSymbol, ratioShortSymbol, days } = request.body;
 
 	const long = await axios.get(
 		`https://api.newtonanalytics.com/price/?ticker=${ratioLongSymbol}&interval=1d&dataType=6&observations=${days}`
