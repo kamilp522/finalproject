@@ -1,14 +1,18 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, CSSProperties } from "react";
+
+import * as colors from "../../variables/colors";
 
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
-import { Container } from "../../UI/Container/Container";
 import { H2, H3, Description } from "../../UI/Text/Text";
+import { RatioContainer } from "./RatioElements";
 
 import Chart from "../../Chart/Chart";
 import { options } from "../../Chart/chart_options";
 
 import { optionsAdjustMinValue } from "../../../helpers/optionsAdjustMinValue";
+
+import MoonLoader from "react-spinners/MoonLoader";
 
 import RatioForm from "../../Forms/RatioForm";
 
@@ -18,6 +22,11 @@ const Ratio = () => {
 	const [currentRatioLongSymbol, setCurrentRatioLongSymbol] = useState("");
 	const [currentRatioShortSymbol, setCurrentRatioShortSymbol] = useState("");
 	const [chartData, setChartData] = useState({ labels: null, datasets: null });
+	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		if (chartData.datasets) setLoading(false);
+	}, [chartData]);
 
 	return (
 		<Wrapper>
@@ -35,8 +44,16 @@ const Ratio = () => {
 				setCurrentRatioLongSymbol={setCurrentRatioLongSymbol}
 				setCurrentRatioShortSymbol={setCurrentRatioShortSymbol}
 				setChartData={setChartData}
+				setLoading={setLoading}
 			/>
-			<Container>
+			<RatioContainer>
+				{loading && (
+					<MoonLoader
+						loading={loading}
+						size={50}
+						color={colors.clr_violet_full}
+					/>
+				)}
 				{chartData.datasets && (
 					<Chart
 						title={`${currentRatioLongSymbol.toLocaleUpperCase()} / ${currentRatioShortSymbol.toLocaleUpperCase()}`}
@@ -46,7 +63,7 @@ const Ratio = () => {
 						isRatio={true}
 					/>
 				)}
-			</Container>
+			</RatioContainer>
 		</Wrapper>
 	);
 };

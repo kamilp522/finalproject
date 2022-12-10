@@ -47,12 +47,12 @@ const App = () => {
 					element={
 						<>
 							{/* <AboutPairsTrades /> */}
-							<Ratio />
+							{/* <Ratio /> */}
 							{/* <Calculator /> */}
 
-							{/* <HeroSection />
+							<HeroSection />
 							<InfoSection content={about} />
-							<InfoSection content={join} /> */}
+							<InfoSection content={join} />
 						</>
 					}
 				/>

@@ -19,6 +19,7 @@ const RatioForm = ({
 	setCurrentRatioLongSymbol,
 	setCurrentRatioShortSymbol,
 	setChartData,
+	setLoading,
 }) => {
 	const clearInput = () => {
 		setTypedRatioLongSymbol("");
@@ -36,6 +37,7 @@ const RatioForm = ({
 		setCurrentRatioLongSymbol(typedRatioLongSymbol);
 		setCurrentRatioShortSymbol(typedRatioShortSymbol);
 		setChartData({ labels: null, datasets: null });
+		setLoading(true);
 
 		try {
 			const ratio = await ratioService.getRatioData({
@@ -54,7 +56,7 @@ const RatioForm = ({
 						data: ratio_chart_data,
 						backgroundColor: colors.clr_violet_600,
 						borderColor: colors.clr_violet_600,
-						hoverBackgroundColor: colors.clr_red_900,
+						hoverBackgroundColor: colors.clr_light_black_800,
 					},
 				],
 			});

@@ -35,4 +35,6 @@ describe("Indicators", function () {
 			.should("be.oneOf", [200, 304]);
 		cy.contains("University of Michigan Index of Consumer Sentiment");
 	});
+
+	
 });
