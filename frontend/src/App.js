@@ -48,11 +48,11 @@ const App = () => {
 						<>
 							{/* <AboutPairsTrades /> */}
 							{/* <Ratio /> */}
-							{/* <Calculator /> */}
+							<Calculator />
 
-							<HeroSection />
-							<InfoSection content={about} />
-							<InfoSection content={join} />
+							{/* <HeroSection /> */}
+							{/* <InfoSection content={about} /> */}
+							{/* <InfoSection content={join} /> */}
 						</>
 					}
 				/>

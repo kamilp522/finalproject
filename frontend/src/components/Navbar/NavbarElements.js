@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
-import * as font_families from "../variables/font-families";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -71,6 +70,17 @@ export const NavLoggedIn = styled.small`
 	font-size: ${font_sizes.fs_400};
 `;
 
+export const NavPairsTradesMenu = styled.ul`
+	display: ${({ showPairsTradesNav }) =>
+		showPairsTradesNav ? "inline-flex" : "none"};
+	position: absolute;
+	transform: translateY(-50%);
+	flex-direction: column;
+	background-color: ${colors.clr_light_black_900};
+	padding: 0.5em 1em;
+	border-radius: 0.5rem;
+`;
+
 export const NavPairsTradesLink = styled.a`
 	color: white;
 	text-decoration: none;
@@ -83,18 +93,6 @@ export const NavPairsTradesLink = styled.a`
 	}
 `;
 
-export const NavPairsTradesMenu = styled.ul`
-	/* display: none; */
-	display: ${({ showPairsTradesNav }) =>
-		showPairsTradesNav ? "inline-flex" : "none"};
-	position: absolute;
-	transform: translateY(-50%);
-	flex-direction: column;
-	background-color: ${colors.clr_light_black_900};
-	padding: 0.5em 1em;
-	border-radius: 0.5rem;
-`;
-
 export const NavPairsTradesItem = styled.li`
-	padding-block: 0.5em;
+	padding-block: 0.75em;
 `;

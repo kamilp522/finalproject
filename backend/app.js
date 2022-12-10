@@ -10,6 +10,7 @@ const quotesRouter = require("./controllers/quote");
 const timeseriesRouter = require("./controllers/timeseries");
 const ratioRouter = require("./controllers/ratio");
 const holidaysRouter = require("./controllers/holidays");
+const calculatorRouter = require("./controllers/calculator");
 
 config.connect();
 
@@ -23,6 +24,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/ratio", ratioRouter);
 app.use("/api/holidays", holidaysRouter);
+app.use("/api/calculator", calculatorRouter);
 
 app.use(express.static("build"));
 

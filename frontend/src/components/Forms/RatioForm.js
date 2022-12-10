@@ -82,7 +82,7 @@ const RatioForm = ({
 				onChange={({ target }) =>
 					setTypedRatioLongSymbol(target.value.toLocaleUpperCase())
 				}
-				placeholder="type long symbol"
+				placeholder="long symbol"
 			/>
 			<Input
 				id="ratio-short-symbol"
@@ -91,7 +91,7 @@ const RatioForm = ({
 				onChange={({ target }) =>
 					setTypedRatioShortSymbol(target.value.toLocaleUpperCase())
 				}
-				placeholder="type short symbol"
+				placeholder="short symbol"
 			/>
 
 			<FormButtonWrapper>
