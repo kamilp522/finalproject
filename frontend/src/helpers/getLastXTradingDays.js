@@ -1,7 +1,13 @@
 import holidaysService from "../services/holidays";
 
 export const getLastXTradingDays = async (days) => {
-	const holidays = await holidaysService.getHolidaysData();
+	let holidays;
+	try {
+		holidays = await holidaysService.getHolidaysData();
+	} catch (exception) {
+		console.log(exception.response.data.error);
+	}
+
 	const lastXTradingDays = [];
 
 	for (let i = 0; lastXTradingDays.length < days; i++) {

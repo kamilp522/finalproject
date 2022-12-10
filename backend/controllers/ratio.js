@@ -9,9 +9,9 @@ ratioRouter.post("/", async (request, response) => {
 		`https://api.newtonanalytics.com/price/?ticker=${typedRatioLongSymbol}&interval=1d&dataType=6&observations=${days}`
 	);
 
-	if (long.data.code === 400) {
+	if (long.data.status == 400) {
 		return response.status(400).json({
-			error: "stock with long symbol wasn't found",
+			error: `stock with symbol ${typedRatioLongSymbol} (long) wasn't found`,
 		});
 	}
 
@@ -19,9 +19,9 @@ ratioRouter.post("/", async (request, response) => {
 		`https://api.newtonanalytics.com/price/?ticker=${typedRatioShortSymbol}&interval=1d&dataType=6&observations=${days}`
 	);
 
-	if (short.data.code === 400) {
+	if (short.data.status == 400) {
 		return response.status(400).json({
-			error: "stock with short symbol wasn't found",
+			error: `stock with symbol ${typedRatioShortSymbol} (short) wasn't found`,
 		});
 	}
 

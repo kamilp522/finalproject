@@ -12,6 +12,12 @@ holidaysRouter.get("/", async (request, response) => {
 				setHolidaysOptions(currentYear - i)
 			);
 
+			if (holidaysResponse.data.status === 400) {
+				return response.status(400).json({
+					error: "holidays api couldn't fetch data correctly",
+				});
+			}
+
 			for (let j = 0; j < holidaysResponse.data.length; j++) {
 				holidays.push(holidaysResponse.data[j].date);
 			}

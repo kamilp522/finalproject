@@ -10,6 +10,7 @@ import { getLastXTradingDays } from "../../helpers/getLastXTradingDays";
 
 import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
+import { useDispatch } from "react-redux";
 
 const RatioForm = ({
 	typedRatioLongSymbol,
@@ -21,6 +22,8 @@ const RatioForm = ({
 	setChartData,
 	setLoading,
 }) => {
+	const dispatch = useDispatch();
+
 	const clearInput = () => {
 		setTypedRatioLongSymbol("");
 		setTypedRatioShortSymbol("");
@@ -65,6 +68,7 @@ const RatioForm = ({
 		} catch (exception) {
 			const errorMessage = exception.response.data.error;
 			setMessageAndError(`${errorMessage}`, true);
+			setLoading(false);
 			clearInput();
 		}
 	};
@@ -74,15 +78,19 @@ const RatioForm = ({
 			<Input
 				id="ratio-long-symbol"
 				type="text"
-				value={typedRatioLongSymbol.toLocaleUpperCase()}
-				onChange={({ target }) => setTypedRatioLongSymbol(target.value)}
+				value={typedRatioLongSymbol}
+				onChange={({ target }) =>
+					setTypedRatioLongSymbol(target.value.toLocaleUpperCase())
+				}
 				placeholder="type long symbol"
 			/>
 			<Input
 				id="ratio-short-symbol"
 				type="text"
-				value={typedRatioShortSymbol.toLocaleUpperCase()}
-				onChange={({ target }) => setTypedRatioShortSymbol(target.value)}
+				value={typedRatioShortSymbol}
+				onChange={({ target }) =>
+					setTypedRatioShortSymbol(target.value.toLocaleUpperCase())
+				}
 				placeholder="type short symbol"
 			/>
 

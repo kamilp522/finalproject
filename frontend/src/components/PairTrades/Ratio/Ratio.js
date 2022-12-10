@@ -56,7 +56,7 @@ const Ratio = () => {
 				)}
 				{chartData.datasets && (
 					<Chart
-						title={`${currentRatioLongSymbol.toLocaleUpperCase()} / ${currentRatioShortSymbol.toLocaleUpperCase()}`}
+						title={`${currentRatioLongSymbol} / ${currentRatioShortSymbol}`}
 						options={optionsAdjustMinValue(options, chartData)}
 						data={chartData}
 						type="bar"

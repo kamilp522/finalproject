@@ -71,8 +71,10 @@ const QuoteForm = ({
 			<Input
 				id="quote-symbol"
 				type="text"
-				value={typedSymbol.toLocaleUpperCase()}
-				onChange={({ target }) => setTypedSymbol(target.value)}
+				value={typedSymbol}
+				onChange={({ target }) =>
+					setTypedSymbol(target.value.toLocaleUpperCase())
+				}
 				placeholder="type symbol"
 			/>
 			<FormButtonWrapper>
