@@ -108,7 +108,7 @@ const Caluclator = () => {
                   <Data></Data>
                 </Row>
                 <Row>
-                  <Data>Total</Data>
+                  <Data>Total:</Data>
                   <Data></Data>
                   <Data></Data>
                   <Data></Data>
