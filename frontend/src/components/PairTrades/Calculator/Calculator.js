@@ -88,17 +88,17 @@ const Caluclator = () => {
 							<TableBody>
 								<Row>
 									<Data>{currentCalculatorLongSymbol}</Data>
-									<Data>{tableData.longPrice}</Data>
+									<Data>{convertToUSD(tableData.longPrice)}</Data>
 									<Data>{tableData.longShares}</Data>
 									<Data>{tableData.longBeta}</Data>
-									<Data>{tableData.longTotal}</Data>
+									<Data>{convertToUSD(tableData.longTotal)}</Data>
 								</Row>
 								<Row>
 									<Data>{currentCalculatorShortSymbol}</Data>
-									<Data>{tableData.shortPrice}</Data>
+									<Data>{convertToUSD(tableData.shortPrice)}</Data>
 									<Data>{tableData.shortShares}</Data>
 									<Data>{tableData.shortBeta}</Data>
-									<Data>{tableData.shortTotal}</Data>
+									<Data>{convertToUSD(tableData.shortTotal)}</Data>
 								</Row>
 								<Row>
 									<Data>Ratio:</Data>
@@ -112,7 +112,9 @@ const Caluclator = () => {
 									<Data></Data>
 									<Data></Data>
 									<Data></Data>
-									<Data>{tableData.longTotal + tableData.shortTotal}</Data>
+									<Data>
+										{convertToUSD(tableData.longTotal + tableData.shortTotal)}
+									</Data>
 								</Row>
 							</TableBody>
 						</Table>

@@ -14,6 +14,12 @@ calculatorRouter.post("/", async (request, response) => {
 		});
 	}
 
+	if (!/^\d+$/.test(capital)) {
+		return response.status(400).json({
+			error: `capital value must be a number`,
+		});
+	}
+
 	const longBeta = await axios.get(
 		`https://api.newtonanalytics.com/stock-beta/?ticker=${longSymbol}&index=^${indexSymbol}&interval=1d​&observations=${days}`
 	);
