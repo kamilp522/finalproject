@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, CSSProperties } from "react";
+import { useState, useEffect } from "react";
 
 import * as colors from "../../variables/colors";
 

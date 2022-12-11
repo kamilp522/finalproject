@@ -1,35 +1,46 @@
 const calculatorRouter = require("express").Router();
 const axios = require("axios");
+const middleware = require("../utils/middleware");
 
 calculatorRouter.post("/", async (request, response) => {
-	const { longSymbol, shortSymbol, indexSymbol } = request.body;
-
-	console.log(longSymbol);
-	console.log(shortSymbol);
-	console.log(indexSymbol);
+	const { capital, longSymbol, shortSymbol, indexSymbol } = request.body;
 
 	// get data from the last ~5 years (1250 trading days)
 	const days = 1250;
 
+	if (!capital) {
+		return response.status(400).json({
+			error: `must provide capital`,
+		});
+	}
+
 	const longBeta = await axios.get(
 		`https://api.newtonanalytics.com/stock-beta/?ticker=${longSymbol}&index=^${indexSymbol}&interval=1d​&observations=${days}`
 	);
-	if (long.data.status == 400) {
+	if (longBeta.data.status == 400) {
 		return response.status(400).json({
-			error: `stock with symbol ${typedRatioLongSymbol} (long) wasn't found or indexSymbol (${indexSymbol}) isn't correct`,
+			error: `stock with symbol ${longSymbol} (long) wasn't found or indexSymbol (${indexSymbol}) isn't correct`,
 		});
 	}
 
 	const shortBeta = await axios.get(
 		`https://api.newtonanalytics.com/stock-beta/?ticker=${shortSymbol}&index=^${indexSymbol}&interval=1d​&observations=${days}`
 	);
-	if (short.data.status == 400) {
+	if (shortBeta.data.status == 400) {
 		return response.status(400).json({
-			error: `stock with symbol ${typedRatioShortSymbol} (short) wasn't found or indexSymbol (${indexSymbol}) isn't correct`,
+			error: `stock with symbol ${shortSymbol} (short) wasn't found or indexSymbol (${indexSymbol}) isn't correct`,
 		});
 	}
 
-	response.status(200).send({ longBeta, shortBeta });
+	const betas = middleware.parseBetas(longBeta.data.data, shortBeta.data.data);
+	const betaRatio = middleware.getBetaRatio(betas.longBeta, betas.shortBeta);
+
+	const pairsTradeCapital = middleware.calculatePairsTradeCapital(
+		betaRatio,
+		capital
+	);
+
+	response.status(200).send({ ...pairsTradeCapital, ...betas, betaRatio });
 });
 
 module.exports = calculatorRouter;

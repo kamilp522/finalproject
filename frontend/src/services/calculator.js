@@ -1,10 +1,8 @@
 import axios from "axios";
 const baseUrl = "/api/calculator";
 
-const getCalculatorData = (symbols) => {
-	console.log(symbols);
-
-	const response = axios.post(baseUrl, symbols);
+const getCalculatorData = async (symbols) => {
+	const response = await axios.post(baseUrl, symbols);
 	return response.data;
 };
 
