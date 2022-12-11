@@ -7,92 +7,91 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 export const NavWrapper = styled.nav`
-	padding: 0.75em;
-	background-color: ${colors.clr_black_full};
+  padding: 0.75em;
+  background-color: ${colors.clr_black_full};
 `;
 
 export const NavContainer = styled.div`
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const NavContent = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 0.25em;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25em;
 `;
 
 export const NavMenu = styled.button`
-	background-color: ${colors.clr_black_full};
-	border: none;
-	cursor: pointer;
+  background-color: ${colors.clr_black_full};
+  border: none;
+  cursor: pointer;
 `;
 
 export const NavMenuIcon = styled(FontAwesomeIcon)`
-	font-size: ${font_sizes.fs_650};
-	color: white;
+  font-size: ${font_sizes.fs_650};
+  color: white;
 `;
 
 export const NavList = styled.ul`
-	margin-top: 1em;
+  margin-top: 1em;
 `;
 
 export const NavListItem = styled.li`
-	padding: 0.75em 0.25em;
+  padding: 0.75em 0.25em;
 
-	&.nav-pairs-trades-list-item {
-		color: white;
-		position: relative;
-		/* display: flex; */
-	}
+  &.nav-pairs-trades-list-item {
+    color: white;
+    position: relative;
+  }
 `;
 
 export const NavLink = styled(Link)`
-	color: white;
-	text-decoration: none;
-	font-size: ${font_sizes.fs_400};
-	padding: 0.5em 1.25em 0.5em 0;
+  color: white;
+  text-decoration: none;
+  font-size: ${font_sizes.fs_400};
+  padding: 0.5em 1.25em 0.5em 0;
 
-	&:hover {
-		text-decoration: underline;
-	}
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const NavButtonWrapper = styled.div`
-	display: flex;
-	align-self: center;
+  display: flex;
+  align-self: center;
 `;
 
 export const NavLoggedIn = styled.small`
-	display: block;
-	padding-bottom: 0.5em;
-	color: ${colors.clr_cream_500};
-	font-size: ${font_sizes.fs_400};
+  display: block;
+  padding-bottom: 0.5em;
+  color: ${colors.clr_cream_500};
+  font-size: ${font_sizes.fs_400};
 `;
 
-export const NavPairsTradesMenu = styled.ul`
-	display: ${({ showPairsTradesNav }) =>
-		showPairsTradesNav ? "inline-flex" : "none"};
-	position: absolute;
-	transform: translateY(-50%);
-	flex-direction: column;
-	background-color: ${colors.clr_light_black_900};
-	padding: 0.5em 1em;
-	border-radius: 0.5rem;
+export const SupplementaryNavMenu = styled.ul`
+  display: ${({ showPairsTradesNav, showIdeasNav }) =>
+    showPairsTradesNav || showIdeasNav ? "inline-flex" : "none"};
+  position: absolute;
+  transform: translateY(-50%);
+  flex-direction: column;
+  background-color: ${colors.clr_light_black_900};
+  padding: 0.5em 1em;
+  border-radius: 0.5rem;
 `;
 
-export const NavPairsTradesLink = styled.a`
-	color: white;
-	text-decoration: none;
-	font-size: ${font_sizes.fs_400};
-	padding: 0.5em 1.25em 0.5em 0;
-	cursor: pointer;
+export const SupplementaryNavLink = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: ${font_sizes.fs_400};
+  padding: 0.5em 1.25em 0.5em 0;
+  cursor: pointer;
 
-	&:hover {
-		text-decoration: underline;
-	}
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
-export const NavPairsTradesItem = styled.li`
-	padding-block: 0.75em;
+export const SupplementaryNavItem = styled.li`
+  padding-block: 0.75em;
 `;

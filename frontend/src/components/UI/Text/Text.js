@@ -11,8 +11,8 @@ export const Description = styled.p`
 export const H2 = styled.h2`
 	font-size: ${font_sizes.fs_600};
 	border-bottom: 2px solid ${colors.clr_violet_400};
-	padding-block: 0.25em;
-	margin-block: 0.25em;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.5em;
 	font-weight: 700;
 `;
 

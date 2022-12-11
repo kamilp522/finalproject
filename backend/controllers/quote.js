@@ -22,13 +22,13 @@ quoteRouter.post("/", async (request, response) => {
 
 	if (quote.data.code === 400) {
 		return response.status(400).json({
-			error: "asset with that symbol wasn't found",
+			error: `asset ${symbol} wasn't found`,
 		});
 	}
 
 	if (quote.data.code === 401) {
 		return response.status(401).json({
-			error: "unauthorized request, check validity of an api key",
+			error: "unauthorized request, check validity of an Twelve Data api key",
 		});
 	}
 

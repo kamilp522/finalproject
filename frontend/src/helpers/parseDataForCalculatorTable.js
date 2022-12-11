@@ -1,6 +1,4 @@
 export const parseDataForCalculatorTable = (data) => {
-	console.log(data);
-
 	return {
 		betaRatio: data.betaRatio,
 		longPrice: data.longPrice,

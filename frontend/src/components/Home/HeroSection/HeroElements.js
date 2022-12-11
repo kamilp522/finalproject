@@ -103,7 +103,7 @@ export const HeroText = styled.div`
 	max-width: 15em;
 	background-color: ${colors.clr_very_dark_blue_500};
 	border-radius: 1rem;
-	padding: 1em 2em;
+	padding: 1em 1.5em;
 `;
 
 export const HeroH1 = styled.h1`
@@ -111,6 +111,7 @@ export const HeroH1 = styled.h1`
 	font-size: ${font_sizes.fs_450};
 	padding-block: 0.25em;
 	font-weight: 700;
+	text-align: center;
 `;
 
 export const HeroSpan = styled.span`

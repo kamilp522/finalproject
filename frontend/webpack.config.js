@@ -1,5 +1,5 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssSupplementaryNavctPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
@@ -35,7 +35,7 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssSupplementaryNavctPlugin.loader, "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -48,7 +48,7 @@ const config = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssSupplementaryNavctPlugin(),
     // new HtmlWebpackPlugin({
     //   template: "./public/index.html",
     // }),

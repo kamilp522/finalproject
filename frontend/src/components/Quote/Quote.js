@@ -9,6 +9,8 @@ import { convertToUSD } from "../../helpers/convertToUSD";
 
 import { QuoteContainer } from "./QuoteElements";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
+import { H2, Description } from "../UI/Text/Text";
+
 import {
 	Table,
 	TableHead,
@@ -28,6 +30,12 @@ const Quote = () => {
 
 	return (
 		<Wrapper>
+			<H2>Stock Quotes</H2>
+			<Description>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni deserunt
+				illum nam. Quidem ullam quisquam, quo ratione rerum quasi molestias
+				commodi ipsam, autem atque optio laboriosam rem dolore! A, tenetur!
+			</Description>
 			<QuoteForm
 				typedSymbol={typedSymbol}
 				setTypedSymbol={setTypedSymbol}

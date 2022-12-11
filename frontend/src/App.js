@@ -46,13 +46,9 @@ const App = () => {
 					path="/"
 					element={
 						<>
-							{/* <AboutPairsTrades /> */}
-							{/* <Ratio /> */}
-							<Calculator />
-
-							{/* <HeroSection /> */}
-							{/* <InfoSection content={about} /> */}
-							{/* <InfoSection content={join} /> */}
+							<HeroSection />
+							<InfoSection content={about} />
+							<InfoSection content={join} />
 						</>
 					}
 				/>
