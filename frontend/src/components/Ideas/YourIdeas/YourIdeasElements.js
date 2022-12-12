@@ -26,10 +26,6 @@ export const IdeaSymbol = styled.h4`
   font-size: ${font_sizes.fs_500};
 `;
 
-// export const IdeaButton = styled.button`
-//     pad
-// `
-
 export const IdeaBold = styled.span`
   font-weight: 700;
 `;
@@ -37,4 +33,5 @@ export const IdeaBold = styled.span`
 export const IdeaArguments = styled.p`
   font-size: ${font_sizes.fs_400};
   padding: 0.25em 0.125em 0.75em;
+  word-wrap: break-word;
 `;

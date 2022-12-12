@@ -58,14 +58,18 @@ const WriteDownIdeaForm = () => {
         id="write-idea-long"
         type="text"
         value={longSymbol}
-        onChange={({ target }) => setLongSymbol(target.value)}
+        onChange={({ target }) =>
+          setLongSymbol(target.value.toLocaleUpperCase())
+        }
         placeholder="long symbol eg. AAPL "
       />
       <Input
         id="write-idea-short"
         type="text"
         value={shortSymbol}
-        onChange={({ target }) => setShortSymbol(target.value)}
+        onChange={({ target }) =>
+          setShortSymbol(target.value.toLocaleUpperCase())
+        }
         placeholder="short symbol eg. GOOG"
       />
       <TextArea
