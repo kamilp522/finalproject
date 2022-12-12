@@ -22,3 +22,14 @@ export const FormButtonWrapper = styled.div`
   margin-top: 0.5em;
   width: fit-content;
 `;
+
+export const TextArea = styled.textarea`
+  border: 1px solid ${colors.clr_very_dark_blue_900};
+  border-radius: 0.25rem;
+  align-self: stretch;
+  min-height: 15em;
+  margin: 0.25em;
+  margin-top: 0.5em;
+  padding: 0.5em 0.25em;
+  font-size: ${font_sizes.fs_500};
+`;

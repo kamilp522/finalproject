@@ -1,19 +1,19 @@
 import axios from "axios";
 
-const baseUrl = "/api/indicators";
+const url = "/api/indicators";
 
 const getDataManPMI = async () => {
-  const response = await axios.get(`${baseUrl}/pmi-manufacturing`);
+  const response = await axios.get(`${url}/pmi-manufacturing`);
   return response.data.series.docs[0];
 };
 
 const getDataNonManPMI = async () => {
-  const response = await axios.get(`${baseUrl}/pmi-non-manufacturing`);
+  const response = await axios.get(`${url}/pmi-non-manufacturing`);
   return response.data.series.docs[0];
 };
 
 const getDataMichiganSentiment = async () => {
-  const response = await axios.get(`${baseUrl}/michigan-sentiment`);
+  const response = await axios.get(`${url}/michigan-sentiment`);
 
   return response.data.series.docs[0];
 };

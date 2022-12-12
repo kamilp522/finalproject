@@ -12,76 +12,76 @@ import { Button } from "../UI/Button/Button";
 import { useDispatch } from "react-redux";
 
 const QuoteForm = ({
-	typedSymbol,
-	setTypedSymbol,
-	setQuote,
-	setChartData,
-	chartInterval,
-	setCurrentSymbol,
+  typedSymbol,
+  setTypedSymbol,
+  setQuote,
+  setChartData,
+  chartInterval,
+  setCurrentSymbol,
 }) => {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const setMessageAndError = (message, error) => {
-		dispatch(setNotification({ message, error }));
-	};
+  const setMessageAndError = (message, error) => {
+    dispatch(setNotification({ message, error }));
+  };
 
-	const getQuote = async (event) => {
-		event.preventDefault();
+  const getQuote = async (event) => {
+    event.preventDefault();
 
-		setCurrentSymbol(typedSymbol);
-		setChartData({ labels: null, datasets: null });
-		setQuote(null);
+    setCurrentSymbol(typedSymbol);
+    setChartData({ labels: null, datasets: null });
+    setQuote(null);
 
-		const symbolInputValue = document.getElementById("quote-symbol").value;
-		setTypedSymbol(symbolInputValue);
+    const symbolInputValue = document.getElementById("quote-symbol").value;
+    setTypedSymbol(symbolInputValue);
 
-		try {
-			const quote = await quoteService.getQuoteData({ symbol: typedSymbol });
-			setQuote(quote);
+    try {
+      const quote = await quoteService.getQuoteData({ symbol: typedSymbol });
+      setQuote(quote);
 
-			const timeseries = await timeseriesService.getTimeseriesData({
-				symbol: typedSymbol,
-				chartInterval,
-			});
+      const timeseries = await timeseriesService.getTimeseriesData({
+        symbol: typedSymbol,
+        chartInterval,
+      });
 
-			const timeseries_chart_data =
-				timeseriesService.getTimeseriesChartParams(timeseries);
+      const timeseries_chart_data =
+        timeseriesService.getTimeseriesChartParams(timeseries);
 
-			setChartData({
-				labels: timeseries_chart_data.labels,
-				datasets: [
-					{
-						data: timeseries_chart_data.values,
-						backgroundColor: colors.clr_violet_400,
-						borderColor: colors.clr_violet_400,
-					},
-				],
-			});
+      setChartData({
+        labels: timeseries_chart_data.labels,
+        datasets: [
+          {
+            data: timeseries_chart_data.values,
+            backgroundColor: colors.clr_violet_400,
+            borderColor: colors.clr_violet_400,
+          },
+        ],
+      });
 
-			setTypedSymbol("");
-		} catch (exception) {
-			const errorMessage = exception.response.data.error;
-			setMessageAndError(`${errorMessage}`, true);
-			setTypedSymbol("");
-		}
-	};
+      setTypedSymbol("");
+    } catch (exception) {
+      const errorMessage = exception.response.data.error;
+      setMessageAndError(`${errorMessage}`, true);
+      setTypedSymbol("");
+    }
+  };
 
-	return (
-		<Form onSubmit={getQuote}>
-			<Input
-				id="quote-symbol"
-				type="text"
-				value={typedSymbol}
-				onChange={({ target }) =>
-					setTypedSymbol(target.value.toLocaleUpperCase())
-				}
-				placeholder="type symbol"
-			/>
-			<FormButtonWrapper>
-				<Button id="quote-button">Look up stock</Button>
-			</FormButtonWrapper>
-		</Form>
-	);
+  return (
+    <Form onSubmit={getQuote}>
+      <Input
+        id="quote-symbol"
+        type="text"
+        value={typedSymbol}
+        onChange={({ target }) =>
+          setTypedSymbol(target.value.toLocaleUpperCase())
+        }
+        placeholder="type symbol"
+      />
+      <FormButtonWrapper>
+        <Button id="quote-button">Look up stock</Button>
+      </FormButtonWrapper>
+    </Form>
+  );
 };
 
 export default QuoteForm;

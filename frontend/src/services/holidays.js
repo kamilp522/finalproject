@@ -1,9 +1,9 @@
 import axios from "axios";
-const baseUrl = "/api/holidays";
+const url = "/api/holidays";
 
 const getHolidaysData = async () => {
-	const response = await axios.get(baseUrl);
-	return response.data;
+  const response = await axios.get(url);
+  return response.data;
 };
 
 const exports = { getHolidaysData };

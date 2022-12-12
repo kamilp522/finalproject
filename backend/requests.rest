@@ -3,6 +3,21 @@ GET http://localhost:3001/api/users HTTP/1.1
 Content-Type: application/json
 
 ###
+GET http://localhost:3001/api/ideas HTTP/1.1
+Content-Type: application/json
+
+###
+POST http://localhost:3001/api/ideas HTTP/1.1
+Content-Type: application/json
+
+{
+  "long": "AAPL",
+  "short": "GOOG",
+  "arguments": "TRALA LA LA", 
+  "userId": "63971185d20d0ea3c53df70e"
+}
+
+###
 DELETE http://localhost:3001/api/users/ HTTP/1.1
 Content-Type: application/json
 
@@ -15,7 +30,6 @@ Content-Type: application/json
   "password": "1234567a",
   "repeatedPassword": "1234567a"
 }
-
 
 ###
 POST http://localhost:3001/api/login HTTP/1.1

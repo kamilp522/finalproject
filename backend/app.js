@@ -11,6 +11,7 @@ const timeseriesRouter = require("./controllers/timeseries");
 const ratioRouter = require("./controllers/ratio");
 const holidaysRouter = require("./controllers/holidays");
 const calculatorRouter = require("./controllers/calculator");
+const ideasRouter = require("./controllers/ideas");
 
 config.connect();
 
@@ -25,6 +26,7 @@ app.use("/api/login", loginRouter);
 app.use("/api/ratio", ratioRouter);
 app.use("/api/holidays", holidaysRouter);
 app.use("/api/calculator", calculatorRouter);
+app.use("/api/ideas", ideasRouter);
 
 app.use(express.static("build"));
 

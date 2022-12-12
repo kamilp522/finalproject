@@ -2,10 +2,10 @@ import axios from "axios";
 
 import { options } from "../components/Chart/chart_options";
 
-const baseUrl = "/api/timeseries";
+const url = "/api/timeseries";
 
 const getTimeseriesData = async (symbolAndInterval) => {
-  const response = await axios.post(baseUrl, symbolAndInterval);
+  const response = await axios.post(url, symbolAndInterval);
   return response.data;
 };
 
