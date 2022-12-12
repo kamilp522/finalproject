@@ -2,7 +2,7 @@ import React from "react";
 
 import * as colors from "../../components/variables/colors";
 
-import { setNotification } from "../../reducers/notificationReducer";
+import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import quoteService from "../../services/quote";
 import timeseriesService from "../../services/timeseries";
@@ -20,10 +20,6 @@ const QuoteForm = ({
   setCurrentSymbol,
 }) => {
   const dispatch = useDispatch();
-
-  const setMessageAndError = (message, error) => {
-    dispatch(setNotification({ message, error }));
-  };
 
   const getQuote = async (event) => {
     event.preventDefault();
@@ -61,7 +57,7 @@ const QuoteForm = ({
       setTypedSymbol("");
     } catch (exception) {
       const errorMessage = exception.response.data.error;
-      setMessageAndError(`${errorMessage}`, true);
+      setMessageAndError(dispatch, `${errorMessage}`, true);
       setTypedSymbol("");
     }
   };

@@ -3,7 +3,7 @@ import React from "react";
 import calculatorService from "../../services/calculator";
 import quoteService from "../../services/quote";
 
-import { setNotification } from "../../reducers/notificationReducer";
+import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import { parseDataForCalculatorTable } from "../../helpers/parseDataForCalculatorTable";
 
@@ -33,10 +33,6 @@ const CalculatorForm = ({
     setTypedCalculatorLongSymbol("");
     setTypedCalculatorShortSymbol("");
     setTypedIndexSymbol("");
-  };
-
-  const setMessageAndError = (message, error) => {
-    dispatch(setNotification({ message, error }));
   };
 
   const getPairTrade = async (event) => {
@@ -77,7 +73,7 @@ const CalculatorForm = ({
       clearInput();
     } catch (exception) {
       const errorMessage = exception.response.data.error;
-      setMessageAndError(`${errorMessage}`, true);
+      setMessageAndError(dispatch, `${errorMessage}`, true);
       setLoading(false);
       clearInput();
     }

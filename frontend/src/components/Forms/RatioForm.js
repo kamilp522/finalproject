@@ -2,7 +2,7 @@ import React from "react";
 
 import * as colors from "../variables/colors";
 
-import { setNotification } from "../../reducers/notificationReducer";
+import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import ratioService from "../../services/ratio";
 
@@ -27,10 +27,6 @@ const RatioForm = ({
   const clearInput = () => {
     setTypedRatioLongSymbol("");
     setTypedRatioShortSymbol("");
-  };
-
-  const setMessageAndError = (message, error) => {
-    dispatch(setNotification({ message, error }));
   };
 
   const getRatio = async (event) => {
@@ -67,7 +63,7 @@ const RatioForm = ({
       clearInput();
     } catch (exception) {
       const errorMessage = exception.response.data.error;
-      setMessageAndError(`${errorMessage}`, true);
+      setMessageAndError(dispatch, `${errorMessage}`, true);
       setLoading(false);
       clearInput();
     }

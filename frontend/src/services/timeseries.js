@@ -23,8 +23,6 @@ const getTimeseriesChartParams = (chart_data) => {
     parseFloat(Number(value.close).toFixed(2))
   );
 
-  // options.scales.y.min = Math.floor(Math.min(...closes));
-
   return {
     labels: labels.reverse(),
     values: closes.reverse(),

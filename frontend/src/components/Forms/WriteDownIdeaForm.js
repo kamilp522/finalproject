@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import { setNotification } from "../../reducers/notificationReducer";
+import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import ideaService from "../../services/ideas";
 
@@ -29,10 +29,6 @@ const WriteDownIdeaForm = () => {
     setIdeaArgumentsField("");
   };
 
-  const setMessageAndError = (message, error) => {
-    dispatch(setNotification({ message, error }));
-  };
-
   const sendIdea = async (event) => {
     event.preventDefault();
 
@@ -43,11 +39,11 @@ const WriteDownIdeaForm = () => {
         ideaArguments: ideaArgumentsField,
         userId: logged.userId,
       });
-      setMessageAndError(`idea for trade added`);
+      setMessageAndError(dispatch, `idea for trade added`);
       clearInput();
     } catch (exception) {
       const errorMessage = exception.response.data.error;
-      setMessageAndError(`${errorMessage}`, true);
+      setMessageAndError(dispatch, `${errorMessage}`, true);
       clearInput();
     }
   };
