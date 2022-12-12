@@ -35,7 +35,7 @@ const YourIdeas = () => {
       }
     });
 
-    setIdeas(allIdeas);
+    setIdeas(userIdeas);
   };
 
   const removeIdea = async (event, ideaId) => {
@@ -56,16 +56,20 @@ const YourIdeas = () => {
           ideas.map((idea) => (
             <Idea key={idea.id}>
               <IdeaSymbols>
-                <IdeaSymbol>
-                  Long: <IdeaBold>{idea.long}</IdeaBold>
-                </IdeaSymbol>
-                <IdeaSymbol>
-                  Short: <IdeaBold>{idea.short}</IdeaBold>
-                </IdeaSymbol>
+                {idea.long && (
+                  <IdeaSymbol>
+                    Long: <IdeaBold>{idea.long}</IdeaBold>
+                  </IdeaSymbol>
+                )}
+                {idea.short && (
+                  <IdeaSymbol>
+                    Short: <IdeaBold>{idea.short}</IdeaBold>
+                  </IdeaSymbol>
+                )}
               </IdeaSymbols>
               <IdeaArguments>{idea.arguments}</IdeaArguments>
               <Button
-                onClick={async () => removeIdea(event, idea.id)}
+                onClick={() => removeIdea(event, idea.id)}
                 style={{
                   marginBlock: "0.25em",
                   backgroundColor: colors.clr_red_800,
