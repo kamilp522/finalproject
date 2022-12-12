@@ -200,7 +200,7 @@ const Navbar = () => {
                           hideNavs();
                         }}
                       >
-                        Write Down an Idea
+                        Write Down Your Ideas
                       </NavLink>
                     </SupplementaryNavItem>
                     <SupplementaryNavItem>

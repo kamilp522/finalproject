@@ -1,12 +1,16 @@
 import axios from "axios";
 const url = "/api/ideas";
 
+const getIdeas = async () => {
+  const response = await axios.get(url);
+  return response.data;
+};
+
 const createIdea = async (content) => {
-  console.log(content);
   const response = await axios.post(url, content);
   return response.data;
 };
 
-const exports = { createIdea };
+const exports = { getIdeas, createIdea };
 
 export default exports;

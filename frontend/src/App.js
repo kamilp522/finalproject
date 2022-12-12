@@ -18,7 +18,7 @@ import AboutPairsTrades from "./components/PairsTrades/AboutPairsTrades/AboutPai
 import Ratio from "./components/PairsTrades/Ratio/Ratio";
 import Calculator from "./components/PairsTrades/Calculator/Calculator";
 import WriteDownIdea from "./components/Ideas/WriteDownIdea/WriteDownIdea.js";
-import YourIdeas from "./components/Ideas/YourIdeas/YourIdea.js";
+import YourIdeas from "./components/Ideas/YourIdeas/YourIdeas.js";
 
 import "reset-css";
 import "./css/app.css";
@@ -48,10 +48,11 @@ const App = () => {
           path="/"
           element={
             <>
-              <WriteDownIdea />
-              {/* <HeroSection />
+              {/* <YourIdeas /> */}
+              {/* <WriteDownIdea /> */}
+              <HeroSection />
               <InfoSection content={about} />
-              <InfoSection content={join} /> */}
+              <InfoSection content={join} />
             </>
           }
         />
@@ -61,29 +62,29 @@ const App = () => {
           element={logged.username ? <Quote /> : <Navigate replace to="/" />}
         />
         <Route
-          path="about-pairs-trades"
+          path="/about-pairs-trades"
           element={
             logged.username ? <AboutPairsTrades /> : <Navigate replace to="/" />
           }
         />
         <Route
-          path="ratio-chart"
+          path="/ratio-chart"
           element={logged.username ? <Ratio /> : <Navigate replace to="/" />}
         />
         <Route
-          path="calculator"
+          path="/calculator"
           element={
             logged.username ? <Calculator /> : <Navigate replace to="/" />
           }
         />
         <Route
-          path="write-down-an-idea"
+          path="/write-down-an-idea"
           element={
             logged.username ? <WriteDownIdea /> : <Navigate replace to="/" />
           }
         />
         <Route
-          path="your-ideas"
+          path="/your-ideas"
           element={
             logged.username ? <YourIdeas /> : <Navigate replace to="/" />
           }

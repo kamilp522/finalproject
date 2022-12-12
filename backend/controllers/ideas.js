@@ -8,8 +8,6 @@ ideasRouter.get("/", async (request, response) => {
 });
 
 ideasRouter.post("/", async (request, response) => {
-  console.log(request.body);
-
   const { long, short, arguments, userId } = request.body;
 
   const user = await User.findById(userId);
@@ -22,7 +20,6 @@ ideasRouter.post("/", async (request, response) => {
   });
 
   const savedIdea = await idea.save();
-
   response.status(201).json(savedIdea);
 });
 
