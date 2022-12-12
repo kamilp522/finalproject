@@ -11,6 +11,11 @@ const createIdea = async (content) => {
   return response.data;
 };
 
-const exports = { getIdeas, createIdea };
+const deleteIdea = async (ideaId) => {
+  const response = await axios.delete(url, { data: ideaId });
+  return response.data;
+};
+
+const exports = { getIdeas, createIdea, deleteIdea };
 
 export default exports;

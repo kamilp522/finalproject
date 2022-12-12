@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import * as colors from "../../variables/colors";
+
 import ideasService from "../../../services/ideas";
 
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { Container } from "../../UI/Container/Container";
+import { Button } from "../../UI/Button/Button";
 import { H2 } from "../../UI/Text/Text";
 
 import {
@@ -26,13 +29,19 @@ const YourIdeas = () => {
     const allIdeas = await ideasService.getIdeas();
     const userIdeas = [];
 
-    allIdeas.forEach((idea) => {
-      if (idea.user === logged.userId) {
-        userIdeas.push(idea);
-      }
-    });
+    // allIdeas.forEach((idea) => {
+    //   if (idea.user === logged.userId) {
+    //     userIdeas.push(idea);
+    //   }
+    // });
 
-    setIdeas(userIdeas);
+    setIdeas(allIdeas);
+  };
+
+  const removeIdea = async (event, ideaId) => {
+    const ideaElement = event.target.parentNode;
+    await ideasService.deleteIdea({ ideaId });
+    ideaElement.remove();
   };
 
   useEffect(() => {
@@ -55,6 +64,15 @@ const YourIdeas = () => {
                 </IdeaSymbol>
               </IdeaSymbols>
               <IdeaArguments>{idea.arguments}</IdeaArguments>
+              <Button
+                onClick={async () => removeIdea(event, idea.id)}
+                style={{
+                  marginBlock: "0.25em",
+                  backgroundColor: colors.clr_red_800,
+                }}
+              >
+                remove
+              </Button>
             </Idea>
           ))}
       </Container>

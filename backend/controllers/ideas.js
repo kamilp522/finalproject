@@ -7,6 +7,13 @@ ideasRouter.get("/", async (request, response) => {
   response.json(ideas);
 });
 
+ideasRouter.delete("/", async (request, response) => {
+  console.log(request.body);
+
+  await Idea.findByIdAndRemove(request.body.ideaId);
+  response.status(204).end();
+});
+
 ideasRouter.post("/", async (request, response) => {
   const { long, short, arguments, userId } = request.body;
 

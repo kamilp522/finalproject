@@ -48,11 +48,11 @@ const App = () => {
           path="/"
           element={
             <>
-              {/* <YourIdeas /> */}
+              <YourIdeas />
               {/* <WriteDownIdea /> */}
-              <HeroSection />
+              {/* <HeroSection />
               <InfoSection content={about} />
-              <InfoSection content={join} />
+              <InfoSection content={join} /> */}
             </>
           }
         />
