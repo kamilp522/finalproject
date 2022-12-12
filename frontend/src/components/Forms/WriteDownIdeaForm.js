@@ -21,12 +21,12 @@ const WriteDownIdeaForm = () => {
 
   const [longSymbol, setLongSymbol] = useState("");
   const [shortSymbol, setShortSymbol] = useState("");
-  const [argumentsField, setArgumentsField] = useState("");
+  const [ideaArgumentsField, setIdeaArgumentsField] = useState("");
 
   const clearInput = () => {
     setLongSymbol("");
     setShortSymbol("");
-    setArgumentsField("");
+    setIdeaArgumentsField("");
   };
 
   const setMessageAndError = (message, error) => {
@@ -40,7 +40,7 @@ const WriteDownIdeaForm = () => {
       const content = await ideaService.createIdea({
         long: longSymbol,
         short: shortSymbol,
-        arguments: argumentsField,
+        ideaArguments: ideaArgumentsField,
         userId: logged.userId,
       });
       setMessageAndError(`idea for trade added`);
@@ -73,10 +73,10 @@ const WriteDownIdeaForm = () => {
         placeholder="short symbol eg. GOOG"
       />
       <TextArea
-        id="write-idea-arguments"
+        id="write-idea-ideaArguments"
         type="text"
-        value={argumentsField}
-        onChange={({ target }) => setArgumentsField(target.value)}
+        value={ideaArgumentsField}
+        onChange={({ target }) => setIdeaArgumentsField(target.value)}
       />
       <FormButtonWrapper>
         <Button id="write-idea-button">add idea</Button>

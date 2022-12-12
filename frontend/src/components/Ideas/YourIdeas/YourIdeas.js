@@ -67,12 +67,12 @@ const YourIdeas = () => {
                   </IdeaSymbol>
                 )}
               </IdeaSymbols>
-              <IdeaArguments>{idea.arguments}</IdeaArguments>
+              <IdeaArguments>{idea.ideaArguments}</IdeaArguments>
               <Button
                 onClick={() => removeIdea(event, idea.id)}
                 style={{
                   marginBlock: "0.25em",
-                  backgroundColor: colors.clr_red_800,
+                  backgroundColor: colors.clr_red_700,
                 }}
               >
                 remove

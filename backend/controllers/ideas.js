@@ -23,14 +23,14 @@ ideasRouter.delete("/", async (request, response) => {
 });
 
 ideasRouter.post("/", async (request, response) => {
-  const { long, short, arguments, userId } = request.body;
+  const { long, short, ideaArguments, userId } = request.body;
 
   const user = await User.findById(userId);
 
   const idea = new Idea({
     long: long,
     short: short,
-    arguments: arguments,
+    ideaArguments: ideaArguments,
     user: user._id,
   });
 
