@@ -11,8 +11,8 @@ const createIdea = async (content) => {
   return response.data;
 };
 
-const deleteIdea = async (ideaId) => {
-  const response = await axios.delete(url, { data: ideaId });
+const deleteIdea = async (deleteReqData) => {
+  const response = await axios.delete(url, { data: deleteReqData });
   return response.data;
 };
 

@@ -221,7 +221,7 @@ const Navbar = () => {
             {!logged.username ? (
               <NavListItem>
                 <NavLink aria-label="login" to="/login">
-                  <Button onClick={() => setShowNav(false)}>Log in</Button>
+                  <Button onClick={() => setShowNav(false)}>log in</Button>
                 </NavLink>
               </NavListItem>
             ) : (
@@ -236,7 +236,7 @@ const Navbar = () => {
                       backgroundColor: colors.clr_red_800,
                     }}
                   >
-                    Log out
+                    log out
                   </Button>
                 </NavLink>
               </NavListItem>

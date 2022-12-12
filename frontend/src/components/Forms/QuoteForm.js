@@ -78,7 +78,7 @@ const QuoteForm = ({
         placeholder="type symbol"
       />
       <FormButtonWrapper>
-        <Button id="quote-button">Look up stock</Button>
+        <Button id="quote-button">look up stock</Button>
       </FormButtonWrapper>
     </Form>
   );

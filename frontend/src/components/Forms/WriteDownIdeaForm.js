@@ -75,7 +75,7 @@ const WriteDownIdeaForm = () => {
         onChange={({ target }) => setArgumentsField(target.value)}
       />
       <FormButtonWrapper>
-        <Button id="write-idea-button">Add Idea</Button>
+        <Button id="write-idea-button">add idea</Button>
       </FormButtonWrapper>
     </Form>
   );

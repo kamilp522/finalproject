@@ -8,9 +8,17 @@ ideasRouter.get("/", async (request, response) => {
 });
 
 ideasRouter.delete("/", async (request, response) => {
-  console.log(request.body);
+  const { ideaId, userId } = request.body;
 
-  await Idea.findByIdAndRemove(request.body.ideaId);
+  const user = await User.findById(userId);
+
+  if (userId !== user._id.toString()) {
+    return response.status(401).json({
+      error: "Only user that created an idea can delete it",
+    });
+  }
+
+  await Idea.findByIdAndRemove(ideaId);
   response.status(204).end();
 });
 

@@ -29,18 +29,18 @@ const YourIdeas = () => {
     const allIdeas = await ideasService.getIdeas();
     const userIdeas = [];
 
-    // allIdeas.forEach((idea) => {
-    //   if (idea.user === logged.userId) {
-    //     userIdeas.push(idea);
-    //   }
-    // });
+    allIdeas.forEach((idea) => {
+      if (idea.user === logged.userId) {
+        userIdeas.push(idea);
+      }
+    });
 
     setIdeas(allIdeas);
   };
 
   const removeIdea = async (event, ideaId) => {
     const ideaElement = event.target.parentNode;
-    await ideasService.deleteIdea({ ideaId });
+    await ideasService.deleteIdea({ ideaId, userId: logged.userId });
     ideaElement.remove();
   };
 
