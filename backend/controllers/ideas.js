@@ -25,6 +25,18 @@ ideasRouter.delete("/", async (request, response) => {
 ideasRouter.post("/", async (request, response) => {
   const { long, short, ideaArguments, userId } = request.body;
 
+  if (!(long || short)) {
+    return response.status(400).json({
+      error: "must provide at least one symbol",
+    });
+  }
+
+  if (!ideaArguments) {
+    return response.status(400).json({
+      error: "text field can't be empty",
+    });
+  }
+
   const user = await User.findById(userId);
 
   const idea = new Idea({

@@ -28,7 +28,7 @@ const getDataGDP = async () => {
 };
 
 const getDataPayrolls = async () => {
-  const response = await axios.get(`${url}/payrolls`);
+  const response = await axios.get(`${url}/payroll`);
   return response.data.data;
 };
 

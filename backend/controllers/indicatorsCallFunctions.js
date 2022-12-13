@@ -33,14 +33,14 @@ const getTreasury10Yield = async (request, response) => {
     },
   };
 
-  const yield = await axios.request(options);
+  const bondYield = await axios.request(options);
 
-  if ((yield.Note = vantageNote)) {
+  if (bondYield.Note === vantageNote) {
     return response.status(429).json({
       error: "too many requests, reached Vantage api limit (500/day 5/minute)",
     });
   }
-  return response.status(200).json(yield.data);
+  return response.status(200).json(bondYield.data);
 };
 
 const getGDP = async (request, response) => {
@@ -54,7 +54,7 @@ const getGDP = async (request, response) => {
 
   const gdp = await axios.request(options);
 
-  if ((gdp.Note = vantageNote)) {
+  if (gdp.Note === vantageNote) {
     return response.status(429).json({
       error: "too many requests, reached Vantage api limit (500/day 5/minute)",
     });
@@ -72,15 +72,15 @@ const getPayrolls = async (request, response) => {
     },
   };
 
-  const payrolls = await axios.request(options);
+  const payroll = await axios.request(options);
 
-  if ((payrolls.Note = vantageNote)) {
+  if (payroll.Note === vantageNote) {
     return response.status(429).json({
       error: "too many requests, reached Vantage api limit (500/day 5/minute)",
     });
   }
 
-  return response.status(200).json(payrolls.data);
+  return response.status(200).json(payroll.data);
 };
 
 exports.getMPMI = getMPMI;

@@ -6,6 +6,6 @@ indicatorsRouter.get("/pmi-non-manufacturing", callFunctions.getSPMI);
 indicatorsRouter.get("/michigan-sentiment", callFunctions.getMichigan);
 indicatorsRouter.get("/treasury-10-yield", callFunctions.getTreasury10Yield);
 indicatorsRouter.get("/gdp", callFunctions.getGDP);
-indicatorsRouter.get("/payrolls", callFunctions.getPayrolls);
+indicatorsRouter.get("/payroll", callFunctions.getPayrolls);
 
 module.exports = indicatorsRouter;

@@ -218,9 +218,9 @@ const Indicators = () => {
         <Indicator>
           {dataPayrolls.datasets ? (
             <Chart
-              title={latestContent.payrolls.title}
-              interpretation={latestContent.payrolls.interpretation}
-              periods={latestContent.payrolls.periods}
+              title={latestContent.payroll.title}
+              interpretation={latestContent.payroll.interpretation}
+              periods={latestContent.payroll.periods}
               options={chartOptionsAdjustMinValue(options, dataPayrolls)}
               data={dataPayrolls}
               type="bar"

@@ -191,7 +191,7 @@ const Navbar = () => {
                     <SupplementaryNavItem>
                       <NavLink
                         aria-label="Write Down an Idea"
-                        to="/write-down-an-idea"
+                        to="/write-down-idea"
                         onClick={() => {
                           hideNavs();
                         }}

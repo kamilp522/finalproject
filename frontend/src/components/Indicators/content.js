@@ -2,7 +2,7 @@ export const latestContent = {
   leading:
     "An indicator is a piece of economic data that can be used to understand bette trends in economy. Leading indicators are data sets that are showing the potential change in economic activity that may occur in the future. These indicators are the most important for the traders, as one of the main job of the trader is to predict future economic conditions.",
   coincident:
-    "Coincident indicators occur in real-time and shows as current economic conditions. They may be used to confirm if forecasts made by using leading indicators were correct or not.",
+    "Coincident indicators show current economic conditions. They may be used to confirm if forecasts made by using leading indicators were correct or not.",
   manufacturing_pmi: {
     title: "ISM Manufacturing PMI",
     interpretation:
@@ -33,10 +33,10 @@ export const latestContent = {
       "Gross domestic product (GDP) is a monetary measure of the current market value of all financial goods and services in the economy. It is used as a broad measure of current economic health (values in trillions of USD).",
     periods: "quarters",
   },
-  payrolls: {
-    title: "Total Nonfarm Payrolls",
+  payroll: {
+    title: "Total Nonfarm Payroll",
     interpretation:
-      "Nonfarm payrolls is the measure of the size of the labor force in the US excluding farm workers (and some other sectors despite the name). As about 80% of US GDP comes from business sectors information about employment situtation there is crucial to determining the current economic conditions (values in thousands).",
+      "Nonfarm payroll is the measure of the size of the labor force in the US excluding farm workers (and some other sectors despite the name). As about 80% of US GDP comes from business sectors information about employment situtation there is crucial to determining the current economic conditions (values in thousands).",
     periods: "months",
   },
 };

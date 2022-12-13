@@ -48,9 +48,10 @@ const App = () => {
           path="/"
           element={
             <>
-              <HeroSection />
+              <Quote />
+              {/* <HeroSection />
               <InfoSection content={about} />
-              <InfoSection content={join} />
+              <InfoSection content={join} /> */}
             </>
           }
         />
@@ -76,7 +77,7 @@ const App = () => {
           }
         />
         <Route
-          path="/write-down-an-idea"
+          path="/write-down-idea"
           element={
             logged.username ? <WriteDownIdea /> : <Navigate replace to="/" />
           }

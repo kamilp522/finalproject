@@ -33,6 +33,16 @@ describe("\nCheck if api calls return correct data in correct format", () => {
     expect(code).toBe("MICS");
   });
 
+  test("10 year treasury bond yield data is returned as json", async () => {
+    const response = await api
+      .get("/api/indicators/treasury-10-yield")
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+
+    const name = response.body.name;
+    expect(name).toBe("10-Year Treasury Constant Maturity Rate");
+  });
+
   test("quote data is returned as json", async () => {
     const response = await api
       .post("/api/quote")
@@ -56,5 +66,18 @@ describe("\nCheck if api calls return correct data in correct format", () => {
 
     expect(symbol).toBe("AAPL");
     expect(interval).toBe("4h");
+  });
+
+  test("Nonfarm payroll data is returned as json", async () => {
+    const response = await api
+      .get("/api/indicators/payroll")
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+
+    const name = response.body.name;
+
+    console.log(response.body);
+
+    expect(name).toBe("Total Nonfarm Payroll");
   });
 });

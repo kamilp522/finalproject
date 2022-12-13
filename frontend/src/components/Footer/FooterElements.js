@@ -1,31 +1,73 @@
 import styled from "styled-components";
 import * as colors from "../variables/colors";
 import * as font_sizes from "../variables/font-sizes";
-import * as font_families from "../variables/font-families";
+
+import { Link } from "react-router-dom";
 
 export const FooterWrapper = styled.footer`
-  padding: 1.25em 0.75em;
-  height: 40px;
+  height: 4.25em;
   background-color: ${colors.clr_black_full};
   color: white;
 `;
 
-export const FooterContainer = styled.div``;
+export const FooterContainer = styled.div`
+  padding: 1.25em 0.75em;
+  background-color: ${colors.clr_black_full};
+`;
 
-export const FooterContent = styled.div``;
+export const FooterLinks = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.75em;
+`;
 
-export const FooterLinks = styled.ul``;
+export const FooterListItem = styled.li`
+  padding-block: 0.4em;
+`;
 
-export const FooterListItem = styled.li``;
+export const FooterLink = styled(Link)`
+  color: ${colors.clr_cream_500};
+  padding-block: 0.4em;
+  line-height: 0.4em;
+  text-decoration: none;
 
-export const FooterDataCredit = styled.div``;
+  &:hover {
+    color: ${colors.clr_cream_900};
+  }
+`;
 
-export const DataCredit = styled.div``;
+export const FooterCredits = styled.div`
+  line-height: 1.25em;
+`;
 
-export const FooterDesignCredit = styled.div``;
+export const Credit = styled.div`
+  margin-block: 0.25em;
+  color: ${colors.clr_cream_900};
 
-export const DesignCredit = styled.div``;
+  & p {
+    display: inline-flex;
+    margin-right: 0.5em;
+  }
 
-export const FooterCopyright = styled.div``;
+  & a {
+    display: inline-flex;
+    font-size: ${font_sizes.fs_350};
+    letter-spacing: 0.5px;
+    padding: 0.1em;
+    color: ${colors.clr_blue_800};
+    text-decoration: none;
+  }
 
-export const WebsiteRights = styled.small``;
+  & a:hover {
+    color: ${colors.clr_cream_900};
+  }
+`;
+
+export const FooterCopyright = styled.div`
+  margin-top: 0.75em;
+`;
+
+export const WebsiteRights = styled.small`
+  color: ${colors.clr_cream_900};
+  font-size: ${font_sizes.fs_350};
+`;
