@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../reducers/loginReducer";
-import { setNotification } from "../../reducers/notificationReducer";
+import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import AnimateHeight from "react-animate-height";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -41,10 +41,6 @@ const Navbar = () => {
   const [showPairsTradesNav, setShowPairsTradesNav] = useState(false);
   const [showIdeasNav, setShowIdeasNav] = useState(false);
 
-  const setMessageAndError = (message, error) => {
-    dispatch(setNotification({ message, error }));
-  };
-
   const handleLogout = () => {
     dispatch(logoutUser());
 
@@ -57,7 +53,7 @@ const Navbar = () => {
     if (timeoutId) clearTimeout(timeoutId);
     setTimeoutId(setTimeout(() => setDelay(0), 500));
 
-    setMessageAndError(`user ${logged.username} logged out`);
+    setMessageAndError(dispatch, `user ${logged.username} logged out`);
     navigate("/");
   };
 

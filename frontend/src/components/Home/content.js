@@ -27,7 +27,7 @@ export const home_page_content = {
     small: "WHAT IS MIDTRADER",
     heading: "Most compact tool for tracking important economic data",
     paragraph:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa recusandae beatae molestiae est, in deserunt sint iusto ipsa sed, animi ipsum repudiandae officia voluptatem aperiam aliquid consectetur numquam similique ullam?",
+      "Making a profitable trade is all about predicting the direction that chosen asset will take. Forecasting a future may seem like a daunting task, straight up impossible, but there are actually tools that may help you with that. Midtrader is all about helping you plan your trades based on those tools.",
     button: "see indicators",
     image: about_image,
     link: "/indicators",
@@ -37,7 +37,7 @@ export const home_page_content = {
     small: "WHY JOIN US",
     heading: "Monitor current economic conditions with great ease",
     paragraph:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa recusandae beatae molestiae est, in deserunt sint iusto ipsa sed, animi ipsum repudiandae officia voluptatem aperiam aliquid consectetur numquam similique ullam?",
+      "Get concetrated information about economy to get most of trading the US stock market. Join us to get acces to charts and other tools that will help you to make well informed and educated decision about your next move.",
     button: "sign up",
     image: join_image,
     link: "/register",

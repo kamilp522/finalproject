@@ -6,7 +6,7 @@ import { chartOptionsAdjustMinValue } from "../../helpers/chartOptionsAdjustMinV
 
 import timeseriesService from "../../services/timeseries";
 
-import { setNotification } from "../../reducers/notificationReducer";
+import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import {
   ChartContainer,
@@ -23,6 +23,7 @@ import { useDispatch } from "react-redux";
 const Chart = ({
   title,
   interpretation,
+  periods,
   options,
   data,
   type,
@@ -35,11 +36,7 @@ const Chart = ({
 
   const dispatch = useDispatch();
 
-  const setMessageAndError = (message, error) => {
-    dispatch(setNotification({ message, error }));
-  };
-
-  const getLastXMonths = (x) => {
+  const getLastX = (x) => {
     const copy = structuredClone(data);
 
     const labels = copy.labels.splice(Number(`-${x}`));
@@ -64,7 +61,7 @@ const Chart = ({
         });
       } catch (exception) {
         const errorMessage = exception.response.data.error;
-        setMessageAndError(`${errorMessage}`, true);
+        setMessageAndError(dispatch, `${errorMessage}`, true);
         setTypedSymbol("");
         return;
       }
@@ -94,13 +91,13 @@ const Chart = ({
         {type === "bar" && !isRatio && (
           <>
             <ChartTimeButton onClick={() => setCurrentData(data)}>
-              24 months
+              {`24 ${periods}`}
             </ChartTimeButton>
-            <ChartTimeButton onClick={() => getLastXMonths(12)}>
-              12 months
+            <ChartTimeButton onClick={() => getLastX(12)}>
+              {`12 ${periods}`}
             </ChartTimeButton>
-            <ChartTimeButton onClick={() => getLastXMonths(6)}>
-              6 months
+            <ChartTimeButton onClick={() => getLastX(6)}>
+              {`6 ${periods}`}
             </ChartTimeButton>
           </>
         )}

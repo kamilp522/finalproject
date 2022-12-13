@@ -5,6 +5,8 @@ import * as colors from "../../variables/colors";
 
 import ideasService from "../../../services/ideas";
 
+import { setMessageAndError } from "../../../helpers/setMessageAndError";
+
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { Container } from "../../UI/Container/Container";
 import { Button } from "../../UI/Button/Button";
@@ -18,10 +20,11 @@ import {
   IdeaArguments,
 } from "./YourIdeasElements";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const YourIdeas = () => {
   const logged = useSelector((store) => store.logged);
+  const dispatch = useDispatch();
 
   const [ideas, setIdeas] = useState(null);
 
@@ -42,6 +45,7 @@ const YourIdeas = () => {
     const ideaElement = event.target.parentNode;
     await ideasService.deleteIdea({ ideaId, userId: logged.userId });
     ideaElement.remove();
+    setMessageAndError(dispatch, "idea removed", true);
   };
 
   useEffect(() => {

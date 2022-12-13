@@ -32,9 +32,9 @@ const Quote = () => {
     <Wrapper>
       <H2>Stock Quotes</H2>
       <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni deserunt
-        illum nam. Quidem ullam quisquam, quo ratione rerum quasi molestias
-        commodi ipsam, autem atque optio laboriosam rem dolore! A, tenetur!
+        Quote is a price of the stock listed on a stock exchange. It consists of
+        unique symbol called a ticker, name of the company, exchange offering
+        the stock and price of one share.
       </Description>
       <QuoteForm
         typedSymbol={typedSymbol}

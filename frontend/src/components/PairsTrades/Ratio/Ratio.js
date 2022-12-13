@@ -12,6 +12,8 @@ import { options } from "../../Chart/chart_options";
 
 import { chartOptionsAdjustMinValue } from "../../../helpers/chartOptionsAdjustMinValue";
 
+import { ratioChartContent } from "../content";
+
 import MoonLoader from "react-spinners/MoonLoader";
 
 import RatioForm from "../../Forms/RatioForm";
@@ -31,11 +33,7 @@ const Ratio = () => {
   return (
     <Wrapper>
       <H2>Ratio Chart</H2>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni deserunt
-        illum nam. Quidem ullam quisquam, quo ratione rerum quasi molestias
-        commodi ipsam, autem atque optio laboriosam rem dolore! A, tenetur!
-      </Description>
+      <Description>{ratioChartContent.description}</Description>
       <RatioForm
         typedRatioLongSymbol={typedRatioLongSymbol}
         setTypedRatioLongSymbol={setTypedRatioLongSymbol}

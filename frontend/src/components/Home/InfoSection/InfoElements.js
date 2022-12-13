@@ -45,7 +45,8 @@ export const InfoH2 = styled.h2`
 
 export const InfoP = styled.p`
   font-size: ${font_sizes.fs_400};
-  margin-block: 0.25em;
+  margin-block: 0.5em;
+  padding-bottom: 0.5em;
   line-height: 1.375rem;
 `;
 

@@ -13,6 +13,8 @@ import CalculatorForm from "../../Forms/CalculatorForm";
 
 import { CalculatorContainer } from "./CalculatorElements";
 
+import { calculatorContent } from "../content";
+
 import {
   Table,
   TableHead,
@@ -44,11 +46,7 @@ const Caluclator = () => {
   return (
     <Wrapper>
       <H2>Pairs Trade Calculator</H2>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni deserunt
-        illum nam. Quidem ullam quisquam, quo ratione rerum quasi molestias
-        commodi ipsam, autem atque optio laboriosam rem dolore! A, tenetur!
-      </Description>
+      <Description>{calculatorContent.description}</Description>
       <CalculatorForm
         capital={capital}
         setCapital={setCapital}

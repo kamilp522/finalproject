@@ -6,27 +6,41 @@ import { chartOptionsAdjustMinValue } from "../../helpers/chartOptionsAdjustMinV
 
 import indicatorService from "../../services/indicators";
 
+import { setMessageAndError } from "../../helpers/setMessageAndError";
+
 import Chart from "../Chart/Chart";
 import { options } from "../Chart/chart_options";
-import { latest_content } from "./content";
+import { latestContent } from "./content";
 
 import { Indicator } from "./IndicatorsElements";
 
 import { Container } from "../UI/Container/Container";
 import { Description, H2 } from "../UI/Text/Text";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
+import { useDispatch } from "react-redux";
 
 const Indicators = () => {
+  const dispatch = useDispatch();
+
   const [dataMPMI, setDataMPMI] = useState({ labels: null, datasets: null });
   const [dataSPMI, setDataSPMI] = useState({ labels: null, datasets: null });
   const [dataMichigan, setDataMichigan] = useState({
     labels: null,
     datasets: null,
   });
+  const [dataTreasury10Yield, setDataTreasury10Yield] = useState({
+    labels: null,
+    datasets: null,
+  });
+  const [dataGDP, setDataGDP] = useState({ labels: null, datasets: null });
+  const [dataPayrolls, setDataPayrolls] = useState({
+    labels: null,
+    datasets: null,
+  });
 
   useEffect(() => {
     indicatorService
-      .getIndicatorChartParams(indicatorService.getDataManPMI)
+      .getDBNOMICSIndicatorChartParams(indicatorService.getDataManPMI)
       .then((response) => {
         setDataMPMI({
           labels: response.labels,
@@ -34,12 +48,15 @@ const Indicators = () => {
             { data: response.values, backgroundColor: colors.clr_violet_800 },
           ],
         });
+      })
+      .catch((error) => {
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getIndicatorChartParams(indicatorService.getDataNonManPMI)
+      .getDBNOMICSIndicatorChartParams(indicatorService.getDataNonManPMI)
       .then((response) => {
         setDataSPMI({
           labels: response.labels,
@@ -47,12 +64,17 @@ const Indicators = () => {
             { data: response.values, backgroundColor: colors.clr_violet_800 },
           ],
         });
+      })
+      .catch((error) => {
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getIndicatorChartParams(indicatorService.getDataMichiganSentiment)
+      .getDBNOMICSIndicatorChartParams(
+        indicatorService.getDataMichiganSentiment
+      )
       .then((response) => {
         setDataMichigan({
           labels: response.labels,
@@ -60,6 +82,57 @@ const Indicators = () => {
             { data: response.values, backgroundColor: colors.clr_violet_800 },
           ],
         });
+      })
+      .catch((error) => {
+        setMessageAndError(dispatch, `${error}`, true);
+      });
+  }, []);
+
+  useEffect(() => {
+    indicatorService
+      .getVANTAGEIndicatorsChartParams(indicatorService.getDataTreasury10Yield)
+      .then((response) => {
+        setDataTreasury10Yield({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
+      })
+      .catch((error) => {
+        setMessageAndError(dispatch, `${error}`, true);
+      });
+  }, []);
+
+  useEffect(() => {
+    indicatorService
+      .getVANTAGEIndicatorsChartParams(indicatorService.getDataGDP)
+      .then((response) => {
+        setDataGDP({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
+      })
+      .catch((error) => {
+        setMessageAndError(dispatch, `${error}`, true);
+      });
+  }, []);
+
+  useEffect(() => {
+    indicatorService
+      .getVANTAGEIndicatorsChartParams(indicatorService.getDataPayrolls)
+      .then((response) => {
+        setDataPayrolls({
+          labels: response.labels,
+          datasets: [
+            { data: response.values, backgroundColor: colors.clr_violet_800 },
+          ],
+        });
+      })
+      .catch((error) => {
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
@@ -67,17 +140,13 @@ const Indicators = () => {
     <Wrapper>
       <Container>
         <H2>Leading Indicators</H2>
-        <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem, alias? Voluptatibus atque ipsam quos nam pariatur
-          nulla provident laboriosam porro minus placeat beatae dolores debitis
-          eligendi, dolorem, ut nobis tempore?
-        </Description>
+        <Description>{latestContent.leading}</Description>
         <Indicator>
           {dataMPMI.datasets ? (
             <Chart
-              title={latest_content.manufacturing_pmi.title}
-              interpretation={latest_content.manufacturing_pmi.interpretation}
+              title={latestContent.manufacturing_pmi.title}
+              interpretation={latestContent.manufacturing_pmi.interpretation}
+              periods={latestContent.manufacturing_pmi.periods}
               options={chartOptionsAdjustMinValue(options, dataMPMI)}
               data={dataMPMI}
               type="bar"
@@ -89,10 +158,11 @@ const Indicators = () => {
         <Indicator>
           {dataSPMI.datasets ? (
             <Chart
-              title={latest_content.non_manufacturing_pmi.title}
+              title={latestContent.non_manufacturing_pmi.title}
               interpretation={
-                latest_content.non_manufacturing_pmi.interpretation
+                latestContent.non_manufacturing_pmi.interpretation
               }
+              periods={latestContent.non_manufacturing_pmi.periods}
               options={chartOptionsAdjustMinValue(options, dataSPMI)}
               data={dataSPMI}
               type="bar"
@@ -104,10 +174,55 @@ const Indicators = () => {
         <Indicator>
           {dataMichigan.datasets ? (
             <Chart
-              title={latest_content.michigan_sentiment.title}
-              interpretation={latest_content.michigan_sentiment.interpretation}
+              title={latestContent.michigan_sentiment.title}
+              interpretation={latestContent.michigan_sentiment.interpretation}
+              periods={latestContent.michigan_sentiment.periods}
               options={chartOptionsAdjustMinValue(options, dataMichigan)}
               data={dataMichigan}
+              type="bar"
+            />
+          ) : (
+            <div></div>
+          )}
+        </Indicator>
+        <Indicator>
+          {dataTreasury10Yield.datasets ? (
+            <Chart
+              title={latestContent.treasury_10_yield.title}
+              interpretation={latestContent.treasury_10_yield.interpretation}
+              periods={latestContent.treasury_10_yield.periods}
+              options={chartOptionsAdjustMinValue(options, dataTreasury10Yield)}
+              data={dataTreasury10Yield}
+              type="bar"
+            />
+          ) : (
+            <div></div>
+          )}
+        </Indicator>
+        <H2>Coincident Indicators</H2>
+        <Description>{latestContent.coincident}</Description>
+        <Indicator>
+          {dataGDP.datasets ? (
+            <Chart
+              title={latestContent.gdp.title}
+              interpretation={latestContent.gdp.interpretation}
+              periods={latestContent.gdp.periods}
+              options={chartOptionsAdjustMinValue(options, dataGDP)}
+              data={dataGDP}
+              type="bar"
+            />
+          ) : (
+            <div></div>
+          )}
+        </Indicator>
+        <Indicator>
+          {dataPayrolls.datasets ? (
+            <Chart
+              title={latestContent.payrolls.title}
+              interpretation={latestContent.payrolls.interpretation}
+              periods={latestContent.payrolls.periods}
+              options={chartOptionsAdjustMinValue(options, dataPayrolls)}
+              data={dataPayrolls}
               type="bar"
             />
           ) : (
