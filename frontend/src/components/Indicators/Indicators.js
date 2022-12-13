@@ -50,7 +50,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
+        setMessageAndError(dispatch, `${error.response.data.error}`, true);
       });
   }, []);
 
@@ -66,7 +66,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
+        setMessageAndError(dispatch, `${error.response.data.error}`, true);
       });
   }, []);
 
@@ -84,7 +84,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
+        setMessageAndError(dispatch, `${error.response.data.error}`, true);
       });
   }, []);
 
@@ -100,7 +100,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
+        setMessageAndError(dispatch, `${error.response.data.error}`, true);
       });
   }, []);
 
@@ -116,7 +116,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
+        setMessageAndError(dispatch, `${error.response.data.error}`, true);
       });
   }, []);
 
@@ -132,7 +132,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
+        setMessageAndError(dispatch, `${error.response.data.error}`, true);
       });
   }, []);
 

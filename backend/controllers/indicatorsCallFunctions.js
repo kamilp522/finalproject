@@ -1,5 +1,8 @@
 const axios = require("axios");
 
+const vantageNote =
+  "Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day. Please visit https://www.alphavantage.co/premium/ if you would like to target a higher API call frequency.";
+
 const getMPMI = async (request, response) => {
   const ism_manufacturing = await axios.get(
     "https://api.db.nomics.world/v22/series/ISM/pmi/pm?observations=1"
@@ -31,6 +34,12 @@ const getTreasury10Yield = async (request, response) => {
   };
 
   const yield = await axios.request(options);
+
+  if ((yield.Note = vantageNote)) {
+    return response.status(429).json({
+      error: "too many requests, reached Vantage api limit (500/day 5/minute)",
+    });
+  }
   return response.status(200).json(yield.data);
 };
 
@@ -44,6 +53,13 @@ const getGDP = async (request, response) => {
   };
 
   const gdp = await axios.request(options);
+
+  if ((gdp.Note = vantageNote)) {
+    return response.status(429).json({
+      error: "too many requests, reached Vantage api limit (500/day 5/minute)",
+    });
+  }
+
   return response.status(200).json(gdp.data);
 };
 
@@ -57,6 +73,13 @@ const getPayrolls = async (request, response) => {
   };
 
   const payrolls = await axios.request(options);
+
+  if ((payrolls.Note = vantageNote)) {
+    return response.status(429).json({
+      error: "too many requests, reached Vantage api limit (500/day 5/minute)",
+    });
+  }
+
   return response.status(200).json(payrolls.data);
 };
 
