@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import * as colors from "../variables/colors";
+
 import Chart from "../Chart/Chart";
 import { options } from "../Chart/chart_options";
 
@@ -10,6 +12,9 @@ import { convertToUSD } from "../../helpers/convertToUSD";
 import { QuoteContainer } from "./QuoteElements";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
 import { H2, Description } from "../UI/Text/Text";
+import { LoaderContainer } from "../UI/LoaderContainer/LoaderContainer";
+
+import MoonLoader from "react-spinners/MoonLoader";
 
 import {
   Table,
@@ -67,7 +72,7 @@ const Quote = () => {
                 </Row>
               </TableBody>
             </Table>
-            {chartData.datasets && (
+            {chartData.datasets ? (
               <Chart
                 interpretation={quote.name}
                 options={chartOptionsAdjustMinValue(options, chartData)}
@@ -77,6 +82,14 @@ const Quote = () => {
                 setChartInterval={setChartInterval}
                 currentSymbol={currentSymbol}
               />
+            ) : (
+              <LoaderContainer>
+                <MoonLoader
+                  loading={true}
+                  size={50}
+                  color={colors.clr_violet_full}
+                />
+              </LoaderContainer>
             )}
           </>
         )}

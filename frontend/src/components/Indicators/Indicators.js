@@ -7,6 +7,7 @@ import { chartOptionsAdjustMinValue } from "../../helpers/chartOptionsAdjustMinV
 import indicatorService from "../../services/indicators";
 
 import { setMessageAndError } from "../../helpers/setMessageAndError";
+import { useDispatch } from "react-redux";
 
 import Chart from "../Chart/Chart";
 import { options } from "../Chart/chart_options";
@@ -17,7 +18,9 @@ import { Indicator } from "./IndicatorsElements";
 import { Container } from "../UI/Container/Container";
 import { Description, H2 } from "../UI/Text/Text";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
-import { useDispatch } from "react-redux";
+import { LoaderContainer } from "../UI/LoaderContainer/LoaderContainer";
+
+import MoonLoader from "react-spinners/MoonLoader";
 
 const Indicators = () => {
   const dispatch = useDispatch();
@@ -141,6 +144,7 @@ const Indicators = () => {
       <Container>
         <H2>Leading Indicators</H2>
         <Description>{latestContent.leading}</Description>
+
         <Indicator>
           {dataMPMI.datasets ? (
             <Chart
@@ -152,7 +156,13 @@ const Indicators = () => {
               type="bar"
             />
           ) : (
-            <div></div>
+            <LoaderContainer>
+              <MoonLoader
+                loading={true}
+                size={50}
+                color={colors.clr_violet_full}
+              />
+            </LoaderContainer>
           )}
         </Indicator>
         <Indicator>
@@ -168,7 +178,13 @@ const Indicators = () => {
               type="bar"
             />
           ) : (
-            <div></div>
+            <LoaderContainer>
+              <MoonLoader
+                loading={true}
+                size={50}
+                color={colors.clr_violet_full}
+              />
+            </LoaderContainer>
           )}
         </Indicator>
         <Indicator>
@@ -182,7 +198,13 @@ const Indicators = () => {
               type="bar"
             />
           ) : (
-            <div></div>
+            <LoaderContainer>
+              <MoonLoader
+                loading={true}
+                size={50}
+                color={colors.clr_violet_full}
+              />
+            </LoaderContainer>
           )}
         </Indicator>
         <Indicator>
@@ -196,7 +218,13 @@ const Indicators = () => {
               type="bar"
             />
           ) : (
-            <div></div>
+            <LoaderContainer>
+              <MoonLoader
+                loading={true}
+                size={50}
+                color={colors.clr_violet_full}
+              />
+            </LoaderContainer>
           )}
         </Indicator>
         <H2>Coincident Indicators</H2>
@@ -212,7 +240,13 @@ const Indicators = () => {
               type="bar"
             />
           ) : (
-            <div></div>
+            <LoaderContainer>
+              <MoonLoader
+                loading={true}
+                size={50}
+                color={colors.clr_violet_full}
+              />
+            </LoaderContainer>
           )}
         </Indicator>
         <Indicator>
@@ -226,7 +260,13 @@ const Indicators = () => {
               type="bar"
             />
           ) : (
-            <div></div>
+            <LoaderContainer>
+              <MoonLoader
+                loading={true}
+                size={50}
+                color={colors.clr_violet_full}
+              />
+            </LoaderContainer>
           )}
         </Indicator>
       </Container>

@@ -9,9 +9,9 @@ import MoonLoader from "react-spinners/MoonLoader";
 
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { H2, H3, Description } from "../../UI/Text/Text";
-import CalculatorForm from "../../Forms/CalculatorForm";
+import { LoaderContainer } from "../../UI/LoaderContainer/LoaderContainer";
 
-import { CalculatorContainer } from "./CalculatorElements";
+import CalculatorForm from "../../Forms/CalculatorForm";
 
 import { calculatorContent } from "../content";
 
@@ -62,63 +62,64 @@ const Caluclator = () => {
         setTableData={setTableData}
         setLoading={setLoading}
       />
-      <CalculatorContainer>
-        {loading && (
+
+      {loading && (
+        <LoaderContainer>
           <MoonLoader
             loading={loading}
             size={50}
             color={colors.clr_violet_full}
           />
-        )}
-        {tableData && (
-          <>
-            <H3>{`${currentCalculatorLongSymbol} / ${currentCalculatorShortSymbol} ${currentIndexSymbol}`}</H3>
-            <Table>
-              <TableHead>
-                <Row>
-                  <Head>Symbol</Head>
-                  <Head>Price</Head>
-                  <Head>Shares</Head>
-                  <Head>Beta</Head>
-                  <Head>Total</Head>
-                </Row>
-              </TableHead>
-              <TableBody>
-                <Row>
-                  <Data>{currentCalculatorLongSymbol}</Data>
-                  <Data>{convertToUSD(tableData.longPrice)}</Data>
-                  <Data>{tableData.longShares}</Data>
-                  <Data>{tableData.longBeta}</Data>
-                  <Data>{convertToUSD(tableData.longTotal)}</Data>
-                </Row>
-                <Row>
-                  <Data>{currentCalculatorShortSymbol}</Data>
-                  <Data>{convertToUSD(tableData.shortPrice)}</Data>
-                  <Data>{tableData.shortShares}</Data>
-                  <Data>{tableData.shortBeta}</Data>
-                  <Data>{convertToUSD(tableData.shortTotal)}</Data>
-                </Row>
-                <Row>
-                  <Data>Ratio:</Data>
-                  <Data></Data>
-                  <Data></Data>
-                  <Data>{tableData.betaRatio}</Data>
-                  <Data></Data>
-                </Row>
-                <Row>
-                  <Data>Total:</Data>
-                  <Data></Data>
-                  <Data></Data>
-                  <Data></Data>
-                  <Data>
-                    {convertToUSD(tableData.longTotal + tableData.shortTotal)}
-                  </Data>
-                </Row>
-              </TableBody>
-            </Table>
-          </>
-        )}
-      </CalculatorContainer>
+        </LoaderContainer>
+      )}
+      {tableData && (
+        <>
+          <H3>{`${currentCalculatorLongSymbol} / ${currentCalculatorShortSymbol} ${currentIndexSymbol}`}</H3>
+          <Table>
+            <TableHead>
+              <Row>
+                <Head>Symbol</Head>
+                <Head>Price</Head>
+                <Head>Shares</Head>
+                <Head>Beta</Head>
+                <Head>Total</Head>
+              </Row>
+            </TableHead>
+            <TableBody>
+              <Row>
+                <Data>{currentCalculatorLongSymbol}</Data>
+                <Data>{convertToUSD(tableData.longPrice)}</Data>
+                <Data>{tableData.longShares}</Data>
+                <Data>{tableData.longBeta}</Data>
+                <Data>{convertToUSD(tableData.longTotal)}</Data>
+              </Row>
+              <Row>
+                <Data>{currentCalculatorShortSymbol}</Data>
+                <Data>{convertToUSD(tableData.shortPrice)}</Data>
+                <Data>{tableData.shortShares}</Data>
+                <Data>{tableData.shortBeta}</Data>
+                <Data>{convertToUSD(tableData.shortTotal)}</Data>
+              </Row>
+              <Row>
+                <Data>Ratio:</Data>
+                <Data></Data>
+                <Data></Data>
+                <Data>{tableData.betaRatio}</Data>
+                <Data></Data>
+              </Row>
+              <Row>
+                <Data>Total:</Data>
+                <Data></Data>
+                <Data></Data>
+                <Data></Data>
+                <Data>
+                  {convertToUSD(tableData.longTotal + tableData.shortTotal)}
+                </Data>
+              </Row>
+            </TableBody>
+          </Table>
+        </>
+      )}
     </Wrapper>
   );
 };
