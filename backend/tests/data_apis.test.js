@@ -75,9 +75,6 @@ describe("\nCheck if api calls return correct data in correct format", () => {
       .expect("Content-Type", /application\/json/);
 
     const name = response.body.name;
-
-    console.log(response.body);
-
     expect(name).toBe("Total Nonfarm Payroll");
   });
 });

@@ -2,7 +2,6 @@ import React from "react";
 import {
   FooterWrapper,
   FooterContainer,
-  FooterContent,
   FooterLinks,
   FooterLink,
   FooterListItem,
@@ -76,6 +75,9 @@ const Footer = () => {
             </a>
             <a target="_blank" href="https://rapidapi.com/">
               Rapid API
+            </a>
+            <a target="_blank" href="https://www.newtonanalytics.com/">
+              Newton Analytics
             </a>
           </Credit>
         </FooterCredits>

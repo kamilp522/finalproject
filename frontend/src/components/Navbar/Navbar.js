@@ -87,6 +87,7 @@ const Navbar = () => {
               onClick={() => {
                 setShowNav(!showNav);
                 setShowPairsTradesNav(false);
+                setShowIdeasNav(false);
               }}
             >
               <NavMenuIcon icon={faBars} />
