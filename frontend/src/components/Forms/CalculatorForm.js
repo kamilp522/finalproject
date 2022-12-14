@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import calculatorService from "../../services/calculator";
 import quoteService from "../../services/quote";
 
@@ -133,6 +135,22 @@ const CalculatorForm = ({
       </FormButtonWrapper>
     </Form>
   );
+};
+
+CalculatorForm.propTypes = {
+  capital: PropTypes.string.isRequired,
+  setCapital: PropTypes.func.isRequired,
+  typedCalculatorLongSymbol: PropTypes.string.isRequired,
+  setTypedCalculatorLongSymbol: PropTypes.func.isRequired,
+  typedCalculatorShortSymbol: PropTypes.string.isRequired,
+  setTypedCalculatorShortSymbol: PropTypes.func.isRequired,
+  setCurrentCalculatorLongSymbol: PropTypes.func.isRequired,
+  setCurrentCalculatorShortSymbol: PropTypes.func.isRequired,
+  typedIndexSymbol: PropTypes.string.isRequired,
+  setTypedIndexSymbol: PropTypes.func.isRequired,
+  setCurrentIndexSymbol: PropTypes.func.isRequired,
+  setTableData: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
 };
 
 export default CalculatorForm;

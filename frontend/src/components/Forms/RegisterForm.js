@@ -17,7 +17,7 @@ import {
 } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
@@ -89,4 +89,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

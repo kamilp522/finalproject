@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import * as colors from "../../components/variables/colors";
 
 import { setMessageAndError } from "../../helpers/setMessageAndError";
@@ -81,6 +83,15 @@ const QuoteForm = ({
       </FormButtonWrapper>
     </Form>
   );
+};
+
+QuoteForm.propTypes = {
+  typedSymbol: PropTypes.string.isRequired,
+  setTypedSymbol: PropTypes.func.isRequired,
+  setQuote: PropTypes.func.isRequired,
+  setChartData: PropTypes.func.isRequired,
+  chartInterval: PropTypes.string.isRequired,
+  setCurrentSymbol: PropTypes.func.isRequired,
 };
 
 export default QuoteForm;

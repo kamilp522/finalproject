@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import * as colors from "../variables/colors";
 
 import { setMessageAndError } from "../../helpers/setMessageAndError";
@@ -102,6 +104,17 @@ const RatioForm = ({
       </FormButtonWrapper>
     </Form>
   );
+};
+
+RatioForm.propTypes = {
+  typedRatioLongSymbol: PropTypes.string.isRequired,
+  setTypedRatioLongSymbol: PropTypes.func.isRequired,
+  typedRatioShortSymbol: PropTypes.string.isRequired,
+  setTypedRatioShortSymbol: PropTypes.func.isRequired,
+  setCurrentRatioLongSymbol: PropTypes.func.isRequired,
+  setCurrentRatioShortSymbol: PropTypes.func.isRequired,
+  setChartData: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
 };
 
 export default RatioForm;

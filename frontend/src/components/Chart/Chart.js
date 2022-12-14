@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import PropTypes from "prop-types";
+
 import * as colors from "../variables/colors";
 import { chartOptionsAdjustMinValue } from "../../helpers/chartOptionsAdjustMinValue";
 
@@ -136,6 +138,19 @@ const Chart = ({
       )}
     </ChartContainer>
   );
+};
+
+Chart.propTypes = {
+  title: PropTypes.string,
+  interpretation: PropTypes.string,
+  periods: PropTypes.string,
+  options: PropTypes.object.isRequired,
+  type: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
+  chartInterval: PropTypes.string,
+  setChartInterval: PropTypes.func,
+  currentSymbol: PropTypes.string,
+  isRatio: PropTypes.bool,
 };
 
 export default Chart;
