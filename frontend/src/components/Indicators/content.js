@@ -1,18 +1,18 @@
 export const latestContent = {
   leading:
-    "An indicator is a piece of economic data that can be used to understand bette trends in economy. Leading indicators are data sets that are showing the potential change in economic activity that may occur in the future. These indicators are the most important for the traders, as one of the main job of the trader is to predict future economic conditions.",
+    "An indicator is a piece of economic data that can be used to better understand trends in economy. Leading indicators are data sets that are showing the potential change in economic activity that may occur in the future. These indicators are the most important for the traders, as one of the main job of the trader is to predict future economic conditions.",
   coincident:
     "Coincident indicators show current economic conditions. They may be used to confirm if forecasts made by using leading indicators were correct or not.",
   manufacturing_pmi: {
     title: "ISM Manufacturing PMI",
     interpretation:
-      "The Manufacturing Purchasing Managers Index (MPMI) is based on monthly surveys of supply chain managers. Thanks to data aggregated over the years this index is widely used as the tool for predicting economic upturnes and downturnes. Levels Above 50 are showing improvment, below 50 - deterioration.",
+      "The Manufacturing Purchasing Managers Index (MPMI) is based on monthly surveys of supply chain managers. Thanks to data aggregated over the years this index is widely used as the tool for prognosing future state of American industry. Levels Above 50 are showing improvment, below 50 - deterioration.",
     periods: "months",
   },
   non_manufacturing_pmi: {
     title: "ISM Non-Manufacturing PMI",
     interpretation:
-      "The Services Purchasing Managers Index (SPMI) is based on surveys with executives in private sector service companies. Similarly MPMI is used by many experts in predicting in which direction the service sector in US will go. Levels Above 50 are showing improvment, below 50 - deterioration.",
+      "The Services Purchasing Managers Index (SPMI) is based on surveys with executives in private sector service companies. Similar to MPMI, it is used by many experts in predicting direction US service sector will take in the coming months. Levels Above 50 are showing improvment, below 50 - deterioration.",
     periods: "months",
   },
   michigan_sentiment: {

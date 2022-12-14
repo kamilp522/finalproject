@@ -14,7 +14,7 @@ export const Input = styled.input`
   font-size: ${font_sizes.fs_500};
   border: 1px solid ${colors.clr_very_dark_blue_900};
   border-radius: 0.25rem;
-  margin-block: 0.25em;
+  margin-bottom: 0.75em;
   padding: 0.25em;
 `;
 
@@ -32,4 +32,10 @@ export const TextArea = styled.textarea`
   margin-top: 0.5em;
   padding: 0.5em 0.25em;
   font-size: ${font_sizes.fs_500};
+`;
+
+export const Label = styled.label`
+  font-size: ${font_sizes.fs_500};
+  margin-bottom: 0.3em;
+  display: inline-flex;
 `;

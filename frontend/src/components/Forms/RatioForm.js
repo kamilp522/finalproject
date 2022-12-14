@@ -8,7 +8,12 @@ import ratioService from "../../services/ratio";
 
 import { getLastXTradingDays } from "../../helpers/getLastXTradingDays";
 
-import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
+import {
+  Form,
+  Input,
+  FormButtonWrapper,
+  Label,
+} from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 import { useDispatch } from "react-redux";
 
@@ -71,6 +76,7 @@ const RatioForm = ({
 
   return (
     <Form onSubmit={getRatio}>
+      <Label>long stock symbol: </Label>
       <Input
         id="ratio-long-symbol"
         type="text"
@@ -78,8 +84,9 @@ const RatioForm = ({
         onChange={({ target }) =>
           setTypedRatioLongSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="long symbol"
+        placeholder="e.g. GOOG"
       />
+      <Label>short stock symbol: </Label>
       <Input
         id="ratio-short-symbol"
         type="text"
@@ -87,7 +94,7 @@ const RatioForm = ({
         onChange={({ target }) =>
           setTypedRatioShortSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="short symbol"
+        placeholder="e.g. AAPL"
       />
 
       <FormButtonWrapper>

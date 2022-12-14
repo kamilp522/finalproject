@@ -7,7 +7,12 @@ import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import { parseDataForCalculatorTable } from "../../helpers/parseDataForCalculatorTable";
 
-import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
+import {
+  Form,
+  Input,
+  FormButtonWrapper,
+  Label,
+} from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 import { useDispatch } from "react-redux";
 
@@ -81,13 +86,17 @@ const CalculatorForm = ({
 
   return (
     <Form onSubmit={getPairTrade}>
+      <Label>capital for trade: </Label>
+
       <Input
         id="calculator-capital"
         type="text"
         value={capital}
         onChange={({ target }) => setCapital(target.value)}
-        placeholder="capital for trade in USD"
+        placeholder="e.g. 10000"
       />
+      <Label>long stock symbol: </Label>
+
       <Input
         id="calculator-long-symbol"
         type="text"
@@ -95,8 +104,10 @@ const CalculatorForm = ({
         onChange={({ target }) =>
           setTypedCalculatorLongSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="long symbol"
+        placeholder="e.g. GOOG"
       />
+      <Label>short stock symbol: </Label>
+
       <Input
         id="calculator-short-symbol"
         type="text"
@@ -104,8 +115,10 @@ const CalculatorForm = ({
         onChange={({ target }) =>
           setTypedCalculatorShortSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="short symbol"
+        placeholder="e.g. AAPL"
       />
+      <Label>index symbol: </Label>
+
       <Input
         id="calculator-index-symbol"
         type="text"
@@ -113,7 +126,7 @@ const CalculatorForm = ({
         onChange={({ target }) =>
           setTypedIndexSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="index symbol"
+        placeholder="e.g. GSPC for SP500"
       />
       <FormButtonWrapper>
         <Button id="calculator-button">calculate</Button>

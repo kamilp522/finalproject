@@ -7,7 +7,12 @@ import { setMessageAndError } from "../../helpers/setMessageAndError";
 
 import loginService from "../../services/login";
 
-import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
+import {
+  Form,
+  Input,
+  Label,
+  FormButtonWrapper,
+} from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
 const LoginForm = () => {
@@ -45,18 +50,18 @@ const LoginForm = () => {
 
   return (
     <Form onSubmit={handleLogin}>
+      <Label>username: </Label>
       <Input
         id="login-username"
         type="text"
         value={username}
-        placeholder="username"
         onChange={({ target }) => setUsername(target.value)}
       />
+      <Label>password: </Label>
       <Input
         id="login-password"
         type="password"
         value={password}
-        placeholder="password"
         onChange={({ target }) => setPassword(target.value)}
       />
       <FormButtonWrapper>

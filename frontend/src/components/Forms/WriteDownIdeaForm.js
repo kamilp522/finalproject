@@ -10,6 +10,7 @@ import {
   Input,
   TextArea,
   FormButtonWrapper,
+  Label,
 } from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,6 +51,7 @@ const WriteDownIdeaForm = () => {
 
   return (
     <Form onSubmit={sendIdea}>
+      <Label>long stock symbol: </Label>
       <Input
         id="write-idea-long"
         type="text"
@@ -57,8 +59,9 @@ const WriteDownIdeaForm = () => {
         onChange={({ target }) =>
           setLongSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="long symbol eg. AAPL "
+        placeholder="e.g. AAPL "
       />
+      <Label>short stock symbol: </Label>
       <Input
         id="write-idea-short"
         type="text"
@@ -66,8 +69,9 @@ const WriteDownIdeaForm = () => {
         onChange={({ target }) =>
           setShortSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="short symbol eg. GOOG"
+        placeholder="e.g. GOOG"
       />
+      <Label style={{ marginBottom: "0.125em" }}>arguments for the idea:</Label>
       <TextArea
         id="write-idea-arguments"
         type="text"

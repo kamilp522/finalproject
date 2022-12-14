@@ -12,7 +12,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${colors.clr_cream_900};
-    color: ${colors.clr_very_dark_blue_800};
+    background-color: ${colors.clr_violet_400};
+    color: black;
   }
 `;

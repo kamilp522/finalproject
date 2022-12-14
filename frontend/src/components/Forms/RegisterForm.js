@@ -9,7 +9,12 @@ import { setMessageAndError } from "../../helpers/setMessageAndError";
 import userService from "../../services/users";
 import loginService from "../../services/login";
 
-import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
+import {
+  Form,
+  Input,
+  FormButtonWrapper,
+  Label,
+} from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 
 const LoginForm = () => {
@@ -56,25 +61,25 @@ const LoginForm = () => {
 
   return (
     <Form onSubmit={handleRegister}>
+      <Label>username: </Label>
       <Input
         id="register-username"
         type="text"
         value={username}
-        placeholder="username"
         onChange={({ target }) => setUsername(target.value)}
       />
+      <Label>password: </Label>
       <Input
         id="register-password"
         type="password"
         value={password}
-        placeholder="password"
         onChange={({ target }) => setPassword(target.value)}
       />
+      <Label>repeat password:</Label>
       <Input
         id="register-repeated-password"
         type="password"
         value={repeatedPassword}
-        placeholder="repeat password"
         onChange={({ target }) => setRepeatedPassword(target.value)}
       />
       <FormButtonWrapper>

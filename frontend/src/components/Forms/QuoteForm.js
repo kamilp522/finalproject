@@ -7,7 +7,12 @@ import { setMessageAndError } from "../../helpers/setMessageAndError";
 import quoteService from "../../services/quote";
 import timeseriesService from "../../services/timeseries";
 
-import { Form, Input, FormButtonWrapper } from "../UI/Forms/FormElements";
+import {
+  Form,
+  Input,
+  FormButtonWrapper,
+  Label,
+} from "../UI/Forms/FormElements";
 import { Button } from "../UI/Button/Button";
 import { useDispatch } from "react-redux";
 
@@ -61,6 +66,7 @@ const QuoteForm = ({
 
   return (
     <Form onSubmit={getQuote}>
+      <Label>stock symbol: </Label>
       <Input
         id="quote-symbol"
         type="text"
@@ -68,7 +74,7 @@ const QuoteForm = ({
         onChange={({ target }) =>
           setTypedSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="type symbol"
+        placeholder="e.g. GOOG"
       />
       <FormButtonWrapper>
         <Button id="quote-button">look up stock</Button>
