@@ -69,7 +69,7 @@ const WriteDownIdeaForm = () => {
         placeholder="short symbol eg. GOOG"
       />
       <TextArea
-        id="write-idea-ideaArguments"
+        id="write-idea-arguments"
         type="text"
         value={ideaArgumentsField}
         onChange={({ target }) => setIdeaArgumentsField(target.value)}

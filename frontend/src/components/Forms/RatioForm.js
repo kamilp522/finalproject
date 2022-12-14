@@ -45,14 +45,14 @@ const RatioForm = ({
         days,
       });
 
-      const ratio_chart_data = ratioService.getRatioChartParams(ratio);
+      const ratio_chartData = ratioService.getRatioChartParams(ratio);
       const lastXTradingDays = await getLastXTradingDays(days);
 
       setChartData({
         labels: lastXTradingDays.reverse(),
         datasets: [
           {
-            data: ratio_chart_data,
+            data: ratio_chartData,
             backgroundColor: colors.clr_violet_600,
             borderColor: colors.clr_violet_600,
             hoverBackgroundColor: colors.clr_light_black_800,

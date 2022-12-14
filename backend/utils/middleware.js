@@ -70,9 +70,40 @@ const parseHolidays = (array) => {
   return holidaysParsed;
 };
 
+const parseVANTAGEData = (chartData) => {
+  const last24 = chartData.slice(0, 24).reverse();
+
+  const labelsLast24 = [];
+  last24.forEach((item) => {
+    labelsLast24.push(item.date.substring(0, 7));
+  });
+
+  const valuesLast24 = [];
+  last24.map((item) => {
+    valuesLast24.push(item.value);
+  });
+
+  return {
+    labels: labelsLast24,
+    values: valuesLast24,
+  };
+};
+
+const parseDBNOMICSData = (chartData) => {
+  const labelsLast24 = chartData.period.slice(-24);
+  const valuesLast24 = chartData.value.slice(-24);
+
+  return {
+    labels: labelsLast24,
+    values: valuesLast24,
+  };
+};
+
 module.exports = {
   parseBetas,
   getBetaRatio,
   calculatePairsTradeCapital,
   getHolidays,
+  parseVANTAGEData,
+  parseDBNOMICSData,
 };

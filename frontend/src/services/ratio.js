@@ -9,8 +9,8 @@ const getRatioData = async (symbols) => {
   return response.data;
 };
 
-const getRatioChartParams = (chart_data) => {
-  const ratio = calculateRatio(chart_data);
+const getRatioChartParams = (data) => {
+  const ratio = calculateRatio(data);
   return ratio;
 };
 

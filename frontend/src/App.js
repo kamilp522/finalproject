@@ -76,7 +76,7 @@ const App = () => {
           }
         />
         <Route
-          path="/write-down-idea"
+          path="/write-down-your-ideas"
           element={
             logged.username ? <WriteDownIdea /> : <Navigate replace to="/" />
           }

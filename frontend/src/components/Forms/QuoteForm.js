@@ -40,14 +40,14 @@ const QuoteForm = ({
         chartInterval,
       });
 
-      const timeseries_chart_data =
+      const timeseries_chartData =
         timeseriesService.getTimeseriesChartParams(timeseries);
 
       setChartData({
-        labels: timeseries_chart_data.labels,
+        labels: timeseries_chartData.labels,
         datasets: [
           {
-            data: timeseries_chart_data.values,
+            data: timeseries_chartData.values,
             backgroundColor: colors.clr_violet_400,
             borderColor: colors.clr_violet_400,
           },

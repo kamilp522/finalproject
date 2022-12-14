@@ -136,6 +136,7 @@ const Navbar = () => {
                 </NavListItem>
                 <NavListItem className="nav-pairs-trades-list-item">
                   <SupplementaryNavLink
+                    aria-label="pairs trades"
                     onClick={() => {
                       setShowPairsTradesNav(!showPairsTradesNav);
                       setShowIdeasNav(false);
@@ -146,7 +147,7 @@ const Navbar = () => {
                   <SupplementaryNavMenu showPairsTradesNav={showPairsTradesNav}>
                     <SupplementaryNavItem>
                       <NavLink
-                        aria-label="about-pairs-trades"
+                        aria-label="about pairs trades"
                         to="/about-pairs-trades"
                         onClick={() => {
                           hideNavs();
@@ -157,7 +158,7 @@ const Navbar = () => {
                     </SupplementaryNavItem>
                     <SupplementaryNavItem>
                       <NavLink
-                        aria-label="ratio-chart"
+                        aria-label="ratio chart"
                         to="/ratio-chart"
                         onClick={() => {
                           hideNavs();
@@ -181,6 +182,7 @@ const Navbar = () => {
                 </NavListItem>
                 <NavListItem className="ideas-list-item">
                   <SupplementaryNavLink
+                    aria-label="ideas for trades"
                     onClick={() => {
                       setShowIdeasNav(!showIdeasNav);
                       setShowPairsTradesNav(false);
@@ -191,8 +193,8 @@ const Navbar = () => {
                   <SupplementaryNavMenu showIdeasNav={showIdeasNav}>
                     <SupplementaryNavItem>
                       <NavLink
-                        aria-label="Write Down an Idea"
-                        to="/write-down-idea"
+                        aria-label="write down your ideas"
+                        to="/write-down-your-ideas"
                         onClick={() => {
                           hideNavs();
                         }}
@@ -202,7 +204,7 @@ const Navbar = () => {
                     </SupplementaryNavItem>
                     <SupplementaryNavItem>
                       <NavLink
-                        aria-label="Your Ideas"
+                        aria-label="your ideas"
                         to="/your-ideas"
                         onClick={() => {
                           hideNavs();

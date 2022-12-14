@@ -66,14 +66,14 @@ const Chart = ({
         return;
       }
 
-      const timeseries_chart_data =
+      const timeseries_chartData =
         timeseriesService.getTimeseriesChartParams(timeseries);
 
       setCurrentData({
-        labels: timeseries_chart_data.labels,
+        labels: timeseries_chartData.labels,
         datasets: [
           {
-            data: timeseries_chart_data.values,
+            data: timeseries_chartData.values,
             backgroundColor: colors.clr_very_dark_blue_500,
             borderColor: colors.clr_violet_400,
           },
@@ -104,7 +104,7 @@ const Chart = ({
         {chartInterval && (
           <Select
             name="interval"
-            id="quote-chart-interval"
+            id="line-chart-interval"
             defaultValue={chartInterval}
             onChange={({ target }) => {
               setChartInterval(target.value);
@@ -125,14 +125,14 @@ const Chart = ({
       </ChartButtonsWrapper>
       {type === "bar" && (
         <BarChart
-          className="indicator-chart"
+          className="bar-chart"
           options={chartOptionsAdjustMinValue(options, currentData)}
           data={currentData}
         />
       )}
       {type === "line" && (
         <LineChart
-          id="quote-chart"
+          className="line-chart"
           options={chartOptionsAdjustMinValue(options, currentData)}
           data={currentData}
         />

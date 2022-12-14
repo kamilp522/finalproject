@@ -43,7 +43,7 @@ const Indicators = () => {
 
   useEffect(() => {
     indicatorService
-      .getDBNOMICSIndicatorChartParams(indicatorService.getDataManPMI)
+      .getDataManPMI()
       .then((response) => {
         setDataMPMI({
           labels: response.labels,
@@ -53,13 +53,13 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error.response.data.error}`, true);
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getDBNOMICSIndicatorChartParams(indicatorService.getDataNonManPMI)
+      .getDataNonManPMI()
       .then((response) => {
         setDataSPMI({
           labels: response.labels,
@@ -69,15 +69,13 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error.response.data.error}`, true);
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getDBNOMICSIndicatorChartParams(
-        indicatorService.getDataMichiganSentiment
-      )
+      .getDataMichiganSentiment()
       .then((response) => {
         setDataMichigan({
           labels: response.labels,
@@ -87,13 +85,13 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error.response.data.error}`, true);
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getVANTAGEIndicatorsChartParams(indicatorService.getDataTreasury10Yield)
+      .getDataTreasury10Yield()
       .then((response) => {
         setDataTreasury10Yield({
           labels: response.labels,
@@ -103,13 +101,13 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error.response.data.error}`, true);
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getVANTAGEIndicatorsChartParams(indicatorService.getDataGDP)
+      .getDataGDP()
       .then((response) => {
         setDataGDP({
           labels: response.labels,
@@ -119,13 +117,13 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error.response.data.error}`, true);
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 
   useEffect(() => {
     indicatorService
-      .getVANTAGEIndicatorsChartParams(indicatorService.getDataPayrolls)
+      .getDataPayrolls()
       .then((response) => {
         setDataPayrolls({
           labels: response.labels,
@@ -135,7 +133,7 @@ const Indicators = () => {
         });
       })
       .catch((error) => {
-        setMessageAndError(dispatch, `${error.response.data.error}`, true);
+        setMessageAndError(dispatch, `${error}`, true);
       });
   }, []);
 

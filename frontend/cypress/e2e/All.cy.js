@@ -4,3 +4,6 @@ import "./Navbar.cy";
 import "./Login.cy";
 import "./Register.cy";
 import "./Quote.cy";
+import "./Ratio.cy";
+import "./Calculator.cy";
+import "./Ideas.cy";

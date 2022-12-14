@@ -26,27 +26,48 @@ const Footer = () => {
         </Logo>
         <FooterLinks>
           <FooterListItem>
-            <FooterLink to="/indicators" onClick={scrollToTop}>
+            <FooterLink aria-label="footer home" to="/" onClick={scrollToTop}>
+              Home
+            </FooterLink>
+          </FooterListItem>
+          <FooterListItem>
+            <FooterLink
+              aria-label="footer indicators"
+              to="/indicators"
+              onClick={scrollToTop}
+            >
               Indicators
             </FooterLink>
           </FooterListItem>
           {logged.username && (
             <FooterListItem>
-              <FooterLink to="/quote" onClick={scrollToTop}>
+              <FooterLink
+                aria-label="footer quotes"
+                to="/quote"
+                onClick={scrollToTop}
+              >
                 Quotes
               </FooterLink>
             </FooterListItem>
           )}
           {logged.username && (
             <FooterListItem>
-              <FooterLink to="/about-pairs-trades" onClick={scrollToTop}>
+              <FooterLink
+                aria-label="footer pairs trades"
+                to="/about-pairs-trades"
+                onClick={scrollToTop}
+              >
                 Pairs Trades
               </FooterLink>
             </FooterListItem>
           )}
           {logged.username && (
             <FooterListItem>
-              <FooterLink to="/write-down-idea" onClick={scrollToTop}>
+              <FooterLink
+                aria-label="footer ideas for trades"
+                to="/write-down-your-ideas"
+                onClick={scrollToTop}
+              >
                 Ideas for Trades
               </FooterLink>
             </FooterListItem>

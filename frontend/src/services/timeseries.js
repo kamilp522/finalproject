@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { options } from "../components/Chart/chart_options";
-
 const url = "/api/timeseries";
 
 const getTimeseriesData = async (symbolAndInterval) => {
@@ -9,17 +7,17 @@ const getTimeseriesData = async (symbolAndInterval) => {
   return response.data;
 };
 
-const getTimeseriesChartParams = (chart_data) => {
-  const interval = chart_data.meta.interval;
+const getTimeseriesChartParams = (chartData) => {
+  const interval = chartData.meta.interval;
 
   let labels;
   if (interval === "1day" || interval === "1week" || interval === "1month") {
-    labels = chart_data.values.map((value) => value.datetime.substring(5, 10));
+    labels = chartData.values.map((value) => value.datetime.substring(5, 10));
   } else {
-    labels = chart_data.values.map((value) => value.datetime.substring(11, 16));
+    labels = chartData.values.map((value) => value.datetime.substring(11, 16));
   }
 
-  const closes = chart_data.values.map((value) =>
+  const closes = chartData.values.map((value) =>
     parseFloat(Number(value.close).toFixed(2))
   );
 
