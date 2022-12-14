@@ -1,4 +1,5 @@
 const timeseriesRouter = require("express").Router();
+const middleware = require("../utils/middleware");
 
 const axios = require("axios");
 
@@ -40,7 +41,9 @@ timeseriesRouter.post("/", async (request, response) => {
     });
   }
 
-  response.status(200).json(timeseries.data);
+  const parsedTimeseries = middleware.parseTimeseriesData(timeseries.data);
+
+  response.status(200).json(parsedTimeseries);
 });
 
 module.exports = timeseriesRouter;

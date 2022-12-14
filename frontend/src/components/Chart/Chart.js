@@ -66,14 +66,11 @@ const Chart = ({
         return;
       }
 
-      const timeseries_chartData =
-        timeseriesService.getTimeseriesChartParams(timeseries);
-
       setCurrentData({
-        labels: timeseries_chartData.labels,
+        labels: timeseries.labels,
         datasets: [
           {
-            data: timeseries_chartData.values,
+            data: timeseries.values,
             backgroundColor: colors.clr_very_dark_blue_500,
             borderColor: colors.clr_violet_400,
           },

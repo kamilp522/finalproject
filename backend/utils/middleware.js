@@ -70,8 +70,8 @@ const parseHolidays = (array) => {
   return holidaysParsed;
 };
 
-const parseVANTAGEData = (chartData) => {
-  const last24 = chartData.slice(0, 24).reverse();
+const parseVANTAGEData = (data) => {
+  const last24 = data.slice(0, 24).reverse();
 
   const labelsLast24 = [];
   last24.forEach((item) => {
@@ -89,13 +89,33 @@ const parseVANTAGEData = (chartData) => {
   };
 };
 
-const parseDBNOMICSData = (chartData) => {
-  const labelsLast24 = chartData.period.slice(-24);
-  const valuesLast24 = chartData.value.slice(-24);
+const parseDBNOMICSData = (data) => {
+  const labelsLast24 = data.period.slice(-24);
+  const valuesLast24 = data.value.slice(-24);
 
   return {
     labels: labelsLast24,
     values: valuesLast24,
+  };
+};
+
+const parseTimeseriesData = (data) => {
+  const interval = data.meta.interval;
+
+  let labels;
+  if (interval === "1day" || interval === "1week" || interval === "1month") {
+    labels = data.values.map((value) => value.datetime.substring(5, 10));
+  } else {
+    labels = data.values.map((value) => value.datetime.substring(11, 16));
+  }
+
+  const closes = data.values.map((value) =>
+    parseFloat(Number(value.close).toFixed(2))
+  );
+
+  return {
+    labels: labels.reverse(),
+    values: closes.reverse(),
   };
 };
 
@@ -106,4 +126,5 @@ module.exports = {
   getHolidays,
   parseVANTAGEData,
   parseDBNOMICSData,
+  parseTimeseriesData,
 };
