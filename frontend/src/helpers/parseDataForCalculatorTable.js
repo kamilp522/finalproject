@@ -9,6 +9,6 @@ export const parseDataForCalculatorTable = (data) => {
         shortShares: Math.round(data.shortCapital / data.shortPrice),
         shortBeta: data.shortBeta,
         shortTotal:
-			Math.round(data.shortCapital / data.shortPrice) * data.shortPrice,
+      Math.round(data.shortCapital / data.shortPrice) * data.shortPrice,
     };
 };

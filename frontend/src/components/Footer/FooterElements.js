@@ -5,14 +5,25 @@ import * as font_sizes from "../variables/font-sizes";
 import { Link } from "react-router-dom";
 
 export const FooterWrapper = styled.footer`
-  height: 4.25em;
-  background-color: ${colors.clr_black_full};
   color: white;
+  max-height: 4.25em;
+
+  &::before {
+    display: flex;
+    content: "";
+    position: absolute;
+    height: 20.5em;
+    width: 100%;
+    background-color: ${colors.clr_black_full};
+    z-index: -1;
+    overflow: hidden;
+  }
 `;
 
 export const FooterContainer = styled.div`
+  margin: 0 auto;
+  max-width: 1280px;
   padding: 1.25em 0.75em;
-  background-color: ${colors.clr_black_full};
 `;
 
 export const FooterLinks = styled.ul`

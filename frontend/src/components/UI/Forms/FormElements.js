@@ -26,10 +26,9 @@ export const FormButtonWrapper = styled.div`
 export const TextArea = styled.textarea`
   border: 1px solid ${colors.clr_very_dark_blue_900};
   border-radius: 0.25rem;
-  align-self: stretch;
+  min-width: 50%;
+  margin: 0.5em 0;
   min-height: 15em;
-  margin: 0.25em;
-  margin-top: 0.5em;
   padding: 0.5em 0.25em;
   font-size: ${font_sizes.fs_500};
 `;

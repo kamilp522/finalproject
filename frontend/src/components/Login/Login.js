@@ -8,7 +8,8 @@ const Login = () => {
         <Wrapper>
             <LoginForm />
             <LoginSmallWrapper>
-                <LoginSmall>Don&apos;t have an account?
+                <LoginSmall>
+          Don&apos;t have an account?
                     <SignInLink to="/register"> Sign up </SignInLink>
           right now!
                 </LoginSmall>

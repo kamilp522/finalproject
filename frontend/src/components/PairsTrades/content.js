@@ -11,5 +11,6 @@ export const ratioChartContent = {
 };
 
 export const calculatorContent = {
-    description: "Our calculator will help you to allocate capital for the trade accordingly to betas of chosen stocks. Beta is a measure of volatility relative to a given index. Beta ratio is the ratio beetwen long and short stock, and it should be approximately in range beetwen 0.5 and 2.0. Anything outside that range should be considered carefuly.",
+    description:
+    "Our calculator will help you to allocate capital for the trade accordingly to betas of chosen stocks. Beta is a measure of volatility relative to a given index. Beta ratio is the ratio beetwen long and short stock, and it should be approximately in range beetwen 0.5 and 2.0. Anything outside that range should be considered carefuly.",
 };

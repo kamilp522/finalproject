@@ -8,12 +8,32 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    & > div {
+      margin: 0.75em;
+    }
+  }
 `;
 
 export const InfoImageWrapper = styled.div`
   border: 1px solid ${colors.clr_cream_900};
   padding: 0.75em;
   margin-bottom: 0.5em;
+  height: fit-content;
+
+  @media (min-width: 768px) {
+    max-width: 24em;
+  }
+
+  @media (min-width: 1000px) {
+    max-width: 34em;
+  }
 `;
 
 export const InfoImage = styled.img`
@@ -24,6 +44,11 @@ export const InfoImage = styled.img`
 export const InfoContent = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0 0.5em;
+
+  @media (min-width: 768px) {
+    max-width: 38em;
+  }
 `;
 
 export const InfoSmall = styled.small`

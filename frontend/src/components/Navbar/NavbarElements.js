@@ -12,6 +12,8 @@ export const NavWrapper = styled.nav`
 `;
 
 export const NavContainer = styled.div`
+  margin: 0 auto;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
 `;
@@ -35,6 +37,10 @@ export const NavMenuIcon = styled(FontAwesomeIcon)`
 
 export const NavList = styled.ul`
   margin-top: 1em;
+
+  @media (min-width: 1000px) {
+    text-align: right;
+  }
 `;
 
 export const NavListItem = styled.li`
@@ -67,17 +73,28 @@ export const NavLoggedIn = styled.small`
   padding-bottom: 0.5em;
   color: ${colors.clr_cream_500};
   font-size: ${font_sizes.fs_400};
+
+  @media (min-width: 1000px) {
+    padding-right: 1em;
+    font-size: ${font_sizes.fs_500};
+  }
 `;
 
 export const SupplementaryNavMenu = styled.ul`
   display: ${({ showPairsTradesNav, showIdeasNav }) =>
-        showPairsTradesNav || showIdeasNav ? "inline-flex" : "none"};
+    showPairsTradesNav || showIdeasNav ? "inline-flex" : "none"};
   position: absolute;
   transform: translateY(-50%);
   flex-direction: column;
   background-color: ${colors.clr_light_black_900};
   padding: 0.5em 1em;
   border-radius: 0.5rem;
+  text-align: left;
+  min-width: 15em;
+
+  @media (min-width: 1000px) {
+    transform: translateX(-150%);
+  }
 `;
 
 export const SupplementaryNavLink = styled.a`

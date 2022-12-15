@@ -78,7 +78,8 @@ const Footer = () => {
                         <p>Design inspired by:</p>
                         <a
                             target="_blank"
-                            href="https://www.free-css.com/free-css-templates/page278/dotcom" rel="noreferrer"
+                            href="https://www.free-css.com/free-css-templates/page278/dotcom"
+                            rel="noreferrer"
                         >
               free-css.com
                         </a>
@@ -91,13 +92,21 @@ const Footer = () => {
                         <a target="_blank" href="https://db.nomics.world/" rel="noreferrer">
               DB.NOMICS
                         </a>
-                        <a target="_blank" href="https://www.alphavantage.co/" rel="noreferrer">
+                        <a
+                            target="_blank"
+                            href="https://www.alphavantage.co/"
+                            rel="noreferrer"
+                        >
               Alpha Vantage
                         </a>
                         <a target="_blank" href="https://rapidapi.com/" rel="noreferrer">
               Rapid API
                         </a>
-                        <a target="_blank" href="https://www.newtonanalytics.com/" rel="noreferrer">
+                        <a
+                            target="_blank"
+                            href="https://www.newtonanalytics.com/"
+                            rel="noreferrer"
+                        >
               Newton Analytics
                         </a>
                     </Credit>

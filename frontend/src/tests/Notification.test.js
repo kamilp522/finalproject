@@ -35,7 +35,7 @@ describe("\nNotification", () => {
         );
 
         const notification_element =
-			container.querySelector("#notification").textContent;
+      container.querySelector("#notification").textContent;
         expect(notification_element).toBe("this is message");
 
         const notification_wrapper = container.querySelector(
@@ -65,7 +65,7 @@ describe("\nNotification", () => {
         );
 
         const notification_element =
-			container.querySelector("#notification").textContent;
+      container.querySelector("#notification").textContent;
         expect(notification_element).toBe("this is message");
 
         const notification_wrapper = container.querySelector(

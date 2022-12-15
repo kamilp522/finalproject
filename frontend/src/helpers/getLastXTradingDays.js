@@ -26,8 +26,8 @@ const getXthTradingDay = (iterator, array, holidays) => {
     // push if day isn't a holiday, saturday or sunday
     if (
         !holidays.includes(day) &&
-		current.getDay() !== 6 &&
-		current.getDay() !== 0
+    current.getDay() !== 6 &&
+    current.getDay() !== 0
     ) {
         array.push(day);
     }

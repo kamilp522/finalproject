@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import Notification from "../Notification/Notification";
 import { useSelector } from "react-redux";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     const notification = useSelector((store) => store.notification);
 
     return (
@@ -25,7 +25,7 @@ const Layout = ({children}) => {
 };
 
 Layout.propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
 };
 
 export default Layout;
