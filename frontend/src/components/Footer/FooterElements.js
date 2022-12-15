@@ -12,11 +12,19 @@ export const FooterWrapper = styled.footer`
     display: flex;
     content: "";
     position: absolute;
-    height: 20.5em;
+    height: 24em;
     width: 100%;
     background-color: ${colors.clr_black_full};
     z-index: -1;
     overflow: hidden;
+
+    @media (min-height: 768px) {
+      height: 22em;
+    }
+
+    @media (min-width: 1000px) {
+      height: 20.5em;
+    }
   }
 `;
 

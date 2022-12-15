@@ -9,6 +9,10 @@ import { Link } from "react-router-dom";
 export const NavWrapper = styled.nav`
   padding: 0.75em;
   background-color: ${colors.clr_black_full};
+
+  @media (min-width: 1000px) {
+    padding: 1.125em 0.75em;
+  }
 `;
 
 export const NavContainer = styled.div`

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const QuoteChartContainer = styled.div`
+export const RatioChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

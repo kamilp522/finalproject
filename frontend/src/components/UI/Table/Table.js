@@ -4,12 +4,22 @@ import * as colors from "../../variables/colors";
 import * as font_sizes from "../../variables/font-sizes";
 import * as font_families from "../../variables/font-families";
 
+export const TableWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 export const Table = styled.table`
   border-collapse: collapse;
   margin: 1.5em 0;
   font-size: ${font_sizes.fs_350};
   font-family: ${font_families.ff_logo};
   min-width: 300px;
+
+  @media (min-width: 1000px) {
+    font-size: ${font_sizes.fs_450};
+  }
 `;
 
 export const TableHead = styled.thead`
