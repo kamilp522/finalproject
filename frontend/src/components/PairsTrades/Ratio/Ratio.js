@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import * as colors from "../../variables/colors";
 
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
-import { H2, H3, Description } from "../../UI/Text/Text";
+import { H2, Description } from "../../UI/Text/Text";
 
 import Chart from "../../Chart/Chart";
 import { options } from "../../Chart/chart_options";

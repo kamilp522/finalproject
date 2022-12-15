@@ -34,7 +34,7 @@ const WriteDownIdeaForm = () => {
         event.preventDefault();
 
         try {
-            const content = await ideaService.createIdea({
+            await ideaService.createIdea({
                 long: longSymbol,
                 short: shortSymbol,
                 ideaArguments: ideaArgumentsField,

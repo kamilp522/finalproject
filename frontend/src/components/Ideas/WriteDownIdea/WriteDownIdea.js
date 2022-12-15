@@ -2,7 +2,7 @@ import React from "react";
 
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { Container } from "../../UI/Container/Container";
-import { Description, H2, H3 } from "../../UI/Text/Text";
+import { Description, H2 } from "../../UI/Text/Text";
 import WriteDownIdeaForm from "../../Forms/WriteDownIdeaForm";
 
 const WriteDownIdea = () => {

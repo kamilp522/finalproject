@@ -64,7 +64,6 @@ const Chart = ({
             } catch (exception) {
                 const errorMessage = exception.response.data.error;
                 setMessageAndError(dispatch, `${errorMessage}`, true);
-                setTypedSymbol("");
                 return;
             }
 

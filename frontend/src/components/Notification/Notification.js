@@ -1,18 +1,25 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import {
     NotificationWrapper,
     NotificationContent,
 } from "./NotificationElements";
 
-const Notification = (props) => {
+const Notification = ({error, children}) => {
     return (
-        <NotificationWrapper id="notification-wrapper" error={props.error}>
+        <NotificationWrapper id="notification-wrapper" error={error}>
             <NotificationContent id="notification">
-                {props.children}
+                {children}
             </NotificationContent>
         </NotificationWrapper>
     );
+};
+
+Notification.propTypes = {
+    error: PropTypes.bool,
+    children: PropTypes.any
 };
 
 export default Notification;

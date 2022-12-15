@@ -1,5 +1,3 @@
-import React from "react";
-
 export const aboutPairsTradesContent = {
     whatArePairsTrades:
     "Pairs trading is a strategy that consists of buying one asset and selling another. Thanks to that we eliminate the market risk. It is very powerful, as It no longer matters if market is going up or down. We can extrapolate and remove risk associated with such moves with no problem. We may even further remove risk associated with certain sectors of the economy by composing a pairs trade that consist of two constituents of the same sector.",
