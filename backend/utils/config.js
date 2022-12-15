@@ -8,13 +8,13 @@ const connect = async () => {
 
 	process.env.NODE_ENV === "test"
 		? await localDb
-				.connectLocalDb()
-				.then(() => logger.info("connected to mongo memory server"))
-				.catch(() => logger.error("couldn't connect to mongo memory server"))
+			.connectLocalDb()
+			.then(() => logger.info("connected to mongo memory server"))
+			.catch(() => logger.error("couldn't connect to mongo memory server"))
 		: await mongoose
-				.connect(MONGODB_URI)
-				.then(() => logger.info("connected to mongoDB"))
-				.catch(() => logger.error("couldn't connect to mongoDB"));
+			.connect(MONGODB_URI)
+			.then(() => logger.info("connected to mongoDB"))
+			.catch(() => logger.error("couldn't connect to mongoDB"));
 };
 
 const PORT = process.env.PORT;

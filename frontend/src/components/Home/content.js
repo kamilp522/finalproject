@@ -22,7 +22,7 @@ export const hero_headings = [
   },
 ];
 
-export const home_page_content = {
+export const homePageContent = {
   about: {
     small: "WHAT IS MIDTRADER",
     heading: "Most compact tool for tracking important economic data",

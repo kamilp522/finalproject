@@ -23,14 +23,14 @@ import YourIdeas from "./components/Ideas/YourIdeas/YourIdeas.js";
 import "reset-css";
 import "./css/app.css";
 
-import { home_page_content } from "./components/Home/content.js";
+import { homePageContent } from "./components/Home/content.js";
 
 const App = () => {
   const logged = useSelector((store) => store.logged);
   const dispatch = useDispatch();
 
-  const about = home_page_content.about;
-  const join = home_page_content.join;
+  const about = homePageContent.about;
+  const join = homePageContent.join;
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem("loggedMidtraderUser");

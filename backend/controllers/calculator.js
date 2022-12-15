@@ -10,18 +10,18 @@ calculatorRouter.post("/", async (request, response) => {
 
 	if (!capital) {
 		return response.status(400).json({
-			error: `must provide capital`,
+			error: "must provide capital",
 		});
 	}
 
 	if (!/^\d+$/.test(capital)) {
 		return response.status(400).json({
-			error: `capital value must be a number`,
+			error: "capital value must be a number",
 		});
 	}
 
 	const longBeta = await axios.get(
-		`https://api.newtonanalytics.com/stock-beta/?ticker=${longSymbol}&index=^${indexSymbol}&interval=1d​&observations=${days}`
+		`https://api.newtonanalytics.com/stock-beta/?ticker=${longSymbol}&index=^${indexSymbol}&interval=1d&observations=${days}`
 	);
 	if (longBeta.data.status == 400) {
 		return response.status(400).json({
@@ -30,7 +30,7 @@ calculatorRouter.post("/", async (request, response) => {
 	}
 
 	const shortBeta = await axios.get(
-		`https://api.newtonanalytics.com/stock-beta/?ticker=${shortSymbol}&index=^${indexSymbol}&interval=1d​&observations=${days}`
+		`https://api.newtonanalytics.com/stock-beta/?ticker=${shortSymbol}&index=^${indexSymbol}&interval=1d&observations=${days}`
 	);
 	if (shortBeta.data.status == 400) {
 		return response.status(400).json({
