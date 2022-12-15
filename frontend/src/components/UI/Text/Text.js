@@ -6,6 +6,7 @@ export const Description = styled.p`
   font-size: ${font_sizes.fs_450};
   margin-block: 1em;
   padding-bottom: 1em;
+  line-height: ${font_sizes.fs_550};
 `;
 
 export const H2 = styled.h2`

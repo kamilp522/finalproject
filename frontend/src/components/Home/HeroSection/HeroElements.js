@@ -21,17 +21,21 @@ export const HeroContainer = styled.div`
 
 export const Indicators = styled.ul`
   position: absolute;
-  width: 3em;
-  height: 100%;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1;
 `;
 
 export const IndicatorItem = styled.li`
-  margin-block: 0.5em;
+  margin: 0 0.5em;
+
+  @media (min-width: 578px) {
+    margin: 0 0.75em;
+  }
 `;
 
 export const Indicator = styled.button`

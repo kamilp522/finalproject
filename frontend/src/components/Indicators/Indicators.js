@@ -146,9 +146,11 @@ const Indicators = () => {
           <Indicator>
             {dataMPMI.datasets ? (
               <Chart
-                title={latestContent.manufacturing_pmi.title}
-                interpretation={latestContent.manufacturing_pmi.interpretation}
-                periods={latestContent.manufacturing_pmi.periods}
+                title={latestContent.manufacturingPmi.title}
+                chartDescription={
+                  latestContent.manufacturingPmi.chartDescription
+                }
+                periods={latestContent.manufacturingPmi.periods}
                 options={chartOptionsAdjustMinValue(options, dataMPMI)}
                 data={dataMPMI}
                 type="bar"
@@ -166,11 +168,11 @@ const Indicators = () => {
           <Indicator>
             {dataSPMI.datasets ? (
               <Chart
-                title={latestContent.non_manufacturing_pmi.title}
-                interpretation={
-                  latestContent.non_manufacturing_pmi.interpretation
+                title={latestContent.nonManufacturingPmi.title}
+                chartDescription={
+                  latestContent.nonManufacturingPmi.chartDescription
                 }
-                periods={latestContent.non_manufacturing_pmi.periods}
+                periods={latestContent.nonManufacturingPmi.periods}
                 options={chartOptionsAdjustMinValue(options, dataSPMI)}
                 data={dataSPMI}
                 type="bar"
@@ -188,9 +190,11 @@ const Indicators = () => {
           <Indicator>
             {dataMichigan.datasets ? (
               <Chart
-                title={latestContent.michigan_sentiment.title}
-                interpretation={latestContent.michigan_sentiment.interpretation}
-                periods={latestContent.michigan_sentiment.periods}
+                title={latestContent.michiganSentiment.title}
+                chartDescription={
+                  latestContent.michiganSentiment.chartDescription
+                }
+                periods={latestContent.michiganSentiment.periods}
                 options={chartOptionsAdjustMinValue(options, dataMichigan)}
                 data={dataMichigan}
                 type="bar"
@@ -208,9 +212,11 @@ const Indicators = () => {
           <Indicator>
             {dataTreasury10Yield.datasets ? (
               <Chart
-                title={latestContent.treasury_10_yield.title}
-                interpretation={latestContent.treasury_10_yield.interpretation}
-                periods={latestContent.treasury_10_yield.periods}
+                title={latestContent.treasury10Yield.title}
+                chartDescription={
+                  latestContent.treasury10Yield.chartDescription
+                }
+                periods={latestContent.treasury10Yield.periods}
                 options={chartOptionsAdjustMinValue(
                   options,
                   dataTreasury10Yield
@@ -238,7 +244,7 @@ const Indicators = () => {
             {dataGDP.datasets ? (
               <Chart
                 title={latestContent.gdp.title}
-                interpretation={latestContent.gdp.interpretation}
+                chartDescription={latestContent.gdp.chartDescription}
                 periods={latestContent.gdp.periods}
                 options={chartOptionsAdjustMinValue(options, dataGDP)}
                 data={dataGDP}
@@ -258,7 +264,7 @@ const Indicators = () => {
             {dataPayrolls.datasets ? (
               <Chart
                 title={latestContent.payroll.title}
-                interpretation={latestContent.payroll.interpretation}
+                chartDescription={latestContent.payroll.chartDescription}
                 periods={latestContent.payroll.periods}
                 options={chartOptionsAdjustMinValue(options, dataPayrolls)}
                 data={dataPayrolls}

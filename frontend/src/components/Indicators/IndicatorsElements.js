@@ -8,6 +8,7 @@ export const IndicatorsContainer = styled.div`
     align-items: center;
 
     & > div {
+      align-self: center;
       width: 47.5%;
     }
   }

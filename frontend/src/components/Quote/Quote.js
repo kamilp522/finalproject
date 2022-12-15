@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import * as colors from "../variables/colors";
 
@@ -32,6 +32,11 @@ const Quote = () => {
   const [currentSymbol, setCurrentSymbol] = useState("");
   const [quote, setQuote] = useState(null);
   const [chartInterval, setChartInterval] = useState("4h");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (quote) setLoading(false);
+  }, [quote]);
 
   return (
     <Wrapper>
@@ -50,9 +55,10 @@ const Quote = () => {
         chartInterval={chartInterval}
         setChartInterval={setChartInterval}
         setCurrentSymbol={setCurrentSymbol}
+        setLoading={setLoading}
       />
       <QuoteChartContainer>
-        {quote && (
+        {quote ? (
           <>
             <Table>
               <TableHead>
@@ -74,7 +80,7 @@ const Quote = () => {
             </Table>
             {chartData.datasets ? (
               <Chart
-                interpretation={quote.name}
+                chartDescription={quote.name}
                 options={chartOptionsAdjustMinValue(options, chartData)}
                 data={chartData}
                 type="line"
@@ -92,6 +98,14 @@ const Quote = () => {
               </LoaderContainer>
             )}
           </>
+        ) : (
+          <LoaderContainer>
+            <MoonLoader
+              loading={loading}
+              size={50}
+              color={colors.clr_violet_full}
+            />
+          </LoaderContainer>
         )}
       </QuoteChartContainer>
     </Wrapper>
