@@ -71,7 +71,7 @@ export const NavLoggedIn = styled.small`
 
 export const SupplementaryNavMenu = styled.ul`
   display: ${({ showPairsTradesNav, showIdeasNav }) =>
-    showPairsTradesNav || showIdeasNav ? "inline-flex" : "none"};
+        showPairsTradesNav || showIdeasNav ? "inline-flex" : "none"};
   position: absolute;
   transform: translateY(-50%);
   flex-direction: column;

@@ -16,112 +16,112 @@ import CalculatorForm from "../../Forms/CalculatorForm";
 import { calculatorContent } from "../content";
 
 import {
-  Table,
-  TableHead,
-  TableBody,
-  Row,
-  Head,
-  Data,
+    Table,
+    TableHead,
+    TableBody,
+    Row,
+    Head,
+    Data,
 } from "../../UI/Table/Table";
 
 const Caluclator = () => {
-  const [capital, setCapital] = useState("");
-  const [typedCalculatorLongSymbol, setTypedCalculatorLongSymbol] =
+    const [capital, setCapital] = useState("");
+    const [typedCalculatorLongSymbol, setTypedCalculatorLongSymbol] =
     useState("");
-  const [typedCalculatorShortSymbol, setTypedCalculatorShortSymbol] =
+    const [typedCalculatorShortSymbol, setTypedCalculatorShortSymbol] =
     useState("");
-  const [currentCalculatorLongSymbol, setCurrentCalculatorLongSymbol] =
+    const [currentCalculatorLongSymbol, setCurrentCalculatorLongSymbol] =
     useState("");
-  const [currentCalculatorShortSymbol, setCurrentCalculatorShortSymbol] =
+    const [currentCalculatorShortSymbol, setCurrentCalculatorShortSymbol] =
     useState("");
-  const [typedIndexSymbol, setTypedIndexSymbol] = useState("");
-  const [currentIndexSymbol, setCurrentIndexSymbol] = useState("");
-  const [tableData, setTableData] = useState(null);
-  const [loading, setLoading] = useState(false);
+    const [typedIndexSymbol, setTypedIndexSymbol] = useState("");
+    const [currentIndexSymbol, setCurrentIndexSymbol] = useState("");
+    const [tableData, setTableData] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (tableData) setLoading(false);
-  }, [tableData]);
+    useEffect(() => {
+        if (tableData) setLoading(false);
+    }, [tableData]);
 
-  return (
-    <Wrapper>
-      <H2>Pairs Trade Calculator</H2>
-      <Description>{calculatorContent.description}</Description>
-      <CalculatorForm
-        capital={capital}
-        setCapital={setCapital}
-        typedCalculatorLongSymbol={typedCalculatorLongSymbol}
-        setTypedCalculatorLongSymbol={setTypedCalculatorLongSymbol}
-        typedCalculatorShortSymbol={typedCalculatorShortSymbol}
-        setTypedCalculatorShortSymbol={setTypedCalculatorShortSymbol}
-        setCurrentCalculatorLongSymbol={setCurrentCalculatorLongSymbol}
-        setCurrentCalculatorShortSymbol={setCurrentCalculatorShortSymbol}
-        typedIndexSymbol={typedIndexSymbol}
-        setTypedIndexSymbol={setTypedIndexSymbol}
-        setCurrentIndexSymbol={setCurrentIndexSymbol}
-        setTableData={setTableData}
-        setLoading={setLoading}
-      />
+    return (
+        <Wrapper>
+            <H2>Pairs Trade Calculator</H2>
+            <Description>{calculatorContent.description}</Description>
+            <CalculatorForm
+                capital={capital}
+                setCapital={setCapital}
+                typedCalculatorLongSymbol={typedCalculatorLongSymbol}
+                setTypedCalculatorLongSymbol={setTypedCalculatorLongSymbol}
+                typedCalculatorShortSymbol={typedCalculatorShortSymbol}
+                setTypedCalculatorShortSymbol={setTypedCalculatorShortSymbol}
+                setCurrentCalculatorLongSymbol={setCurrentCalculatorLongSymbol}
+                setCurrentCalculatorShortSymbol={setCurrentCalculatorShortSymbol}
+                typedIndexSymbol={typedIndexSymbol}
+                setTypedIndexSymbol={setTypedIndexSymbol}
+                setCurrentIndexSymbol={setCurrentIndexSymbol}
+                setTableData={setTableData}
+                setLoading={setLoading}
+            />
 
-      {loading && (
-        <LoaderContainer>
-          <MoonLoader
-            loading={loading}
-            size={50}
-            color={colors.clr_violet_full}
-          />
-        </LoaderContainer>
-      )}
-      {tableData && (
-        <>
-          <H3>{`${currentCalculatorLongSymbol} / ${currentCalculatorShortSymbol} ${currentIndexSymbol}`}</H3>
-          <Table>
-            <TableHead>
-              <Row>
-                <Head>Symbol</Head>
-                <Head>Price</Head>
-                <Head>Shares</Head>
-                <Head>Beta</Head>
-                <Head>Total</Head>
-              </Row>
-            </TableHead>
-            <TableBody>
-              <Row>
-                <Data>{currentCalculatorLongSymbol}</Data>
-                <Data>{convertToUSD(tableData.longPrice)}</Data>
-                <Data>{tableData.longShares}</Data>
-                <Data>{tableData.longBeta}</Data>
-                <Data>{convertToUSD(tableData.longTotal)}</Data>
-              </Row>
-              <Row>
-                <Data>{currentCalculatorShortSymbol}</Data>
-                <Data>{convertToUSD(tableData.shortPrice)}</Data>
-                <Data>{tableData.shortShares}</Data>
-                <Data>{tableData.shortBeta}</Data>
-                <Data>{convertToUSD(tableData.shortTotal)}</Data>
-              </Row>
-              <Row>
-                <Data>Ratio:</Data>
-                <Data></Data>
-                <Data></Data>
-                <Data>{tableData.betaRatio}</Data>
-                <Data></Data>
-              </Row>
-              <Row>
-                <Data>Total:</Data>
-                <Data></Data>
-                <Data></Data>
-                <Data></Data>
-                <Data>
-                  {convertToUSD(tableData.longTotal + tableData.shortTotal)}
-                </Data>
-              </Row>
-            </TableBody>
-          </Table>
-        </>
-      )}
-    </Wrapper>
-  );
+            {loading && (
+                <LoaderContainer>
+                    <MoonLoader
+                        loading={loading}
+                        size={50}
+                        color={colors.clr_violet_full}
+                    />
+                </LoaderContainer>
+            )}
+            {tableData && (
+                <>
+                    <H3>{`${currentCalculatorLongSymbol} / ${currentCalculatorShortSymbol} ${currentIndexSymbol}`}</H3>
+                    <Table>
+                        <TableHead>
+                            <Row>
+                                <Head>Symbol</Head>
+                                <Head>Price</Head>
+                                <Head>Shares</Head>
+                                <Head>Beta</Head>
+                                <Head>Total</Head>
+                            </Row>
+                        </TableHead>
+                        <TableBody>
+                            <Row>
+                                <Data>{currentCalculatorLongSymbol}</Data>
+                                <Data>{convertToUSD(tableData.longPrice)}</Data>
+                                <Data>{tableData.longShares}</Data>
+                                <Data>{tableData.longBeta}</Data>
+                                <Data>{convertToUSD(tableData.longTotal)}</Data>
+                            </Row>
+                            <Row>
+                                <Data>{currentCalculatorShortSymbol}</Data>
+                                <Data>{convertToUSD(tableData.shortPrice)}</Data>
+                                <Data>{tableData.shortShares}</Data>
+                                <Data>{tableData.shortBeta}</Data>
+                                <Data>{convertToUSD(tableData.shortTotal)}</Data>
+                            </Row>
+                            <Row>
+                                <Data>Ratio:</Data>
+                                <Data></Data>
+                                <Data></Data>
+                                <Data>{tableData.betaRatio}</Data>
+                                <Data></Data>
+                            </Row>
+                            <Row>
+                                <Data>Total:</Data>
+                                <Data></Data>
+                                <Data></Data>
+                                <Data></Data>
+                                <Data>
+                                    {convertToUSD(tableData.longTotal + tableData.shortTotal)}
+                                </Data>
+                            </Row>
+                        </TableBody>
+                    </Table>
+                </>
+            )}
+        </Wrapper>
+    );
 };
 
 export default Caluclator;

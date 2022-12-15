@@ -26,80 +26,80 @@ import "./css/app.css";
 import { homePageContent } from "./components/Home/content.js";
 
 const App = () => {
-  const logged = useSelector((store) => store.logged);
-  const dispatch = useDispatch();
+    const logged = useSelector((store) => store.logged);
+    const dispatch = useDispatch();
 
-  const about = homePageContent.about;
-  const join = homePageContent.join;
+    const about = homePageContent.about;
+    const join = homePageContent.join;
 
-  useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedMidtraderUser");
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON);
+    useEffect(() => {
+        const loggedUserJSON = window.localStorage.getItem("loggedMidtraderUser");
+        if (loggedUserJSON) {
+            const user = JSON.parse(loggedUserJSON);
 
-      dispatch(loginUser(user));
-    }
-  }, [dispatch, logged]);
+            dispatch(loginUser(user));
+        }
+    }, [dispatch, logged]);
 
-  return (
-    <Layout>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HeroSection />
-              <InfoSection content={about} />
-              <InfoSection content={join} />
-            </>
-          }
-        />
-        <Route path="/indicators" element={<Indicators />} />
-        <Route
-          path="/quote"
-          element={logged.username ? <Quote /> : <Navigate replace to="/" />}
-        />
-        <Route
-          path="/about-pairs-trades"
-          element={
-            logged.username ? <AboutPairsTrades /> : <Navigate replace to="/" />
-          }
-        />
-        <Route
-          path="/ratio-chart"
-          element={logged.username ? <Ratio /> : <Navigate replace to="/" />}
-        />
-        <Route
-          path="/calculator"
-          element={
-            logged.username ? <Calculator /> : <Navigate replace to="/" />
-          }
-        />
-        <Route
-          path="/write-down-your-ideas"
-          element={
-            logged.username ? <WriteDownIdea /> : <Navigate replace to="/" />
-          }
-        />
-        <Route
-          path="/your-ideas"
-          element={
-            logged.username ? <YourIdeas /> : <Navigate replace to="/" />
-          }
-        />
-        <Route
-          path="/login"
-          element={!logged.username ? <Login /> : <Navigate replace to="/" />}
-        />
-        <Route
-          path="/register"
-          element={
-            !logged.username ? <Register /> : <Navigate replace to="/" />
-          }
-        />
-      </Routes>
-    </Layout>
-  );
+    return (
+        <Layout>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <HeroSection />
+                            <InfoSection content={about} />
+                            <InfoSection content={join} />
+                        </>
+                    }
+                />
+                <Route path="/indicators" element={<Indicators />} />
+                <Route
+                    path="/quote"
+                    element={logged.username ? <Quote /> : <Navigate replace to="/" />}
+                />
+                <Route
+                    path="/about-pairs-trades"
+                    element={
+                        logged.username ? <AboutPairsTrades /> : <Navigate replace to="/" />
+                    }
+                />
+                <Route
+                    path="/ratio-chart"
+                    element={logged.username ? <Ratio /> : <Navigate replace to="/" />}
+                />
+                <Route
+                    path="/calculator"
+                    element={
+                        logged.username ? <Calculator /> : <Navigate replace to="/" />
+                    }
+                />
+                <Route
+                    path="/write-down-your-ideas"
+                    element={
+                        logged.username ? <WriteDownIdea /> : <Navigate replace to="/" />
+                    }
+                />
+                <Route
+                    path="/your-ideas"
+                    element={
+                        logged.username ? <YourIdeas /> : <Navigate replace to="/" />
+                    }
+                />
+                <Route
+                    path="/login"
+                    element={!logged.username ? <Login /> : <Navigate replace to="/" />}
+                />
+                <Route
+                    path="/register"
+                    element={
+                        !logged.username ? <Register /> : <Navigate replace to="/" />
+                    }
+                />
+            </Routes>
+        </Layout>
+    );
 };
 
 export default App;

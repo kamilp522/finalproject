@@ -3,10 +3,10 @@ import loginReducer from "./reducers/loginReducer";
 import notificationReducer from "./reducers/notificationReducer";
 
 const store = configureStore({
-  reducer: {
-    logged: loginReducer,
-    notification: notificationReducer,
-  },
+    reducer: {
+        logged: loginReducer,
+        notification: notificationReducer,
+    },
 });
 
 export default store;

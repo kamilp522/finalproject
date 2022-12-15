@@ -7,7 +7,9 @@
 		"build": "webpack --mode=production",
 		"start": "webpack serve --mode=development",
 		"test": "jest --runInBand --detectOpenHandles",
-		"cypress:open": "cypress open"
+		"cypress:open": "cypress open",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"keywords": [],
 	"author": "",
@@ -47,6 +49,8 @@
 		"css-loader": "^6.7.2",
 		"cypress": "^11.2.0",
 		"eslint": "^8.29.0",
+		"eslint-plugin-cypress": "^2.12.1",
+		"eslint-plugin-jest": "^27.1.6",
 		"eslint-plugin-react": "^7.31.11",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",

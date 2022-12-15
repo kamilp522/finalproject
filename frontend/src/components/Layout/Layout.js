@@ -6,20 +6,20 @@ import Notification from "../Notification/Notification";
 import { useSelector } from "react-redux";
 
 const Layout = (props) => {
-  const notification = useSelector((store) => store.notification);
+    const notification = useSelector((store) => store.notification);
 
-  return (
-    <>
-      <Navbar />
-      {notification.message && (
-        <Notification error={notification.error}>
-          {notification.message}
-        </Notification>
-      )}
-      <main>{props.children}</main>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Navbar />
+            {notification.message && (
+                <Notification error={notification.error}>
+                    {notification.message}
+                </Notification>
+            )}
+            <main>{props.children}</main>
+            <Footer />
+        </>
+    );
 };
 
 export default Layout;
