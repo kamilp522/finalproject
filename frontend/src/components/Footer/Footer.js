@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+
 import {
   FooterWrapper,
   FooterContainer,
@@ -18,9 +20,28 @@ import { useSelector } from "react-redux";
 const Footer = () => {
   const logged = useSelector((store) => store.logged);
 
+  useEffect(() => {
+    const wrapper = document.getElementById("footer-wrapper");
+    const wrapperHeight = window
+      .getComputedStyle(wrapper)
+      .getPropertyValue("height");
+    const container = document.getElementById("footer-container");
+    const containerHeight = window
+      .getComputedStyle(container)
+      .getPropertyValue("height");
+    const containerPaddingBlock = window
+      .getComputedStyle(container)
+      .getPropertyValue("padding-top");
+
+    wrapper.style.setProperty(
+      "--before-height",
+      `calc(${wrapperHeight} + ${containerHeight} - ${containerPaddingBlock})`
+    );
+  });
+
   return (
-    <FooterWrapper>
-      <FooterContainer>
+    <FooterWrapper id="footer-wrapper">
+      <FooterContainer id="footer-container">
         <Logo className="logo" to="/" onClick={scrollToTop}>
           <LogoSpan>mid</LogoSpan>trader
         </Logo>

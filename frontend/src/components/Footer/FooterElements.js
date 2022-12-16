@@ -5,26 +5,20 @@ import * as font_sizes from "../variables/font-sizes";
 import { Link } from "react-router-dom";
 
 export const FooterWrapper = styled.footer`
+  --before-height: 0;
+
   color: white;
-  max-height: 4.25em;
+  max-height: 4.375em;
+  background-color: ${colors.clr_black_full};
 
   &::before {
     display: flex;
     content: "";
     position: absolute;
-    height: 24em;
+    height: var(--before-height);
     width: 100%;
     background-color: ${colors.clr_black_full};
     z-index: -1;
-    overflow: hidden;
-
-    @media (min-height: 768px) {
-      height: 22em;
-    }
-
-    @media (min-width: 1000px) {
-      height: 20.5em;
-    }
   }
 `;
 
