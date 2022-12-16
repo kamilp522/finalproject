@@ -25,7 +25,14 @@ import "./css/app.css";
 
 import { homePageContent } from "./components/Home/content.js";
 
+import { scrollToTop } from "./helpers/scrollToTop.js";
+
 const App = () => {
+  // scroll to the top of the page on reload
+  window.onbeforeunload = function () {
+    scrollToTop();
+  };
+
   const logged = useSelector((store) => store.logged);
   const dispatch = useDispatch();
 

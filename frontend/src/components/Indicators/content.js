@@ -6,31 +6,31 @@ export const latestContent = {
   manufacturingPmi: {
     title: "ISM Manufacturing PMI",
     chartDescription:
-      "The Manufacturing Purchasing Managers Index (MPMI) is based on monthly surveys of supply chain managers. Thanks to data aggregated over the years this index is widely used as a tool for prognosing future state of American industry. Levels Above 50 are showing improvment, below 50 - deterioration.",
+      "The Manufacturing Purchasing Managers Index (MPMI) is based on monthly surveys of supply chain managers. Thanks to data aggregated over the years this index is widely used as a tool for prognosing future state of American industry. Levels Above 50 are showing improvment, levels below 50 - deterioration.",
     periods: "months",
   },
   nonManufacturingPmi: {
     title: "ISM Non-Manufacturing PMI",
     chartDescription:
-      "The Services Purchasing Managers Index (SPMI) is based on surveys with executives in private sector service companies. Similar to MPMI, it is used by many experts in predicting direction US service sector will take in the coming months. Levels Above 50 are showing improvment, below 50 - deterioration.",
+      "The Services Purchasing Managers Index (SPMI) is based on surveys with executives in private sector service companies. Similar to MPMI, it is used by many experts in predicting direction US service sector will take in the coming months. Levels Above 50 are showing improvment, levels below 50 - deterioration.",
     periods: "months",
   },
   michiganSentiment: {
     title: "University of Michigan Index of Consumer Sentiment",
     chartDescription:
-      "Consumer Index published by University of Michigan monthly since 1966. It is calculated using data from at least 500 telephone interviews. The sheer size of data aggregated over the many years made UMCSI one of the most important leading indicators in US economy.",
+      "Consumer Index published monthly by University of Michigan since 1966. It is calculated by using data from at least 500 telephone interviews. The sheer size of data aggregated over the years made UMCSI one of the most important leading indicators in the US economy.",
     periods: "months",
   },
   treasury10Yield: {
     title: "10-Year Treasury Constant Maturity Rate",
     chartDescription:
-      "Bonds have a long-going history of predicting the future movements of the stock market, hence they are widely used as a leading indicator (values in %).",
+      "Bonds have a long-going history of predicting the future movements of the stock market, hence they are widely used as a leading indicator. Most popular of them is the 10 year note (values in %).",
     periods: "months",
   },
   gdp: {
     title: "Real Gross Domestic Product",
     chartDescription:
-      "Gross domestic product (GDP) is a monetary measure of the current market value of all financial goods and services in the economy. It is used as a broad measure of current economic health (values in trillions of USD).",
+      "Gross domestic product (GDP) is a monetary measure of the current market value of all financial goods and services in the economy. It is used as a broad measure of current economic health of a given country (values in trillions of USD).",
     periods: "quarters",
   },
   payroll: {

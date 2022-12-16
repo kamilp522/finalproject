@@ -96,7 +96,9 @@ const Navbar = () => {
           <NavList>
             {logged.username && (
               <NavListItem>
-                <NavLoggedIn>{logged.username} logged in</NavLoggedIn>
+                <NavLoggedIn id="logged-user-info">
+                  {logged.username} logged in
+                </NavLoggedIn>
               </NavListItem>
             )}
             <NavListItem>
@@ -169,7 +171,7 @@ const Navbar = () => {
                     </SupplementaryNavItem>
                     <SupplementaryNavItem>
                       <NavLink
-                        aria-label="calculator"
+                        aria-label="pairs trade calculator"
                         to="/calculator"
                         onClick={() => {
                           hideNavs();

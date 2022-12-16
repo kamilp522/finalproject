@@ -8,24 +8,24 @@ import Notification from "../Notification/Notification";
 import { useSelector } from "react-redux";
 
 const Layout = ({ children }) => {
-    const notification = useSelector((store) => store.notification);
+  const notification = useSelector((store) => store.notification);
 
-    return (
-        <>
-            <Navbar />
-            {notification.message && (
-                <Notification error={notification.error}>
-                    {notification.message}
-                </Notification>
-            )}
-            <main>{children}</main>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      {notification.message && (
+        <Notification error={notification.error}>
+          {notification.message}
+        </Notification>
+      )}
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
 };
 
 Layout.propTypes = {
-    children: PropTypes.any,
+  children: PropTypes.any,
 };
 
 export default Layout;

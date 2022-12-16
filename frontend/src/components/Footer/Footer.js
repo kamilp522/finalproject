@@ -85,7 +85,7 @@ const Footer = () => {
             </a>
           </Credit>
           <Credit>
-            <p>Economic data thanks to: </p>
+            <p>Economic data thanks to:</p>
             <a target="_blank" href="https://twelvedata.com/" rel="noreferrer">
               twelvedata
             </a>

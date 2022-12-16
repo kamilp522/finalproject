@@ -6,7 +6,9 @@ import { chartOptionsAdjustMinValue } from "../../helpers/chartOptionsAdjustMinV
 
 import indicatorService from "../../services/indicators";
 
+import MoonLoader from "react-spinners/MoonLoader";
 import { setMessageAndError } from "../../helpers/setMessageAndError";
+
 import { useDispatch } from "react-redux";
 
 import Chart from "../Chart/Chart";
@@ -19,8 +21,6 @@ import { Container } from "../UI/Container/Container";
 import { Description, H2 } from "../UI/Text/Text";
 import { Wrapper } from "../UI/Wrapper/Wrapper";
 import { LoaderContainer } from "../UI/LoaderContainer/LoaderContainer";
-
-import MoonLoader from "react-spinners/MoonLoader";
 
 const Indicators = () => {
   const dispatch = useDispatch();
@@ -42,99 +42,135 @@ const Indicators = () => {
   });
 
   useEffect(() => {
-    indicatorService
-      .getDataManPMI()
-      .then((response) => {
+    const updateDataMPMI = async () => {
+      try {
+        const response = await indicatorService.getDataMPMI();
         setDataMPMI({
           labels: response.labels,
           datasets: [
-            { data: response.values, backgroundColor: colors.clr_violet_800 },
+            {
+              data: response.values,
+              backgroundColor: colors.clr_violet_800,
+              hoverBackgroundColor: colors.clr_violet_500,
+            },
           ],
         });
-      })
-      .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
-      });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(dispatch, `${errorMessage}`, true);
+      }
+    };
+    updateDataMPMI();
   }, []);
 
   useEffect(() => {
-    indicatorService
-      .getDataNonManPMI()
-      .then((response) => {
+    const updateDataSPMI = async () => {
+      try {
+        const response = await indicatorService.getDataSPMI();
         setDataSPMI({
           labels: response.labels,
           datasets: [
-            { data: response.values, backgroundColor: colors.clr_violet_800 },
+            {
+              data: response.values,
+              backgroundColor: colors.clr_violet_800,
+              hoverBackgroundColor: colors.clr_violet_500,
+            },
           ],
         });
-      })
-      .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
-      });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(dispatch, `${errorMessage}`, true);
+      }
+    };
+    updateDataSPMI();
   }, []);
 
   useEffect(() => {
-    indicatorService
-      .getDataMichiganSentiment()
-      .then((response) => {
+    const updateDataMichigan = async () => {
+      try {
+        const response = await indicatorService.getDataMichigan();
         setDataMichigan({
           labels: response.labels,
           datasets: [
-            { data: response.values, backgroundColor: colors.clr_violet_800 },
+            {
+              data: response.values,
+              backgroundColor: colors.clr_violet_800,
+              hoverBackgroundColor: colors.clr_violet_500,
+            },
           ],
         });
-      })
-      .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
-      });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(dispatch, `${errorMessage}`, true);
+      }
+    };
+    updateDataMichigan();
   }, []);
 
   useEffect(() => {
-    indicatorService
-      .getDataTreasury10Yield()
-      .then((response) => {
+    const updateTreasuryData = async () => {
+      try {
+        const response = await indicatorService.getDataTreasury10Yield();
         setDataTreasury10Yield({
           labels: response.labels,
           datasets: [
-            { data: response.values, backgroundColor: colors.clr_violet_800 },
+            {
+              data: response.values,
+              backgroundColor: colors.clr_violet_800,
+              hoverBackgroundColor: colors.clr_violet_500,
+            },
           ],
         });
-      })
-      .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
-      });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(dispatch, `${errorMessage}`, true);
+      }
+    };
+    updateTreasuryData();
   }, []);
 
   useEffect(() => {
-    indicatorService
-      .getDataGDP()
-      .then((response) => {
+    const updateGDPData = async () => {
+      try {
+        const response = await indicatorService.getDataGDP();
         setDataGDP({
           labels: response.labels,
           datasets: [
-            { data: response.values, backgroundColor: colors.clr_violet_800 },
+            {
+              data: response.values,
+              backgroundColor: colors.clr_violet_800,
+              hoverBackgroundColor: colors.clr_violet_500,
+            },
           ],
         });
-      })
-      .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
-      });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(dispatch, `${errorMessage}`, true);
+      }
+    };
+    updateGDPData();
   }, []);
 
   useEffect(() => {
-    indicatorService
-      .getDataPayrolls()
-      .then((response) => {
+    const updatePayrollsData = async () => {
+      try {
+        const response = await indicatorService.getDataPayrolls();
         setDataPayrolls({
           labels: response.labels,
           datasets: [
-            { data: response.values, backgroundColor: colors.clr_violet_800 },
+            {
+              data: response.values,
+              backgroundColor: colors.clr_violet_800,
+              hoverBackgroundColor: colors.clr_violet_500,
+            },
           ],
         });
-      })
-      .catch((error) => {
-        setMessageAndError(dispatch, `${error}`, true);
-      });
+      } catch (exception) {
+        const errorMessage = exception.response.data.error;
+        setMessageAndError(dispatch, `${errorMessage}`, true);
+      }
+    };
+    updatePayrollsData();
   }, []);
 
   return (

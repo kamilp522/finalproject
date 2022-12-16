@@ -44,6 +44,7 @@ export const clr_violet_100 = "rgba(111, 55, 211, 0.1)";
 export const clr_violet_200 = "rgba(111, 55, 211, 0.2)";
 export const clr_violet_300 = "rgba(111, 55, 211, 0.3)";
 export const clr_violet_400 = "rgba(111, 55, 211, 0.4)";
+export const clr_violet_500 = "rgba(111, 55, 211, 0.5)";
 export const clr_violet_600 = "rgba(111, 55, 211, 0.6)";
 export const clr_violet_800 = "rgba(111, 55, 211, 0.8)";
 export const clr_violet_900 = "rgba(111, 55, 211, 0.9)";

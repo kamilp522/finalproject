@@ -6,11 +6,10 @@ import * as colors from "../../variables/colors";
 import { convertToUSD } from "../../../helpers/convertToUSD";
 
 import MoonLoader from "react-spinners/MoonLoader";
-
 import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { H2, H3, Description } from "../../UI/Text/Text";
 import { LoaderContainer } from "../../UI/LoaderContainer/LoaderContainer";
-
+import { YahooLink } from "./CalculatorElements";
 import CalculatorForm from "../../Forms/CalculatorForm";
 
 import { calculatorContent } from "../content";
@@ -47,7 +46,17 @@ const Caluclator = () => {
   return (
     <Wrapper>
       <H2>Pairs Trade Calculator</H2>
-      <Description>{calculatorContent.description}</Description>
+      <Description>
+        {calculatorContent.description} Tickers for &nbsp;
+        <YahooLink href={calculatorContent.yahooStocksLink} target="_blank">
+          stocks
+        </YahooLink>
+        &nbsp; and&nbsp;
+        <YahooLink href={calculatorContent.yahooIndicesLink} target="_blank">
+          indices&nbsp;
+        </YahooLink>
+        can be found on Yahoo Finance.
+      </Description>
       <CalculatorForm
         capital={capital}
         setCapital={setCapital}

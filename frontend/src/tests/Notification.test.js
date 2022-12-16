@@ -22,26 +22,26 @@ describe("\nNotification", () => {
       notification: { message: "this is message", error: true },
     });
 
-    const notification_state = store.getState().notification;
+    const notificationState = store.getState().notification;
 
     const { container } = render(
       <Router>
         <Provider store={store}>
-          <Notification error={notification_state.error}>
-            {notification_state.message}
+          <Notification error={notificationState.error}>
+            {notificationState.message}
           </Notification>
         </Provider>
       </Router>
     );
 
-    const notification_element =
+    const notificationElement =
       container.querySelector("#notification").textContent;
-    expect(notification_element).toBe("this is message");
+    expect(notificationElement).toBe("this is message");
 
-    const notification_wrapper = container.querySelector(
+    const notificationWrapper = container.querySelector(
       "#notification-wrapper"
     );
-    expect(notification_wrapper).toHaveStyle(
+    expect(notificationWrapper).toHaveStyle(
       `backgroundColor: ${colors.clr_red_800}`
     );
   });
@@ -64,14 +64,14 @@ describe("\nNotification", () => {
       </Router>
     );
 
-    const notification_element =
+    const notificationElement =
       container.querySelector("#notification").textContent;
-    expect(notification_element).toBe("this is message");
+    expect(notificationElement).toBe("this is message");
 
-    const notification_wrapper = container.querySelector(
+    const notificationWrapper = container.querySelector(
       "#notification-wrapper"
     );
-    expect(notification_wrapper).toHaveStyle(
+    expect(notificationWrapper).toHaveStyle(
       `backgroundColor: ${colors.clr_green_800}`
     );
   });
