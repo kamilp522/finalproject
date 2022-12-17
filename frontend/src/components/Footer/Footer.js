@@ -21,22 +21,25 @@ const Footer = () => {
   const logged = useSelector((store) => store.logged);
 
   useEffect(() => {
-    const wrapper = document.getElementById("footer-wrapper");
-    const wrapperHeight = window
-      .getComputedStyle(wrapper)
-      .getPropertyValue("height");
-    const container = document.getElementById("footer-container");
-    const containerHeight = window
-      .getComputedStyle(container)
-      .getPropertyValue("height");
-    const containerPaddingBlock = window
-      .getComputedStyle(container)
-      .getPropertyValue("padding-top");
+    const setBeforeElementHeight = () => {
+      const wrapper = document.getElementById("footer-wrapper");
+      const wrapperHeight = window
+        .getComputedStyle(wrapper)
+        .getPropertyValue("height");
+      const container = document.getElementById("footer-container");
+      const containerHeight = window
+        .getComputedStyle(container)
+        .getPropertyValue("height");
+      const containerPadding = window
+        .getComputedStyle(container)
+        .getPropertyValue("padding-top");
 
-    wrapper.style.setProperty(
-      "--before-height",
-      `calc(${wrapperHeight} + ${containerHeight} - ${containerPaddingBlock})`
-    );
+      wrapper.style.setProperty(
+        "--before-height",
+        `calc(${wrapperHeight} + ${containerHeight} - ${containerPadding})`
+      );
+    };
+    setBeforeElementHeight();
   });
 
   return (

@@ -19,6 +19,7 @@ import Ratio from "./components/PairsTrades/Ratio/Ratio";
 import Calculator from "./components/PairsTrades/Calculator/Calculator";
 import WriteDownIdea from "./components/Ideas/WriteDownIdea/WriteDownIdea.js";
 import YourIdeas from "./components/Ideas/YourIdeas/YourIdeas.js";
+import NotLogged from "./components/NotLogged/NotLogged.js";
 
 import "reset-css";
 import "./css/app.css";
@@ -64,35 +65,27 @@ const App = () => {
         <Route path="/indicators" element={<Indicators />} />
         <Route
           path="/quote"
-          element={logged.username ? <Quote /> : <Navigate replace to="/" />}
+          element={(logged.username && <Quote />) || <NotLogged />}
         />
         <Route
           path="/about-pairs-trades"
-          element={
-            logged.username ? <AboutPairsTrades /> : <Navigate replace to="/" />
-          }
+          element={(logged.username && <AboutPairsTrades />) || <NotLogged />}
         />
         <Route
           path="/ratio-chart"
-          element={logged.username ? <Ratio /> : <Navigate replace to="/" />}
+          element={(logged.username && <Ratio />) || <NotLogged />}
         />
         <Route
           path="/calculator"
-          element={
-            logged.username ? <Calculator /> : <Navigate replace to="/" />
-          }
+          element={(logged.username && <Calculator />) || <NotLogged />}
         />
         <Route
           path="/write-down-your-ideas"
-          element={
-            logged.username ? <WriteDownIdea /> : <Navigate replace to="/" />
-          }
+          element={(logged.username && <WriteDownIdea />) || <NotLogged />}
         />
         <Route
           path="/your-ideas"
-          element={
-            logged.username ? <YourIdeas /> : <Navigate replace to="/" />
-          }
+          element={(logged.username && <YourIdeas />) || <NotLogged />}
         />
         <Route
           path="/login"

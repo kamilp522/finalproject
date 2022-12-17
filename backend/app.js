@@ -17,6 +17,7 @@ config.connect();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("build"));
 
 app.use("/api/indicators", indicatorsRouter);
 app.use("/api/quote", quotesRouter);
@@ -28,6 +29,12 @@ app.use("/api/holidays", holidaysRouter);
 app.use("/api/calculator", calculatorRouter);
 app.use("/api/ideas", ideasRouter);
 
-app.use(express.static("build"));
+app.all("/indicators", (request, response) => {
+  response.sendFile("build/index.html", { root: __dirname });
+});
+
+app.all("/quote", (request, response) => {
+  response.sendFile("build/index.html", { root: __dirname });
+});
 
 module.exports = app;
