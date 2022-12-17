@@ -66,7 +66,7 @@ const Footer = () => {
           {logged.username && (
             <FooterListItem>
               <FooterLink
-                aria-label="footer quotes"
+                aria-label="footer quote"
                 to="/quote"
                 onClick={scrollToTop}
               >

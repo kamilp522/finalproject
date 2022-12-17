@@ -42,7 +42,7 @@ const Quote = () => {
     <Wrapper>
       <H2>Stock Quotes</H2>
       <Description>
-        Quote is a price of one share of a listed on a stock exchange. Our
+        Quote is a price of one share of company listed on a stock exchange. Our
         quotes consists of unique symbol called a ticker, name of the company,
         exchange offering the stock and price of one share. Can access only
         companies traded on US stock exchanges.

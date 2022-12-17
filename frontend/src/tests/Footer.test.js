@@ -61,7 +61,7 @@ describe("\nFooter", () => {
       });
 
       test("can't find quote link when not logged in", () => {
-        const footerQuoteLink = screen.queryByLabelText("footer quotes");
+        const footerQuoteLink = screen.queryByLabelText("footer quote");
         expect(footerQuoteLink).toBeNull();
       });
 
@@ -92,7 +92,7 @@ describe("\nFooter", () => {
       });
 
       test("navigate to quote section when link button is clicked", async () => {
-        const footerQuoteLink = screen.getByLabelText("footer quotes");
+        const footerQuoteLink = screen.getByLabelText("footer quote");
         const user = userEvent.setup();
         await user.click(footerQuoteLink);
 
