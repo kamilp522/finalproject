@@ -11,8 +11,10 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
 
-  &:hover {
-    background-color: ${colors.clr_violet_400};
-    color: black;
+  @media (min-width: 1000px) {
+    &:hover {
+      background-color: ${colors.clr_violet_400};
+      color: black;
+    }
   }
 `;

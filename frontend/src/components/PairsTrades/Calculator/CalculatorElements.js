@@ -7,7 +7,9 @@ export const YahooLink = styled.a`
   color: ${colors.clr_blue_700};
   font-weight: 700;
 
-  &:hover {
-    color: ${colors.clr_cream_700};
+  @media (min-width: 1000px) {
+    &:hover {
+      color: ${colors.clr_cream_700};
+    }
   }
 `;

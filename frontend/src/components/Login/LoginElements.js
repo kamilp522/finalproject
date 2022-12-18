@@ -24,7 +24,9 @@ export const SignInLink = styled(Link)`
   text-decoration: none;
   text-align: center;
 
-  &:hover {
-    color: ${colors.clr_violet_400};
+  @media (min-width: 1000px) {
+    &:hover {
+      color: ${colors.clr_violet_400};
+    }
   }
 `;

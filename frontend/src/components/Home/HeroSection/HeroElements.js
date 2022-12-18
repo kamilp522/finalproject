@@ -23,7 +23,7 @@ export const Indicators = styled.ul`
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 4.5em;
+  height: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +42,10 @@ export const Indicator = styled.button`
   width: 12px;
   height: 12px;
   background-color: white;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   cursor: pointer;
   border: none;
 

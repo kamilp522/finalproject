@@ -24,6 +24,7 @@ export const FooterWrapper = styled.footer`
 
 export const FooterContainer = styled.div`
   margin: 0 auto;
+  background-color: ${colors.clr_black_full};
   max-width: 1280px;
   padding: 1.25em 0.75em;
 `;
@@ -44,8 +45,10 @@ export const FooterLink = styled(Link)`
   line-height: 0.4em;
   text-decoration: none;
 
-  &:hover {
-    color: ${colors.clr_cream_900};
+  @media (min-width: 1000px) {
+    &:hover {
+      color: ${colors.clr_cream_900};
+    }
   }
 `;
 
@@ -71,8 +74,10 @@ export const Credit = styled.div`
     text-decoration: none;
   }
 
-  & a:hover {
-    color: ${colors.clr_cream_900};
+  @media (min-width: 1000px) {
+    & a:hover {
+      color: ${colors.clr_cream_900};
+    }
   }
 `;
 

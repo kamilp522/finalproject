@@ -27,8 +27,10 @@ export const ChartTimeButton = styled.button`
   color: black;
   cursor: pointer;
 
-  &:hover {
-    background-color: ${colors.clr_violet_300};
+  @media (min-width: 1000px) {
+    &:hover {
+      background-color: ${colors.clr_violet_300};
+    }
   }
 `;
 

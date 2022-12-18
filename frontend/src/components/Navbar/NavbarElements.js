@@ -62,8 +62,10 @@ export const NavLink = styled(Link)`
   font-size: ${font_sizes.fs_400};
   padding: 0.5em 1.25em 0.5em 0;
 
-  &:hover {
-    text-decoration: underline;
+  @media (min-width: 1000px) {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -108,8 +110,10 @@ export const SupplementaryNavLink = styled.a`
   padding: 0.5em 1.25em 0.5em 0;
   cursor: pointer;
 
-  &:hover {
-    text-decoration: underline;
+  @media (min-width: 1000px) {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
