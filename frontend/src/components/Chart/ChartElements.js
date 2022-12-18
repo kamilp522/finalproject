@@ -24,6 +24,7 @@ export const ChartTimeButton = styled.button`
   background-color: ${colors.clr_blue_400};
   border: 1px solid ${colors.clr_cream_900};
   border-radius: 0.25rem;
+  color: black;
   cursor: pointer;
 
   &:hover {

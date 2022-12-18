@@ -1,6 +1,6 @@
 {
   "testEnvironment": "node",
   "verbose": true,
-  "setupFiles": ["<rootDir>/tests/set_env_vars.js"],
+  "setupFiles": ["<rootDir>/tests/setEnvVars.js"],
   "forceExit": true
 }

@@ -67,7 +67,7 @@ export const Credit = styled.div`
     font-size: ${font_sizes.fs_350};
     letter-spacing: 0.5px;
     padding: 0.1em;
-    color: ${colors.clr_blue_800};
+    color: ${colors.clr_blue_full};
     text-decoration: none;
   }
 

@@ -23,7 +23,7 @@ export const Indicators = styled.ul`
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 4em;
+  height: 4.5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,18 +31,18 @@ export const Indicators = styled.ul`
 `;
 
 export const IndicatorItem = styled.li`
-  margin: 0 0.5em;
+  padding: 0 0.5em;
 
   @media (min-width: 578px) {
-    margin: 0 0.75em;
+    padding: 0 0.75em;
   }
 `;
 
 export const Indicator = styled.button`
-  width: 1em;
-  height: 1em;
+  width: 12px;
+  height: 12px;
   background-color: white;
-  border-radius: 50%;
+  border-radius: 10px;
   cursor: pointer;
   border: none;
 
@@ -50,9 +50,14 @@ export const Indicator = styled.button`
     background-color: ${colors.clr_blue_800};
   }
 
+  @media (min-height: 768px) {
+    width: 14.5px;
+    height: 14.5px;
+  }
+
   @media (min-width: 768px) {
-    width: 1.25em;
-    height: 1.25em;
+    width: 19px;
+    height: 19px;
   }
 `;
 

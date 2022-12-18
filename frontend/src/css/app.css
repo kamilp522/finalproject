@@ -9,6 +9,10 @@ body {
   font-family: "Noto Sans", "arial", "helvetica";
 }
 
+a {
+  color: white;
+}
+
 #root {
   height: calc(100vh - 0.01px);
   display: flex;
