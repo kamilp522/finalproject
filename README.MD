@@ -25,7 +25,7 @@ Most important elements in frontend folder are:
   - index.js - file that mainly includes information about what to render to the website
   - App.js - file containing root component of the application
   - components folder - all react components written with JSX that are part of the website
-    - components are styled using react styled components library that allows tight coupling beetween components and their styles. Styled components use JavaScript template literals to write CSS directly into a styled component.
+    - components are styled using react styled components library that allows tight coupling beetween components and their styles. Styled components use JavaScript template literals to write CSS directly into component.
   - helpers folder including helper functions used to parse data or manipulate visuals on the website
   - services - folder including calls that are made to the application server for fetching data according to the sent http request
   - reducers folder containing functions for changing the application state made with react library called redux. Thanks to redux we can use some of the states of the application globally (e.g. information about logged in user)
