@@ -25,6 +25,7 @@ Most important elements in frontend folder are:
   - index.js - file that mainly includes information about what to render to the website
   - App.js - file containing root component of the application
   - components folder - all react components written with JSX that are part of the website
+    - components are reusable chunks of code that might be used througout the application. Ther are basically functions but are intertwined with HTML to create a view thanks to special JSX syntax supported by react
     - components are styled using react styled components library that allows tight coupling beetween components and their styles. Styled components use JavaScript template literals to write CSS directly into component.
   - helpers folder including helper functions used to parse data or manipulate visuals on the website
   - services - folder including calls that are made to the application server for fetching data according to the sent http request
@@ -36,7 +37,7 @@ Most important elements in frontend folder are:
 * various configuration files:
   - package.json - one of the most important files in every project using npm (node package manager). It contains metadata about the project, dependencies and scripts
   - .eslintrc.json - file containing configuration for eslint - analysis tool for JavaScript that helps find errors in code and format it accordingly to provided specification
-  - .babelrc - configuration file for babel transcompiler that is used for comiling newer versions of JavaScript into older format compatibile with older browser
+  - .babelrc - configuration file for babel transcompiler that is used for compiling newer versions of JavaScript into older format compatibile with older browsers
   - cypress.config.js - configuration for cypress testing library
   - webpack.config.js - configuration for webpack bundler that take modules with dependencies and creates static assets from them
   - jest.config.json - config file for jest testing framework
@@ -50,10 +51,9 @@ Most important elements in backend folder are:
 - index.js - in node application index.js is the first file executed. It is basically the entry point for the application
 - app.js - file that contains configuration for routers and middleware for the whole application
 - controllers folder including all endpoints for the application. Controller responds to a request, optionally transform data and send response back to the client
-- models folder contains mongoose schema for data send to the database. Model provides the interface for creating, updating and quering data
-
+- models folder contains mongoose schema for data send to Mongo DB. Model provides the interface for creating, updating and quering data
 - tests folder includes mainly integration tests made with jest testing framework
-- utils folder contains mostly useful function that are used to transform data before sending response back
+- utils folder contains mostly useful functions that are used to transform data before sending response back
 - various configuration files:
   - package.json
   - jest.config.json
