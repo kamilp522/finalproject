@@ -24,17 +24,18 @@ Most important elements in frontend folder are:
 - src folder containing:
   - index.js - file that mainly includes information about what to render to the website
   - App.js - file containing root component of the application
-  - components folder - all react components written with JSX that are part of the website.
+  - components folder - all react components written with JSX that are part of the website
+    - components are styled using react styled components library that allows tight coupling beetween components and their styles. Styled components use JavaScript template literals to write CSS directly into a styled component.
   - helpers folder including helper functions used to parse data or manipulate visuals on the website
   - services - folder including calls that are made to the application server for fetching data according to the sent http request
-  - reducers folder containing functions for changing the application state made with react library called redux. Thanks to redux we can use some of the states of the application globally (e.g. information about logged in user).
+  - reducers folder containing functions for changing the application state made with react library called redux. Thanks to redux we can use some of the states of the application globally (e.g. information about logged in user)
   - tests folder which is quite self-descriptive - it contains unit tests for react components written with jest and react testing library
 
 * cypress folder containing end to end tests of the application written with cypress testing library
 * public folder contains files that shall not be processed by webpack bundler
 * various configuration files:
-  - package.json - one of the most important files in every project using npm (node package manager). It contains metadata about the project, dependencies and scripts.
-  - .eslintrc.json - file containing configuration for eslint - analysis tool for JavaScript that helps find errors in code and format it accordingly to provided specification.
+  - package.json - one of the most important files in every project using npm (node package manager). It contains metadata about the project, dependencies and scripts
+  - .eslintrc.json - file containing configuration for eslint - analysis tool for JavaScript that helps find errors in code and format it accordingly to provided specification
   - .babelrc - configuration file for babel transcompiler that is used for comiling newer versions of JavaScript into older format compatibile with older browser
   - cypress.config.js - configuration for cypress testing library
   - webpack.config.js - configuration for webpack bundler that take modules with dependencies and creates static assets from them
@@ -42,14 +43,14 @@ Most important elements in frontend folder are:
 
 ### Backend
 
-Backend is the server of the application which is basically a program that serves data. It's role is to respond to requests made by the user.
+Backend written in node/express.js is the server of the application which is basically a program that serves data. It's role is to respond to requests made by the user.
 
 Most important elements in backend folder are:
 
 - index.js - in node application index.js is the first file executed. It is basically the entry point for the application
 - app.js - file that contains configuration for routers and middleware for the whole application
-- controllers folder including all endpoints for the application. Controller responds to a request, optionally transform data and send response back to the client.
-- models folder contains mongoose schema for data send to the database. Model provides the interface for creating, updating and quering data.
+- controllers folder including all endpoints for the application. Controller responds to a request, optionally transform data and send response back to the client
+- models folder contains mongoose schema for data send to the database. Model provides the interface for creating, updating and quering data
 
 - tests folder includes mainly integration tests made with jest testing framework
 - utils folder contains mostly useful function that are used to transform data before sending response back
