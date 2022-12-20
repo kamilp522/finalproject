@@ -17,7 +17,7 @@ config.connect();
 
 app.use(cors());
 app.use(express.json());
-
+ 
 app.use("/api/indicators", indicatorsRouter);
 app.use("/api/quote", quoteRouter);
 app.use("/api/timeseries", timeseriesRouter);

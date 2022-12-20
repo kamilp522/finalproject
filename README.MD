@@ -1,4 +1,4 @@
-# midtrader (CS50x final project)
+# midtrader
 
 ## Application for medium-term traders with tools for planning, structuring and storing trades.
 
@@ -62,5 +62,5 @@ Most important elements in backend folder are:
 ## Important links:
 
 - [live website](https://midtrader.fly.dev/)
-- [video demo](https://www.youtube.com/watch?v=bMAZQJn8KK4)
+- [video demo](https://www.youtube.com/watch?v=jckOW0lykHU)
 - [github repo](https://github.com/kamilp522/finalproject)
