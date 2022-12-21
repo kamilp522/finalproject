@@ -4,6 +4,12 @@
 
 Midtrader is an web app created for people trading on US stock exchanges with Time Horizon for trades spanning from few weeks to many months (up to a year). Economic indicators provided by midtrader can be used to forecast future economic conditions and confirm predictions made in the past. It also has many tools for price analysis or calculating capital.
 
+## Important links:
+
+- [live website](https://midtrader.fly.dev/)
+- [video demo](https://www.youtube.com/watch?v=jckOW0lykHU)
+- [github repo](https://github.com/kamilp522/finalproject)
+
 ### Currently available tools:
 
 - quote look up tool for finding the current price, name of the company and exchange where the stock is traded on
@@ -58,9 +64,3 @@ Most important elements in backend folder are:
   - package.json
   - jest.config.json
   - .eslintrc.json
-
-## Important links:
-
-- [live website](https://midtrader.fly.dev/)
-- [video demo](https://www.youtube.com/watch?v=jckOW0lykHU)
-- [github repo](https://github.com/kamilp522/finalproject)
