@@ -8,7 +8,6 @@ Midtrader is an web app created for people trading on US stock exchanges with Ti
 
 - [live website](https://midtrader.fly.dev/)
 - [video demo](https://www.youtube.com/watch?v=jckOW0lykHU)
-- [github repo](https://github.com/kamilp522/finalproject)
 
 ### Currently available tools:
 
