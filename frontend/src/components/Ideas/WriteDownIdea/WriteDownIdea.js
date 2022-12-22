@@ -9,8 +9,8 @@ const WriteDownIdea = () => {
   return (
     <Wrapper>
       <Container>
-        <H2>Write Down Your Ideas</H2>
-        <Description>
+        <H2 tabIndex="0">Write Down Your Ideas</H2>
+        <Description tabIndex="0">
           It is very important to have a list of all ideas for trades that you
           have constructed. We provide simple and elegant tool for storing your
           trade schemes.
