@@ -45,7 +45,12 @@ const Footer = () => {
   return (
     <FooterWrapper id="footer-wrapper">
       <FooterContainer id="footer-container">
-        <Logo className="logo" to="/" onClick={scrollToTop}>
+        <Logo
+          aria-label="midtrader-logo"
+          className="logo"
+          to="/"
+          onClick={scrollToTop}
+        >
           <LogoSpan>mid</LogoSpan>trader
         </Logo>
         <FooterLinks>
@@ -99,7 +104,7 @@ const Footer = () => {
         </FooterLinks>
         <FooterCredits>
           <Credit>
-            <p>Design inspired by:</p>
+            <p tabIndex="0">Design inspired by:</p>
             <a
               target="_blank"
               href="https://www.free-css.com/free-css-templates/page278/dotcom"
@@ -109,7 +114,7 @@ const Footer = () => {
             </a>
           </Credit>
           <Credit>
-            <p>Economic data thanks to:</p>
+            <p tabIndex="0">Economic data thanks to:</p>
             <a target="_blank" href="https://twelvedata.com/" rel="noreferrer">
               twelvedata
             </a>
@@ -136,7 +141,7 @@ const Footer = () => {
           </Credit>
         </FooterCredits>
         <FooterCopyright>
-          <WebsiteRights>
+          <WebsiteRights tabIndex="0">
             Copyright &#169; midtrader {new Date().getFullYear()}
           </WebsiteRights>
         </FooterCopyright>

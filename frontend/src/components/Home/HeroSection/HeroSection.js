@@ -78,8 +78,9 @@ const HeroSection = () => {
     <Hero>
       <HeroContainer>
         <Indicators>
-          <IndicatorItem>
+          <IndicatorItem aria-hidden={true}>
             <Indicator
+              tabIndex="-1"
               className="indicator active"
               id="indicator-1"
               onClick={() => changeBackground(hero_img_1, 1, headings[0])}
@@ -87,6 +88,7 @@ const HeroSection = () => {
           </IndicatorItem>
           <IndicatorItem>
             <Indicator
+              tabIndex="-1"
               className="indicator"
               id="indicator-2"
               onClick={() => changeBackground(hero_img_2, 2, headings[1])}
@@ -94,6 +96,7 @@ const HeroSection = () => {
           </IndicatorItem>
           <IndicatorItem>
             <Indicator
+              tabIndex="-1"
               className="indicator"
               id="indicator-3"
               onClick={() => changeBackground(hero_img_3, 3, headings[2])}
