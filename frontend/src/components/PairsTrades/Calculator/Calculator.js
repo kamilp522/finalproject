@@ -45,8 +45,8 @@ const Caluclator = () => {
 
   return (
     <Wrapper>
-      <H2>Pairs Trade Calculator</H2>
-      <Description>
+      <H2 tabIndex="0">Pairs Trade Calculator</H2>
+      <Description tabIndex="0">
         {calculatorContent.description} Tickers for &nbsp;
         <YahooLink href={calculatorContent.yahooStocksLink} target="_blank">
           stocks

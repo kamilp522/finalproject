@@ -103,6 +103,7 @@ const Chart = ({
         )}
         {chartInterval && (
           <Select
+            aria-label="select interval"
             name="interval"
             id="line-chart-interval"
             defaultValue={chartInterval}

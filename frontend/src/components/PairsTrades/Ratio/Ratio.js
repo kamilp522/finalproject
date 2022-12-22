@@ -32,8 +32,8 @@ const Ratio = () => {
 
   return (
     <Wrapper>
-      <H2>Ratio Chart</H2>
-      <Description>{ratioChartContent.description}</Description>
+      <H2 tabIndex="0">Ratio Chart</H2>
+      <Description tabIndex="0">{ratioChartContent.description}</Description>
       <RatioForm
         typedRatioLongSymbol={typedRatioLongSymbol}
         setTypedRatioLongSymbol={setTypedRatioLongSymbol}
