@@ -176,8 +176,8 @@ const Indicators = () => {
   return (
     <Wrapper>
       <Container>
-        <H2>Leading Indicators</H2>
-        <Description>{latestContent.leading}</Description>
+        <H2 tabIndex="0">Leading Indicators</H2>
+        <Description tabIndex="0">{latestContent.leading}</Description>
         <IndicatorsContainer>
           <Indicator>
             {dataMPMI.datasets ? (
@@ -272,8 +272,8 @@ const Indicators = () => {
           </Indicator>
         </IndicatorsContainer>
 
-        <H2>Coincident Indicators</H2>
-        <Description>{latestContent.coincident}</Description>
+        <H2 tabIndex="0">Coincident Indicators</H2>
+        <Description tabIndex="0">{latestContent.coincident}</Description>
 
         <IndicatorsContainer>
           <Indicator>

@@ -83,8 +83,10 @@ const Chart = ({
 
   return (
     <ChartContainer>
-      {title && <ChartH3>{title}</ChartH3>}
-      {chartDescription && <ChartText>{chartDescription}</ChartText>}
+      {title && <ChartH3 tabIndex="0">{title}</ChartH3>}
+      {chartDescription && (
+        <ChartText tabIndex="0">{chartDescription}</ChartText>
+      )}
       <ChartButtonsWrapper>
         {type === "bar" && !isRatio && (
           <>
@@ -123,6 +125,8 @@ const Chart = ({
       </ChartButtonsWrapper>
       {type === "bar" && (
         <BarChart
+          tabIndex="0"
+          aria-label="chart"
           className="bar-chart"
           options={chartOptionsAdjustMinValue(options, currentData)}
           data={currentData}
@@ -130,6 +134,8 @@ const Chart = ({
       )}
       {type === "line" && (
         <LineChart
+          tabIndex="0"
+          aria-label="chart"
           className="line-chart"
           options={chartOptionsAdjustMinValue(options, currentData)}
           data={currentData}
