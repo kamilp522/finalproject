@@ -98,24 +98,79 @@ const Caluclator = () => {
               </TableHead>
               <TableBody>
                 <Row>
-                  <Data>{currentCalculatorLongSymbol}</Data>
-                  <Data>{convertToUSD(tableData.longPrice)}</Data>
-                  <Data>{tableData.longShares}</Data>
-                  <Data>{tableData.longBeta}</Data>
-                  <Data>{convertToUSD(tableData.longTotal)}</Data>
+                  <Data
+                    aria-label={`symbol: ${currentCalculatorLongSymbol}`}
+                    tabIndex="0"
+                  >
+                    {currentCalculatorLongSymbol}
+                  </Data>
+                  <Data
+                    aria-label={`price: ${convertToUSD(tableData.longPrice)}`}
+                    tabIndex="0"
+                  >
+                    {convertToUSD(tableData.longPrice)}
+                  </Data>
+                  <Data
+                    aria-label={`shares: ${tableData.longShares}`}
+                    tabIndex="0"
+                  >
+                    {tableData.longShares}
+                  </Data>
+                  <Data
+                    aria-label={`beta: ${tableData.longBeta}}`}
+                    tabIndex="0"
+                  >
+                    {tableData.longBeta}
+                  </Data>
+                  <Data
+                    aria-label={`total: ${tableData.longTotal}`}
+                    tabIndex="0"
+                  >
+                    {convertToUSD(tableData.longTotal)}
+                  </Data>
                 </Row>
                 <Row>
-                  <Data>{currentCalculatorShortSymbol}</Data>
-                  <Data>{convertToUSD(tableData.shortPrice)}</Data>
-                  <Data>{tableData.shortShares}</Data>
-                  <Data>{tableData.shortBeta}</Data>
-                  <Data>{convertToUSD(tableData.shortTotal)}</Data>
+                  <Data
+                    aria-label={`symbol: ${currentCalculatorShortSymbol}`}
+                    tabIndex="0"
+                  >
+                    {currentCalculatorShortSymbol}
+                  </Data>
+                  <Data
+                    aria-label={`price: ${convertToUSD(tableData.shortPrice)}`}
+                    tabIndex="0"
+                  >
+                    {convertToUSD(tableData.shortPrice)}
+                  </Data>
+                  <Data
+                    aria-label={`shares: ${tableData.shortShares}`}
+                    tabIndex="0"
+                  >
+                    {tableData.shortShares}
+                  </Data>
+                  <Data
+                    aria-label={`beta: ${tableData.shortBeta}`}
+                    tabIndex="0"
+                  >
+                    {tableData.shortBeta}
+                  </Data>
+                  <Data
+                    aria-label={`total: ${convertToUSD(tableData.shortTotal)}`}
+                    tabIndex="0"
+                  >
+                    {convertToUSD(tableData.shortTotal)}
+                  </Data>
                 </Row>
                 <Row>
                   <Data>Ratio:</Data>
                   <Data></Data>
                   <Data></Data>
-                  <Data>{tableData.betaRatio}</Data>
+                  <Data
+                    aria-label={`beta ratio: ${tableData.betaRatio}`}
+                    tabIndex="0"
+                  >
+                    {tableData.betaRatio}
+                  </Data>
                   <Data></Data>
                 </Row>
                 <Row>
@@ -123,7 +178,12 @@ const Caluclator = () => {
                   <Data></Data>
                   <Data></Data>
                   <Data></Data>
-                  <Data>
+                  <Data
+                    aria-label={`total trade value: ${convertToUSD(
+                      tableData.longTotal + tableData.shortTotal
+                    )}`}
+                    tabIndex="0"
+                  >
                     {convertToUSD(tableData.longTotal + tableData.shortTotal)}
                   </Data>
                 </Row>
