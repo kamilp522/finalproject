@@ -40,8 +40,8 @@ const Quote = () => {
 
   return (
     <Wrapper>
-      <H2>Stock Quotes</H2>
-      <Description>
+      <H2 tabIndex="0">Stock Quotes</H2>
+      <Description tabIndex="0">
         Quote is a price of one share of company listed on a stock exchange. Our
         quotes consists of unique symbol called a ticker, name of the company,
         exchange offering the stock and price of one share. Can access only
@@ -64,18 +64,18 @@ const Quote = () => {
             <Table>
               <TableHead>
                 <Row>
-                  <Head>Symbol</Head>
-                  <Head>Name</Head>
-                  <Head>Exchange</Head>
-                  <Head>Price</Head>
+                  <Head tabIndex="0">Symbol</Head>
+                  <Head tabIndex="0">Name</Head>
+                  <Head tabIndex="0">Exchange</Head>
+                  <Head tabIndex="0">Price</Head>
                 </Row>
               </TableHead>
               <TableBody>
                 <Row>
-                  <Data>{quote.symbol}</Data>
-                  <Data>{quote.name}</Data>
-                  <Data>{quote.exchange}</Data>
-                  <Data>{convertToUSD(quote.close)}</Data>
+                  <Data tabIndex="0">{quote.symbol}</Data>
+                  <Data tabIndex="0">{quote.name}</Data>
+                  <Data tabIndex="0">{quote.exchange}</Data>
+                  <Data tabIndex="0">{convertToUSD(quote.close)}</Data>
                 </Row>
               </TableBody>
             </Table>
