@@ -110,6 +110,7 @@ const Chart = ({
             onChange={({ target }) => {
               setChartInterval(target.value);
             }}
+            on
           >
             <option value="1min">1 min</option>
             <option value="5min">5 min</option>

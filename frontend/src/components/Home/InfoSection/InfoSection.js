@@ -23,7 +23,7 @@ const InfoSection = ({ content }) => {
     <Wrapper>
       <InfoContainer>
         <InfoImageWrapper>
-          <InfoImage src={content.image} />
+          <InfoImage alt="" src={content.image} />
         </InfoImageWrapper>
         <InfoContent>
           <InfoSmall tabIndex="0">{content.small}</InfoSmall>

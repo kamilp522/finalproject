@@ -26,6 +26,11 @@ export const InfoImageWrapper = styled.div`
   padding: 0.75em;
   margin-bottom: 0.5em;
   height: fit-content;
+`;
+
+export const InfoImage = styled.img`
+  width: 100%;
+  vertical-align: middle;
 
   @media (min-width: 768px) {
     max-width: 24em;
@@ -34,11 +39,6 @@ export const InfoImageWrapper = styled.div`
   @media (min-width: 1000px) {
     max-width: 34em;
   }
-`;
-
-export const InfoImage = styled.img`
-  width: 100%;
-  vertical-align: middle;
 `;
 
 export const InfoContent = styled.div`
