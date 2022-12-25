@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as colors from "../../variables/colors";
 import * as font_sizes from "../../variables/font-sizes";
 
-export const Hero = styled.section`
+export const Hero = styled.header`
   display: flex;
   justify-content: center;
   min-height: calc(33vh - 0.1px);
