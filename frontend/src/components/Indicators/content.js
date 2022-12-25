@@ -2,7 +2,7 @@ export const latestContent = {
   leading:
     "An indicator is a piece of statistical data that can be used to better understand trends in economy. Leading indicators are data sets that are showing the potential change in the economic activity that may occur in the future. In context of trading those indicators are the most important, as one of the main job of the trader is to predict future economic conditions.",
   coincident:
-    "Coincident indicators show current economic conditions. They should be used only as confiramtion of previous predictions made months prior.",
+    "Coincident indicators show current economic conditions. They should be used only as confirmation of previous predictions made months prior.",
   manufacturingPmi: {
     title: "ISM Manufacturing PMI",
     chartDescription:

@@ -60,7 +60,8 @@ export const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
   font-size: ${font_sizes.fs_400};
-  padding: 0.5em 1.25em 0.5em 0;
+  margin-right: 1.25em;
+  padding-block: 0.5em;
 
   @media (min-width: 1000px) {
     &:hover {

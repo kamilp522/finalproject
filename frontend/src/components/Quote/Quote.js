@@ -72,21 +72,10 @@ const Quote = () => {
               </TableHead>
               <TableBody>
                 <Row>
-                  <Data tabIndex="0" aria-label={`symbol: ${quote.symbol}`}>
-                    {quote.symbol}
-                  </Data>
-                  <Data tabIndex="0" aria-label={`name: ${quote.name}`}>
-                    {quote.name}
-                  </Data>
-                  <Data tabIndex="0" aria-label={`exchange: ${quote.exchange}`}>
-                    {quote.exchange}
-                  </Data>
-                  <Data
-                    tabIndex="0"
-                    aria-label={`price: ${convertToUSD(quote.close)}`}
-                  >
-                    {convertToUSD(quote.close)}
-                  </Data>
+                  <Data tabIndex="0">{quote.symbol}</Data>
+                  <Data tabIndex="0">{quote.name}</Data>
+                  <Data tabIndex="0">{quote.exchange}</Data>
+                  <Data tabIndex="0">{convertToUSD(quote.close)}</Data>
                 </Row>
               </TableBody>
             </Table>

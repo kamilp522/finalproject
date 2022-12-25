@@ -67,13 +67,16 @@ const Navbar = () => {
     setShowIdeasNav(false);
   };
 
-  const toggleTabIndexOnLinks = () => {
+  const toggleMenuAriaVisibility = () => {
     const links = [...document.querySelectorAll(".nav-link")];
     links.forEach((link) => {
       const tabIndex = link.getAttribute("tabIndex");
       if (tabIndex === "-1") link.setAttribute("tabIndex", "0");
       else link.setAttribute("tabIndex", "-1");
     });
+
+    const menuNavList = document.getElementById("menu-nav-list");
+    menuNavList.setAttribute("aria-hidden", showNav);
   };
 
   return (
@@ -105,13 +108,13 @@ const Navbar = () => {
                 setShowPairsTradesNav(false);
                 setShowIdeasNav(false);
                 setIsNavExpanded(!isNavExpanded);
-                toggleTabIndexOnLinks();
+                toggleMenuAriaVisibility();
               }}
             >
               <NavMenuIcon icon={faBars} />
             </NavMenu>
           </NavContent>
-          <NavList>
+          <NavList id="menu-nav-list" aria-hidden={true}>
             {logged.username && (
               <NavListItem>
                 <NavLoggedIn id="logged-user-info">
@@ -127,7 +130,7 @@ const Navbar = () => {
                 to="/"
                 onClick={() => {
                   hideNavs();
-                  toggleTabIndexOnLinks();
+                  toggleMenuAriaVisibility();
                 }}
               >
                 Home
@@ -141,7 +144,7 @@ const Navbar = () => {
                 to="/indicators"
                 onClick={() => {
                   hideNavs();
-                  toggleTabIndexOnLinks();
+                  toggleMenuAriaVisibility();
                 }}
               >
                 Indicators
@@ -157,7 +160,7 @@ const Navbar = () => {
                     to="/quote"
                     onClick={() => {
                       hideNavs();
-                      toggleTabIndexOnLinks();
+                      toggleMenuAriaVisibility();
                     }}
                   >
                     Quote
@@ -193,7 +196,7 @@ const Navbar = () => {
                         to="/about-pairs-trades"
                         onClick={() => {
                           hideNavs();
-                          toggleTabIndexOnLinks();
+                          toggleMenuAriaVisibility();
                         }}
                       >
                         About Pairs Trades
@@ -207,7 +210,7 @@ const Navbar = () => {
                         to="/ratio-chart"
                         onClick={() => {
                           hideNavs();
-                          toggleTabIndexOnLinks();
+                          toggleMenuAriaVisibility();
                         }}
                       >
                         Ratio Chart
@@ -221,7 +224,7 @@ const Navbar = () => {
                         to="/calculator"
                         onClick={() => {
                           hideNavs();
-                          toggleTabIndexOnLinks();
+                          toggleMenuAriaVisibility();
                         }}
                       >
                         Pairs Trade Calculator
@@ -259,7 +262,7 @@ const Navbar = () => {
                         to="/write-down-your-ideas"
                         onClick={() => {
                           hideNavs();
-                          toggleTabIndexOnLinks();
+                          toggleMenuAriaVisibility();
                         }}
                       >
                         Write Down Your Ideas
@@ -273,7 +276,7 @@ const Navbar = () => {
                         to="/your-ideas"
                         onClick={() => {
                           hideNavs();
-                          toggleTabIndexOnLinks();
+                          toggleMenuAriaVisibility();
                         }}
                       >
                         Your Ideas
@@ -290,17 +293,12 @@ const Navbar = () => {
                   className="nav-link"
                   tabIndex="-1"
                   to="/login"
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      hideNavs();
-                      toggleTabIndexOnLinks();
-                      handleLogout();
-                    }
+                  onClick={() => {
+                    hideNavs();
+                    toggleMenuAriaVisibility();
                   }}
                 >
-                  <Button tabIndex="-1" onClick={() => setShowNav(false)}>
-                    log in
-                  </Button>
+                  <Button tabIndex="-1">log in</Button>
                 </NavLink>
               </NavListItem>
             ) : (
@@ -310,23 +308,15 @@ const Navbar = () => {
                   className="nav-link"
                   tabIndex="-1"
                   to="/"
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      hideNavs();
-                      toggleTabIndexOnLinks();
-                      handleLogout();
-                    }
+                  onClick={() => {
+                    hideNavs();
+                    toggleMenuAriaVisibility();
+                    handleLogout();
                   }}
                 >
                   <Button
                     aria-hidden="true"
                     tabIndex="-1"
-                    onClick={() => {
-                      hideNavs();
-                      toggleTabIndexOnLinks();
-                      handleLogout();
-                    }}
-                    onKeyDown={() => handleLogout()}
                     style={{
                       backgroundColor: colors.clr_red_800,
                     }}

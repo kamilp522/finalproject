@@ -61,7 +61,7 @@ const WriteDownIdeaForm = () => {
         onChange={({ target }) =>
           setLongSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="e.g. AAPL "
+        placeholder="for example AAPL "
       />
       <Label>short stock symbol: </Label>
       <Input
@@ -71,7 +71,7 @@ const WriteDownIdeaForm = () => {
         onChange={({ target }) =>
           setShortSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="e.g. GOOG"
+        placeholder="for example GOOG"
       />
       <Label style={{ marginBottom: "0.125em" }}>arguments for the idea:</Label>
       <TextArea
