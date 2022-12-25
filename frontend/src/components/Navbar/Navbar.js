@@ -41,6 +41,9 @@ const Navbar = () => {
   const [showPairsTradesNav, setShowPairsTradesNav] = useState(false);
   const [showIdeasNav, setShowIdeasNav] = useState(false);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [isPairsTradesNavExpanded, setIsPairsTradesNavExpanded] =
+    useState(false);
+  const [isIdeasNavExpanded, setIsIdeasNavExpanded] = useState(false);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -163,15 +166,18 @@ const Navbar = () => {
                 <NavListItem className="nav-pairs-trades-list-item">
                   <SupplementaryNavLink
                     aria-label="pairs trades"
+                    aria-expanded={isPairsTradesNavExpanded}
                     className="nav-link"
                     tabIndex="-1"
                     onClick={() => {
                       setShowPairsTradesNav(!showPairsTradesNav);
+                      setIsPairsTradesNavExpanded(!isPairsTradesNavExpanded);
                       setShowIdeasNav(false);
                     }}
                     onKeyDown={(event) => {
                       if (event.key === "Enter") {
                         setShowPairsTradesNav(!showPairsTradesNav);
+                        setIsPairsTradesNavExpanded(!isPairsTradesNavExpanded);
                         setShowIdeasNav(false);
                       }
                     }}
@@ -226,16 +232,19 @@ const Navbar = () => {
                 <NavListItem className="ideas-list-item">
                   <SupplementaryNavLink
                     aria-label="ideas for trades"
+                    aria-expanded={isIdeasNavExpanded}
                     className="nav-link"
                     tabIndex="-1"
                     onClick={() => {
                       setShowIdeasNav(!showIdeasNav);
                       setShowPairsTradesNav(false);
+                      setIsIdeasNavExpanded(!isIdeasNavExpanded);
                     }}
                     onKeyDown={(event) => {
                       if (event.key === "Enter") {
                         setShowIdeasNav(!showIdeasNav);
                         setShowPairsTradesNav(false);
+                        setIsIdeasNavExpanded(!isIdeasNavExpanded);
                       }
                     }}
                   >
