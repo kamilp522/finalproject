@@ -75,10 +75,10 @@ const HeroSection = () => {
   });
 
   return (
-    <Hero>
+    <Hero aria-hidden={true}>
       <HeroContainer>
         <Indicators>
-          <IndicatorItem aria-hidden={true}>
+          <IndicatorItem>
             <Indicator
               tabIndex="-1"
               className="indicator active"
