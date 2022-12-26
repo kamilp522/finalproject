@@ -10,6 +10,7 @@ import { Wrapper } from "../../UI/Wrapper/Wrapper";
 import { H2, H3, Description } from "../../UI/Text/Text";
 import { LoaderContainer } from "../../UI/LoaderContainer/LoaderContainer";
 import { YahooLink } from "./CalculatorElements";
+import { SrOnly } from "../../UI/SrOnly/SrOnly";
 import CalculatorForm from "../../Forms/CalculatorForm";
 
 import { calculatorContent } from "../content";
@@ -98,92 +99,36 @@ const Caluclator = () => {
               </TableHead>
               <TableBody>
                 <Row>
-                  <Data
-                    aria-label={`symbol: ${currentCalculatorLongSymbol}`}
-                    tabIndex="0"
-                  >
-                    {currentCalculatorLongSymbol}
-                  </Data>
-                  <Data
-                    aria-label={`price: ${convertToUSD(tableData.longPrice)}`}
-                    tabIndex="0"
-                  >
-                    {convertToUSD(tableData.longPrice)}
-                  </Data>
-                  <Data
-                    aria-label={`shares: ${tableData.longShares}`}
-                    tabIndex="0"
-                  >
-                    {tableData.longShares}
-                  </Data>
-                  <Data
-                    aria-label={`beta: ${tableData.longBeta}}`}
-                    tabIndex="0"
-                  >
-                    {tableData.longBeta}
-                  </Data>
-                  <Data
-                    aria-label={`total: ${tableData.longTotal}`}
-                    tabIndex="0"
-                  >
-                    {convertToUSD(tableData.longTotal)}
-                  </Data>
+                  <Data tabIndex="0">{currentCalculatorLongSymbol}</Data>
+                  <Data tabIndex="0">{convertToUSD(tableData.longPrice)}</Data>
+                  <Data tabIndex="0">{tableData.longShares}</Data>
+                  <Data tabIndex="0">{tableData.longBeta}</Data>
+                  <Data tabIndex="0">{convertToUSD(tableData.longTotal)}</Data>
                 </Row>
                 <Row>
-                  <Data
-                    aria-label={`symbol: ${currentCalculatorShortSymbol}`}
-                    tabIndex="0"
-                  >
-                    {currentCalculatorShortSymbol}
-                  </Data>
-                  <Data
-                    aria-label={`price: ${convertToUSD(tableData.shortPrice)}`}
-                    tabIndex="0"
-                  >
-                    {convertToUSD(tableData.shortPrice)}
-                  </Data>
-                  <Data
-                    aria-label={`shares: ${tableData.shortShares}`}
-                    tabIndex="0"
-                  >
-                    {tableData.shortShares}
-                  </Data>
-                  <Data
-                    aria-label={`beta: ${tableData.shortBeta}`}
-                    tabIndex="0"
-                  >
-                    {tableData.shortBeta}
-                  </Data>
-                  <Data
-                    aria-label={`total: ${convertToUSD(tableData.shortTotal)}`}
-                    tabIndex="0"
-                  >
-                    {convertToUSD(tableData.shortTotal)}
-                  </Data>
+                  <Data tabIndex="0">{currentCalculatorShortSymbol}</Data>
+                  <Data tabIndex="0">{convertToUSD(tableData.shortPrice)}</Data>
+                  <Data tabIndex="0">{tableData.shortShares}</Data>
+                  <Data tabIndex="0">{tableData.shortBeta}</Data>
+                  <Data tabIndex="0">{convertToUSD(tableData.shortTotal)}</Data>
                 </Row>
                 <Row>
-                  <Data>Ratio:</Data>
-                  <Data></Data>
-                  <Data></Data>
-                  <Data
-                    aria-label={`beta ratio: ${tableData.betaRatio}`}
-                    tabIndex="0"
-                  >
+                  <Data aria-hidden={true}>Ratio:</Data>
+                  <Data aria-hidden={true}></Data>
+                  <Data aria-hidden={true}></Data>
+                  <Data tabIndex="0">
+                    <SrOnly>beta ratio: </SrOnly>
                     {tableData.betaRatio}
                   </Data>
-                  <Data></Data>
+                  <Data aria-hidden={true}></Data>
                 </Row>
                 <Row>
-                  <Data>Total:</Data>
-                  <Data></Data>
-                  <Data></Data>
-                  <Data></Data>
-                  <Data
-                    aria-label={`total trade value: ${convertToUSD(
-                      tableData.longTotal + tableData.shortTotal
-                    )}`}
-                    tabIndex="0"
-                  >
+                  <Data aria-hidden={true}>Total:</Data>
+                  <Data aria-hidden={true}></Data>
+                  <Data aria-hidden={true}></Data>
+                  <Data aria-hidden={true}></Data>
+                  <Data aria-label="total trade value:" tabIndex="0">
+                    <SrOnly>total capital for trade: </SrOnly>
                     {convertToUSD(tableData.longTotal + tableData.shortTotal)}
                   </Data>
                 </Row>

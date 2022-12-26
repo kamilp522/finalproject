@@ -293,17 +293,12 @@ const Navbar = () => {
                   className="nav-link"
                   tabIndex="-1"
                   to="/login"
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      hideNavs();
-                      toggleMenuAriaVisibility();
-                      handleLogout();
-                    }
+                  onClick={() => {
+                    hideNavs();
+                    toggleMenuAriaVisibility();
                   }}
                 >
-                  <Button tabIndex="-1" onClick={() => setShowNav(false)}>
-                    log in
-                  </Button>
+                  <Button tabIndex="-1">log in</Button>
                 </NavLink>
               </NavListItem>
             ) : (
@@ -313,25 +308,15 @@ const Navbar = () => {
                   className="nav-link"
                   tabIndex="-1"
                   to="/"
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      hideNavs();
-                      toggleMenuAriaVisibility();
-                      handleLogout();
-                    }
+                  onClick={() => {
+                    hideNavs();
+                    toggleMenuAriaVisibility();
+                    handleLogout();
                   }}
                 >
                   <Button
                     aria-hidden="true"
                     tabIndex="-1"
-                    onClick={() => {
-                      hideNavs();
-                      toggleMenuAriaVisibility();
-                      handleLogout();
-                    }}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") handleLogout();
-                    }}
                     style={{
                       backgroundColor: colors.clr_red_800,
                     }}

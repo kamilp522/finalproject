@@ -71,7 +71,7 @@ const QuoteForm = ({
 
   return (
     <Form onSubmit={getQuote}>
-      <Label>stock symbol: </Label>
+      <Label for="quote-symbol">stock symbol: </Label>
       <Input
         id="quote-symbol"
         type="text"
@@ -79,7 +79,7 @@ const QuoteForm = ({
         onChange={({ target }) =>
           setTypedSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="e.g. GOOG"
+        placeholder="for example GOOG"
       />
       <FormButtonWrapper>
         <Button id="quote-button">look up stock</Button>

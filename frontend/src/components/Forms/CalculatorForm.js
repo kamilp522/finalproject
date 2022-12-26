@@ -95,7 +95,7 @@ const CalculatorForm = ({
         type="text"
         value={capital}
         onChange={({ target }) => setCapital(target.value)}
-        placeholder="e.g. 10000"
+        placeholder="for example 10000"
       />
       <Label>long stock symbol: </Label>
 
@@ -106,7 +106,7 @@ const CalculatorForm = ({
         onChange={({ target }) =>
           setTypedCalculatorLongSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="e.g. GOOG"
+        placeholder="for example GOOG"
       />
       <Label>short stock symbol: </Label>
 
@@ -117,7 +117,7 @@ const CalculatorForm = ({
         onChange={({ target }) =>
           setTypedCalculatorShortSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="e.g. AAPL"
+        placeholder="for example AAPL"
       />
       <Label>index symbol: </Label>
 
@@ -128,7 +128,7 @@ const CalculatorForm = ({
         onChange={({ target }) =>
           setTypedIndexSymbol(target.value.toLocaleUpperCase())
         }
-        placeholder="e.g. GSPC for SP500"
+        placeholder="for example GSPC for SP500"
       />
       <FormButtonWrapper>
         <Button id="calculator-button">calculate</Button>
