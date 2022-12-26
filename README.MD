@@ -34,7 +34,7 @@ Most important elements in frontend folder are:
     - components are styled using react styled components library that allows tight coupling beetween components and their styles. Styled components use JavaScript template literals to write CSS directly into component.
   - helpers folder including helper functions used to parse data or manipulate visuals on the website
   - services - folder including calls that are made to the application server for fetching data according to the sent http request
-  - reducers folder containing functions for changing the application state made with react library called redux. Thanks to redux we can use some of the states of the application globally (e.g. information about logged in user)
+  - reducers folder containing functions for changing the application state made with react library called redux. Thanks to redux we can use some of the states of the application globally (for example information about logged in user)
   - tests folder which is quite self-descriptive - it contains unit tests for react components written with jest and react testing library
 
 * cypress folder containing end to end tests of the application written with cypress testing library
