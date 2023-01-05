@@ -142,7 +142,7 @@ const Footer = () => {
         </FooterCredits>
         <FooterCopyright>
           <WebsiteRights tabIndex="0">
-            Copyright &#169; midtrader {new Date().getFullYear()}
+            Copyright &#169; Kamil Podgórski 2022-{new Date().getFullYear()}
           </WebsiteRights>
         </FooterCopyright>
       </FooterContainer>
