@@ -75,10 +75,7 @@ const YourIdeas = () => {
               <Button
                 aria-label={"remove this idea"}
                 onClick={() => removeIdea(event, idea.id)}
-                style={{
-                  marginBlock: "0.25em",
-                  backgroundColor: colors.clr_red_700,
-                }}
+                className="button--red"
               >
                 remove
               </Button>

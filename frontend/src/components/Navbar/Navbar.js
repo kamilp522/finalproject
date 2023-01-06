@@ -317,9 +317,7 @@ const Navbar = () => {
                   <Button
                     aria-hidden="true"
                     tabIndex="-1"
-                    style={{
-                      backgroundColor: colors.clr_red_800,
-                    }}
+                    className="button--red"
                   >
                     log out
                   </Button>

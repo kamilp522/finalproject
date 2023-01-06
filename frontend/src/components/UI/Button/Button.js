@@ -11,9 +11,12 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
 
+  &.button--red {
+    background-color: ${colors.clr_red_800};
+  }
+
   @media (min-width: 1000px) {
     &:hover {
-      background-color: ${colors.clr_violet_400};
       color: black;
     }
   }
